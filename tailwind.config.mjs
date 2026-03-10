@@ -4,8 +4,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Assistant', 'Arial', 'sans-serif'],
-        heading: ['Frank Ruhl Libre', 'Georgia', 'serif'],
+        sans: ['Heebo', 'Arial', 'sans-serif'],
+        heading: ['Heebo', 'Arial', 'sans-serif'],
       },
       colors: {
         // Investment Navy - Primary Brand Palette
