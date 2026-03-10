@@ -3,7 +3,9 @@ interface Service {
   title: string;
   description: string;
   href: string;
-  icon: string;
+  image: string;
+  price?: string;
+  highlight?: boolean;
 }
 
 interface Props {
@@ -16,30 +18,42 @@ const { title = 'השירותים שלנו', subtitle } = Astro.props;
 const services: Service[] = [
   {
     title: 'ליווי משקיעים לרכישת דירה',
-    description: 'ליווי מקיף מהרגע הראשון עד סגירת העסקה - איתור נכסים, בדיקת כדאיות, ניהול משא ומתן ועוד.',
+    description: 'ליווי מקיף מהרגע הראשון עד סגירת העסקה - איתור נכסים, בדיקת כדאיות, ניהול משא ומתן וליווי עד החתימה.',
     href: '/livuy-mashkiim/',
-    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>`,
+    image: '/images/services/livuy-dira.png',
+    price: 'מ-18,000 ₪',
+    highlight: true,
   },
   {
     title: 'בדיקת עסקת קרקע',
-    description: 'בדיקה מקיפה על ידי שמאית מוסמכת - תכנון, משפטי, כלכלי. כדי שתדעו בדיוק מה אתם קונים.',
+    description: 'בדיקה מקיפה על ידי שמאית מוסמכת - ניתוח תכנוני, משפטי וכלכלי. כדי שתדעו בדיוק מה אתם קונים.',
     href: '/bdikat-iska-karka/',
-    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>`,
+    image: '/images/services/bdikat-karka.png',
+    price: 'מ-2,500 ₪',
   },
   {
     title: 'בדיקת כדאיות דירה',
     description: 'ניתוח פיננסי מקיף - תשואה צפויה, עלויות נלוות, השוואה לחלופות. קבלת החלטה מושכלת.',
     href: '/contact/',
-    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>`,
+    image: '/images/services/bdikat-dira.png',
+    price: 'צרו קשר',
   },
 ];
 ---
 
-<section class="py-16 md:py-20 bg-white">
+<section class="py-16 md:py-24 bg-surface">
   <div class="container mx-auto px-4">
     <!-- Section Header -->
     <div class="text-center max-w-2xl mx-auto mb-12">
-      <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-4">
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-2 bg-brand-100 rounded-full mb-6">
+        <svg class="w-5 h-5 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+        </svg>
+        <span class="text-brand-700 font-medium text-sm">מה אנחנו מציעים</span>
+      </div>
+
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-dark mb-4">
         {title}
       </h2>
       {subtitle && (
@@ -51,28 +65,79 @@ const services: Service[] = [
 
     <!-- Services Grid -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-      {services.map((service) => (
+      {services.map((service, index) => (
         <a
           href={service.href}
-          class="group block bg-white border border-brand-100 rounded-xl p-6 md:p-8 transition-all duration-300 hover:shadow-lg hover:border-brand-200 hover:-translate-y-1"
+          class={`group relative block bg-white rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 ${
+            service.highlight ? 'ring-2 ring-accent shadow-lg' : 'border border-brand-100'
+          }`}
         >
-          <div class="w-14 h-14 bg-brand-50 rounded-lg flex items-center justify-center text-brand-600 mb-5 group-hover:bg-brand-100 transition-colors">
-            <Fragment set:html={service.icon} />
+          {/* Highlight Badge */}
+          {service.highlight && (
+            <div class="absolute top-4 start-4 z-10 px-3 py-1 bg-accent text-brand-900 text-xs font-bold rounded-full">
+              פופולרי
+            </div>
+          )}
+
+          {/* Image */}
+          <div class="relative aspect-[4/3] overflow-hidden bg-brand-50">
+            <img
+              src={service.image}
+              alt={service.title}
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              width="400"
+              height="300"
+              loading="lazy"
+            />
+            {/* Gradient overlay */}
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </div>
-          <h3 class="font-heading text-xl font-bold text-dark mb-3 group-hover:text-brand-600 transition-colors">
-            {service.title}
-          </h3>
-          <p class="text-muted leading-relaxed mb-4">
-            {service.description}
-          </p>
-          <span class="inline-flex items-center gap-2 text-brand-600 font-medium group-hover:gap-3 transition-all">
-            למידע נוסף
-            <svg class="w-5 h-5 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </span>
+
+          {/* Content */}
+          <div class="p-6 md:p-8">
+            <div class="flex items-start justify-between gap-4 mb-3">
+              <h3 class="font-heading text-xl font-bold text-dark group-hover:text-brand-600 transition-colors">
+                {service.title}
+              </h3>
+            </div>
+
+            <p class="text-muted leading-relaxed mb-6 line-clamp-3">
+              {service.description}
+            </p>
+
+            {/* Footer */}
+            <div class="flex items-center justify-between">
+              {service.price && (
+                <span class="text-lg font-bold text-brand-600">
+                  {service.price}
+                </span>
+              )}
+              <span class="inline-flex items-center gap-2 text-brand-600 font-semibold group-hover:gap-3 transition-all">
+                למידע נוסף
+                <svg class="w-5 h-5 rotate-180 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
+            </div>
+          </div>
         </a>
       ))}
+    </div>
+
+    <!-- Additional Info -->
+    <div class="mt-12 text-center">
+      <p class="text-muted mb-4">
+        לא מצאתם את מה שחיפשתם? אנחנו מציעים גם שירותים מותאמים אישית.
+      </p>
+      <a
+        href="/contact/"
+        class="inline-flex items-center gap-2 text-brand-600 hover:text-brand-700 font-semibold transition-colors"
+      >
+        <span>דברו איתנו</span>
+        <svg class="w-5 h-5 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
     </div>
   </div>
 </section>

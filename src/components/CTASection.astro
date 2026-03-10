@@ -5,7 +5,8 @@ interface Props {
   ctaText?: string;
   ctaHref?: string;
   phoneText?: string;
-  variant?: 'dark' | 'accent';
+  backgroundImage?: string;
+  variant?: 'dark' | 'accent' | 'image';
 }
 
 const {
@@ -14,45 +15,99 @@ const {
   ctaText = 'השאירו פרטים',
   ctaHref = '#contact',
   phoneText = '055-2555144',
-  variant = 'dark',
+  backgroundImage = '/images/atmosphere/deal-01.webp',
+  variant = 'image',
 } = Astro.props;
-
-const bgClass = variant === 'accent' ? 'bg-accent' : 'bg-brand-700';
 ---
 
-<section class={`py-12 md:py-16 ${bgClass}`}>
-  <div class="container mx-auto px-4">
-    <div class="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
-      <!-- Text -->
-      <div class="text-center md:text-start">
-        <h2 class="font-heading text-2xl md:text-3xl font-bold text-white mb-2">
-          {title}
-        </h2>
-        {subtitle && (
-          <p class="text-white/80 text-lg">
-            {subtitle}
-          </p>
-        )}
-      </div>
+<section class="relative py-16 md:py-24 overflow-hidden">
+  {variant === 'image' ? (
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0">
+      <img
+        src={backgroundImage}
+        alt=""
+        class="w-full h-full object-cover"
+        width="1820"
+        height="1024"
+        loading="lazy"
+      />
+      <div class="absolute inset-0 bg-gradient-to-l from-brand-900/95 via-brand-800/90 to-brand-700/85"></div>
+    </div>
+  ) : (
+    <div class={`absolute inset-0 ${variant === 'accent' ? 'bg-accent' : 'bg-brand-700'}`}></div>
+  )}
 
-      <!-- Actions -->
-      <div class="flex flex-col sm:flex-row items-center gap-4">
-        <a
-          href={ctaHref}
-          class="w-full sm:w-auto px-8 py-4 bg-white hover:bg-surface text-brand-700 rounded-md font-semibold transition-all duration-300 hover:shadow-lg text-center"
-        >
-          {ctaText}
-        </a>
-        <a
-          href={`tel:${phoneText}`}
-          class="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 bg-transparent border-2 border-white/30 hover:border-white text-white rounded-md font-semibold transition-all duration-300"
-        >
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-          </svg>
-          <span>{phoneText}</span>
-        </a>
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="max-w-4xl mx-auto">
+      <div class="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-16">
+        <!-- Content -->
+        <div class="flex-1 text-center lg:text-start">
+          <!-- Badge -->
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full mb-6">
+            <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            <span class="text-white font-medium text-sm">התחילו עכשיו</span>
+          </div>
+
+          <h2 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+            {title}
+          </h2>
+          {subtitle && (
+            <p class="text-lg md:text-xl text-white/80 leading-relaxed">
+              {subtitle}
+            </p>
+          )}
+
+          <!-- Trust Points -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-6 mt-6 text-white/70 text-sm">
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>ייעוץ ראשוני חינם</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>ללא התחייבות</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex-shrink-0 flex flex-col gap-4 w-full lg:w-auto">
+          <a
+            href={ctaHref}
+            class="group flex items-center justify-center gap-2 px-8 py-5 bg-accent hover:bg-accent-dark text-brand-900 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-accent/30 hover:-translate-y-1"
+          >
+            <span>{ctaText}</span>
+            <svg class="w-5 h-5 rotate-180 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+
+          <a
+            href={`tel:${phoneText}`}
+            class="flex items-center justify-center gap-3 px-8 py-5 bg-white/10 hover:bg-white/20 backdrop-blur-sm border-2 border-white/30 hover:border-white text-white rounded-xl font-semibold text-lg transition-all duration-300"
+          >
+            <span class="relative flex h-3 w-3">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-3 w-3 bg-green-400"></span>
+            </span>
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            <span>{phoneText}</span>
+          </a>
+        </div>
       </div>
     </div>
   </div>
+
+  <!-- Decorative Elements -->
+  <div class="absolute top-0 end-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-0 start-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
 </section>
