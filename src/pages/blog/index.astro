@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// For static blog: use Astro Content Collections
+// For WordPress CMS: uncomment the import below and use fetchPosts()
+// import { fetchPosts } from '../../lib/wordpress';
+// const posts = await fetchPosts();
+
+// Placeholder posts - replace with real data source
+const posts = [
+  {
+    slug: 'first-post',
+    title: 'First Blog Post',
+    excerpt: 'This is a placeholder blog post. Replace with real content.',
+    date: '2026-01-01',
+    image: null,
+  },
+];
+---
+
+<BaseLayout
+  title="Blog"
+  description="Read our latest articles and updates."
+>
+  <section class="py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-4xl font-bold text-gray-900 mb-12">Blog</h1>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {posts.map((post) => (
+          <article class="group rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+            {post.image && (
+              <img
+                src={post.image}
+                alt={post.title}
+                class="w-full h-48 object-cover"
+                loading="lazy"
+              />
+            )}
+            <div class="p-6">
+              <time class="text-sm text-gray-500">{post.date}</time>
+              <h2 class="mt-2 text-xl font-semibold text-gray-900 group-hover:text-primary-600 transition-colors">
+                <a href={`/blog/${post.slug}`}>{post.title}</a>
+              </h2>
+              <p class="mt-3 text-gray-600 line-clamp-3">{post.excerpt}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

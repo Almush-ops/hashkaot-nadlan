@@ -1,0 +1,130 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroStats from '../components/HeroStats.astro';
+import TrustBar from '../components/TrustBar.astro';
+import ServicesGrid from '../components/ServicesGrid.astro';
+import AboutSection from '../components/AboutSection.astro';
+import CTASection from '../components/CTASection.astro';
+import TestimonialSection from '../components/TestimonialSection.astro';
+import ProcessSteps from '../components/ProcessSteps.astro';
+import FAQ from '../components/FAQ.astro';
+import ContactForm from '../components/ContactForm.astro';
+import SchemaOrg from '../components/SchemaOrg.astro';
+
+const faqItems = [
+  {
+    question: 'מה כולל שירות ליווי משקיעים?',
+    answer: 'שירות הליווי כולל ייעוץ ראשוני, ניתוח שוק וזיהוי הזדמנויות, סיורים בנכסים, בדיקת כדאיות מקצועית, ניהול משא ומתן וליווי עד לסגירת העסקה.',
+  },
+  {
+    question: 'מה עלות בדיקת עסקת קרקע?',
+    answer: 'עלות בדיקת עסקת קרקע מתחילה מ-2,500 ש״ח + מע״מ. הבדיקה כוללת ניתוח תכנוני, משפטי וכלכלי מקיף.',
+  },
+  {
+    question: 'למה לבחור בשמאית מקרקעין לליווי השקעות?',
+    answer: 'שמאית מקרקעין מוסמכת מביאה הבנה עמוקה של שווי נכסים, יכולת לזהות בעיות פוטנציאליות, ומומחיות בניתוח עסקאות - יתרון משמעותי על פני מתווכים רגילים.',
+  },
+  {
+    question: 'באיזה אזורים אתם פועלים?',
+    answer: 'אנחנו פועלים בצפון ובמרכז הארץ - חיפה והקריות, נתניה, ראשון לציון, גבעת שמואל ועוד. צרו קשר לבדוק זמינות באזור שלכם.',
+  },
+  {
+    question: 'כמה זמן לוקח תהליך ליווי משקיעים?',
+    answer: 'זמן התהליך משתנה בהתאם לדרישות שלכם ולהיצע בשוק. בממוצע, תהליך מלא לוקח 2-4 חודשים מהפגישה הראשונה ועד סגירת העסקה.',
+  },
+  {
+    question: 'מה התשואה הממוצעת שהמשקיעים שלכם משיגים?',
+    answer: 'בממוצע, המשקיעים שליווינו משיגים תשואה של כ-17% על ההשקעה. התשואה משתנה בהתאם לסוג הנכס, המיקום ותנאי השוק.',
+  },
+];
+
+// Organization schema for homepage
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'השקעות נדל״ן - מעין ואור ליבנה',
+  description: 'ליווי משקיעי נדל״ן ובדיקות קרקע על ידי שמאית מקרקעין מוסמכת',
+  url: 'https://hashkaot-nadlan.co.il',
+  telephone: '+972-55-2555144',
+  email: 'maayan@maayanlivne.co.il',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'כביש ההר הירוק',
+    addressLocality: 'יגור',
+    postalCode: '3006500',
+    addressCountry: 'IL',
+  },
+  areaServed: [
+    { '@type': 'State', name: 'מחוז חיפה' },
+    { '@type': 'State', name: 'מחוז המרכז' },
+  ],
+  employee: [
+    {
+      '@type': 'Person',
+      name: 'מעין ליבנה',
+      jobTitle: 'שמאית מקרקעין',
+      description: 'שמאית מקרקעין מוסמכת עם 15 שנות ניסיון',
+    },
+    {
+      '@type': 'Person',
+      name: 'אור ליבנה',
+      jobTitle: 'מלווה משקיעים',
+      description: 'מלווה משקיעים עם רקע הייטק ורישיון תיווך',
+    },
+  ],
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '5.0',
+    reviewCount: '41',
+    bestRating: '5',
+  },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'שירותים',
+    itemListElement: [
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'ליווי משקיעים לרכישת דירה' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'בדיקת עסקת קרקע' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'בדיקת כדאיות דירה להשקעה' } },
+    ],
+  },
+};
+---
+
+<BaseLayout
+  title="ליווי משקיעי נדל״ן"
+  description="ליווי משקיעי נדל״ן ובדיקות קרקע על ידי שמאית מקרקעין מוסמכת. 17% תשואה ממוצעת, 120+ משקיעים, 750+ בדיקות. צפון ומרכז הארץ."
+>
+  <SchemaOrg schema={orgSchema} />
+
+  <HeroStats
+    title="שמאית מקרקעין שמלווה משקיעים"
+    subtitle="ליווי מקיף להשקעות נדל״ן - מהרגע הראשון ועד סגירת העסקה. בדיקות מקצועיות, שקיפות מלאה, והחלטות מבוססות נתונים."
+  />
+
+  <TrustBar />
+
+  <ServicesGrid
+    title="השירותים שלנו"
+    subtitle="שילוב ייחודי של שמאות מקרקעין מקצועית וליווי משקיעים - כל מה שצריך להשקעה חכמה."
+  />
+
+  <AboutSection variant="homepage" />
+
+  <CTASection
+    title="שמאית מקרקעין שמלווה משקיעים"
+    subtitle="שילוב נדיר של מקצועיות ושקיפות - בדיוק מה שאתם צריכים להשקעה הבאה."
+    ctaText="השאירו פרטים"
+  />
+
+  <TestimonialSection />
+
+  <ProcessSteps />
+
+  <FAQ
+    title="שאלות נפוצות"
+    subtitle="תשובות לשאלות שמשקיעים שואלים אותנו הכי הרבה"
+    items={faqItems}
+  />
+
+  <ContactForm />
+</BaseLayout>

@@ -1,0 +1,183 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import TrustBar from '../components/TrustBar.astro';
+import TestimonialSection from '../components/TestimonialSection.astro';
+import CTASection from '../components/CTASection.astro';
+import SchemaOrg from '../components/SchemaOrg.astro';
+
+const breadcrumbs = [
+  { label: 'דף הבית', href: '/' },
+  { label: 'אודות' },
+];
+
+// Person schemas
+const maayanSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'מעין ליבנה',
+  jobTitle: 'שמאית מקרקעין',
+  description: 'שמאית מקרקעין מוסמכת עם 15 שנות ניסיון. התמחות בבדיקות השקעות ונכסים.',
+  worksFor: {
+    '@type': 'ProfessionalService',
+    name: 'השקעות נדל״ן - מעין ואור ליבנה',
+  },
+};
+
+const orSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'אור ליבנה',
+  jobTitle: 'מלווה משקיעים',
+  description: 'מלווה משקיעים עם רקע הייטק (גרניולט → אינטל). יועץ משכנתאות ובעל רישיון תיווך.',
+  worksFor: {
+    '@type': 'ProfessionalService',
+    name: 'השקעות נדל״ן - מעין ואור ליבנה',
+  },
+};
+
+const team = [
+  {
+    name: 'מעין ליבנה',
+    role: 'שמאית מקרקעין מוסמכת',
+    bio: 'מעין היא שמאית מקרקעין מוסמכת עם 15 שנות ניסיון בשוק הישראלי. התמחותה העיקרית היא בבדיקות נכסים להשקעה ובדיקות קרקע.',
+    experience: [
+      '15 שנות ניסיון בשמאות מקרקעין',
+      'התמחות בהשקעות נדל״ן',
+      'אלפי בדיקות נכסים וקרקעות',
+      'מומחית בזיהוי הזדמנויות ובעיות',
+    ],
+    quote: 'כשמאית, היתרון שלי הוא שאני רואה את התמונה המלאה - לא רק את מה שהמוכר רוצה להראות.',
+  },
+  {
+    name: 'אור ליבנה',
+    role: 'מלווה משקיעים',
+    bio: 'אור הגיע לעולם הנדל״ן מרקע הייטקי - כחלק מצוות הנדסה בגרניולט, שנמכרה לאינטל. הרקע הטכנולוגי מתבטא בגישה מבוססת נתונים להשקעות.',
+    experience: [
+      'רקע הייטק (אקזיט גרניולט → אינטל)',
+      'יועץ משכנתאות מוסמך',
+      'בעל רישיון תיווך',
+      'גישה אנליטית להשקעות',
+    ],
+    quote: 'השקעה טובה מתחילה בנתונים, לא באינטואיציה. אני מביא את הגישה ההייטקית לעולם הנדל״ן.',
+  },
+];
+---
+
+<BaseLayout
+  title="אודות מעין ואור ליבנה"
+  description="הכירו את מעין ואור ליבנה - שמאית מקרקעין מוסמכת ומלווה משקיעים עם רקע הייטק. 15 שנות ניסיון, 120+ משקיעים, 41 ביקורות 5.0."
+>
+  <SchemaOrg schema={maayanSchema} />
+  <SchemaOrg schema={orSchema} />
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-b from-brand-50 to-white py-12 md:py-20">
+    <div class="container mx-auto px-4">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-dark leading-tight mb-6">
+          אודות מעין ואור ליבנה
+        </h1>
+        <p class="text-lg md:text-xl text-muted">
+          שילוב ייחודי של שמאית מקרקעין מוסמכת ומלווה משקיעים עם רקע הייטק - המומחיות שאתם צריכים להשקעה חכמה.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <TrustBar variant="light" />
+
+  <!-- Team Profiles -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto space-y-16">
+        {team.map((member, index) => (
+          <div class={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8 md:gap-12 items-center`}>
+            <!-- Photo Placeholder -->
+            <div class="flex-shrink-0 w-48 h-48 md:w-64 md:h-64 bg-brand-100 rounded-2xl flex items-center justify-center">
+              <span class="text-6xl font-bold text-brand-600">{member.name.charAt(0)}</span>
+            </div>
+
+            <!-- Content -->
+            <div class="flex-1">
+              <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-2">
+                {member.name}
+              </h2>
+              <p class="text-brand-600 font-medium text-lg mb-4">
+                {member.role}
+              </p>
+              <p class="text-muted leading-relaxed mb-6">
+                {member.bio}
+              </p>
+
+              <!-- Experience List -->
+              <ul class="space-y-2 mb-6">
+                {member.experience.map((item) => (
+                  <li class="flex items-center gap-2 text-dark">
+                    <svg class="w-5 h-5 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+
+              <!-- Quote -->
+              <blockquote class="border-s-4 border-accent ps-4 text-muted italic">
+                "{member.quote}"
+              </blockquote>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Approach -->
+  <section class="py-16 md:py-20 bg-surface">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8">
+          הגישה שלנו
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            {
+              title: 'שקיפות מלאה',
+              desc: 'נראה לכם את כל התמונה - יתרונות וגם סיכונים. בלי הבטחות מופרזות.',
+              icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>`,
+            },
+            {
+              title: 'מבוססת נתונים',
+              desc: 'החלטות מתבססות על נתונים ואנליזה - לא על אינטואיציה או לחץ מכירתי.',
+              icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>`,
+            },
+            {
+              title: 'ליווי אישי',
+              desc: 'אנחנו עובדים ישירות איתכם - לא דרך מתמחים או עובדים אחרים.',
+              icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>`,
+            },
+          ].map((item) => (
+            <div class="bg-white rounded-xl p-6 border border-border text-center">
+              <div class="w-14 h-14 bg-brand-100 rounded-lg flex items-center justify-center text-brand-600 mx-auto mb-4" set:html={item.icon} />
+              <h3 class="font-semibold text-dark mb-2">{item.title}</h3>
+              <p class="text-muted text-sm">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TestimonialSection
+    title="מה אומרים עלינו"
+    subtitle="הלקוחות שלנו מספרים על החוויה שלהם"
+  />
+
+  <CTASection
+    title="מוכנים להתחיל?"
+    subtitle="צרו קשר עוד היום לשיחת ייעוץ ראשונית ללא התחייבות"
+  />
+</BaseLayout>

@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+const breadcrumbs = [
+  { label: 'דף הבית', href: '/' },
+  { label: 'הצהרת נגישות' },
+];
+---
+
+<BaseLayout
+  title="הצהרת נגישות"
+  description="הצהרת הנגישות של אתר השקעות נדל״ן - מעין ואור ליבנה. מחויבותנו לנגישות דיגיטלית לפי תקן WCAG 2.1 AA."
+>
+  <section class="bg-gradient-to-b from-brand-50 to-white py-12">
+    <div class="container mx-auto px-4">
+      <Breadcrumbs items={breadcrumbs} />
+      <h1 class="font-heading text-3xl md:text-4xl font-bold text-dark">הצהרת נגישות</h1>
+    </div>
+  </section>
+
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto prose prose-lg prose-brand">
+        <p class="text-muted">עדכון אחרון: מרץ 2026</p>
+
+        <h2>מחויבותנו לנגישות</h2>
+        <p>
+          אנו, מעין ואור ליבנה, מפעילי האתר hashkaot-nadlan.co.il, מחויבים להנגשת האתר לאנשים עם מוגבלויות, בהתאם לחוק שוויון זכויות לאנשים עם מוגבלות, התשנ"ח-1998, ותקנות הנגישות לשירותי אינטרנט.
+        </p>
+
+        <h2>תקן הנגישות</h2>
+        <p>
+          האתר נבנה בהתאם לדרישות תקן הנגישות הישראלי (תקן ישראלי 5568) ברמת AA, המבוסס על תקן WCAG 2.1 הבינלאומי של ארגון W3C.
+        </p>
+
+        <h2>התאמות הנגישות באתר</h2>
+        <ul>
+          <li><strong>ניווט מקלדת:</strong> ניתן לנווט באתר באמצעות מקלדת בלבד</li>
+          <li><strong>טקסט חלופי:</strong> לתמונות באתר נוסף תיאור טקסטואלי</li>
+          <li><strong>ניגודיות:</strong> האתר עומד ביחסי ניגודיות מינימליים לקריאות</li>
+          <li><strong>טפסים נגישים:</strong> כל שדות הטופס מסומנים בתוויות ברורות</li>
+          <li><strong>מבנה היררכי:</strong> כותרות מסודרות בהיררכיה נכונה</li>
+        </ul>
+
+        <h2>כלי הנגישות באתר</h2>
+        <p>
+          בפינה השמאלית התחתונה של האתר תמצאו כפתור נגישות המאפשר:
+        </p>
+        <ul>
+          <li>הגדלת/הקטנת גופן</li>
+          <li>מצב גווני אפור</li>
+          <li>מצב ניגודיות גבוהה</li>
+          <li>הדגשת קישורים</li>
+        </ul>
+
+        <h2>דפדפנים נתמכים</h2>
+        <p>
+          האתר נבדק ונתמך בדפדפנים הנפוצים: Google Chrome, Mozilla Firefox, Microsoft Edge, Safari. מומלץ להשתמש בגרסאות עדכניות לחוויה מיטבית.
+        </p>
+
+        <h2>פניות בנושא נגישות</h2>
+        <p>
+          אם נתקלתם בבעיית נגישות באתר או שיש לכם הצעות לשיפור, נשמח לשמוע מכם:
+        </p>
+        <ul>
+          <li><strong>רכז נגישות:</strong> מעין ליבנה</li>
+          <li><strong>טלפון:</strong> 055-2555144</li>
+          <li><strong>דוא"ל:</strong> <a href="mailto:maayan@maayanlivne.co.il">maayan@maayanlivne.co.il</a></li>
+        </ul>
+        <p>
+          אנו מתחייבים לטפל בכל פנייה בנושא נגישות תוך 7 ימי עסקים.
+        </p>
+
+        <h2>שיפור מתמיד</h2>
+        <p>
+          אנו ממשיכים לעבוד על שיפור הנגישות באתר. אם יש תכונות נגישות שחשובות לכם ועדיין אינן זמינות, אנא עדכנו אותנו ונשתדל להוסיפן.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

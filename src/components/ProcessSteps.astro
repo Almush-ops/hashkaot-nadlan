@@ -1,0 +1,83 @@
+---
+interface Step {
+  number: number;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  steps?: Step[];
+}
+
+const {
+  title = 'איך זה עובד?',
+  subtitle = 'תהליך העבודה שלנו פשוט ושקוף - מהפגישה הראשונה ועד סגירת העסקה.',
+  steps = [
+    {
+      number: 1,
+      title: 'ייעוץ ראשוני',
+      description: 'שיחת היכרות להבנת הצרכים, היעדים והתקציב שלכם.',
+    },
+    {
+      number: 2,
+      title: 'ניתוח שוק',
+      description: 'מחקר מעמיק של האזורים והנכסים המתאימים לכם.',
+    },
+    {
+      number: 3,
+      title: 'ליווי מלא',
+      description: 'סיורים בנכסים, בדיקות מקצועיות וניהול משא ומתן.',
+    },
+    {
+      number: 4,
+      title: 'סגירת עסקה',
+      description: 'ליווי עד החתימה וסיום מוצלח של העסקה.',
+    },
+  ],
+} = Astro.props;
+---
+
+<section class="py-16 md:py-20 bg-surface">
+  <div class="container mx-auto px-4">
+    <!-- Section Header -->
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-4">
+        {title}
+      </h2>
+      {subtitle && (
+        <p class="text-muted text-lg">
+          {subtitle}
+        </p>
+      )}
+    </div>
+
+    <!-- Steps -->
+    <div class="max-w-4xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        {steps.map((step, index) => (
+          <div class="relative text-center">
+            <!-- Connector line (hidden on mobile and last item) -->
+            {index < steps.length - 1 && (
+              <div class="hidden md:block absolute top-8 start-1/2 w-full h-0.5 bg-brand-200 z-0"></div>
+            )}
+
+            <!-- Step circle -->
+            <div class="relative z-10 w-16 h-16 mx-auto bg-brand-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mb-4">
+              {step.number}
+            </div>
+
+            <!-- Content -->
+            <h3 class="font-heading font-bold text-dark text-lg mb-2">
+              {step.title}
+            </h3>
+            <p class="text-muted text-sm">
+              {step.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,187 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import TrustBar from '../../components/TrustBar.astro';
+import ProcessSteps from '../../components/ProcessSteps.astro';
+import FAQ from '../../components/FAQ.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import CTASection from '../../components/CTASection.astro';
+import TestimonialSection from '../../components/TestimonialSection.astro';
+import SchemaOrg from '../../components/SchemaOrg.astro';
+
+const breadcrumbs = [
+  { label: 'דף הבית', href: '/' },
+  { label: 'ליווי משקיעים לרכישת דירה' },
+];
+
+const faqItems = [
+  {
+    question: 'מה כולל שירות ליווי משקיעים לרכישת דירה?',
+    answer: 'השירות כולל: ייעוץ ראשוני והגדרת מטרות, ניתוח שוק וזיהוי הזדמנויות, סיורים בנכסים פוטנציאליים, בדיקת כדאיות מקצועית לכל נכס, ניהול משא ומתן, וליווי עד לחתימה וקבלת מפתח.',
+  },
+  {
+    question: 'כמה עולה ליווי משקיעים?',
+    answer: 'עלות הליווי המלא היא 18,000 ש״ח. זהו מחיר קבוע ללא קשר לגודל העסקה, בניגוד למתווכים שגובים אחוז מהעסקה.',
+  },
+  {
+    question: 'מה ההבדל בינכם לבין מתווך?',
+    answer: 'מתווך מרוויח אחוז מהעסקה - ולכן יש לו אינטרס שתקנו נכס כלשהו ובמחיר גבוה ככל האפשר. אנחנו גובים מחיר קבוע וליווינו על ידי שמאית מוסמכת - האינטרס שלנו הוא שתעשו עסקה טובה.',
+  },
+  {
+    question: 'כמה זמן לוקח למצוא נכס מתאים?',
+    answer: 'בממוצע 2-4 חודשים. הזמן תלוי בדרישות שלכם, בתקציב ובהיצע בשוק. אנחנו לא ממהרים - עדיף לחכות לנכס הנכון מאשר לרכוש נכס בינוני.',
+  },
+  {
+    question: 'באיזה אזורים אתם פועלים?',
+    answer: 'אנחנו פועלים בצפון ובמרכז הארץ: חיפה והקריות, נתניה, ראשון לציון, גבעת שמואל, פתח תקווה ועוד. צרו קשר לבדוק זמינות.',
+  },
+];
+
+const serviceSteps = [
+  { number: 1, title: 'פגישת היכרות', description: 'הבנת הצרכים, היעדים והתקציב שלכם.' },
+  { number: 2, title: 'ניתוח שוק', description: 'מחקר מעמיק וזיהוי הזדמנויות מתאימות.' },
+  { number: 3, title: 'סיורים ובדיקות', description: 'ביקור בנכסים ובדיקת כדאיות מקצועית.' },
+  { number: 4, title: 'סגירת עסקה', description: 'משא ומתן וליווי עד לחתימה.' },
+];
+
+// Service schema
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'ליווי משקיעים לרכישת דירה',
+  description: 'ליווי מקיף לרכישת דירה להשקעה - מהפגישה הראשונה ועד סגירת העסקה',
+  provider: {
+    '@type': 'ProfessionalService',
+    name: 'השקעות נדל״ן - מעין ואור ליבנה',
+    url: 'https://hashkaot-nadlan.co.il',
+  },
+  areaServed: ['חיפה', 'נתניה', 'ראשון לציון', 'גבעת שמואל'],
+  serviceType: 'ליווי השקעות נדל״ן',
+};
+---
+
+<BaseLayout
+  title="ליווי משקיעים לרכישת דירה"
+  description="ליווי מקיף לרכישת דירה להשקעה - מהפגישה הראשונה ועד סגירת העסקה. על ידי שמאית מקרקעין מוסמכת. 18,000 ש״ח מחיר קבוע."
+>
+  <SchemaOrg schema={serviceSchema} />
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-b from-brand-50 to-white py-12 md:py-20">
+    <div class="container mx-auto px-4">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <div class="max-w-3xl">
+        <h1 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-dark leading-tight mb-6">
+          ליווי משקיעים לרכישת דירה
+        </h1>
+        <p class="text-lg md:text-xl text-muted mb-8">
+          ליווי מקצועי מהרגע הראשון ועד סגירת העסקה - על ידי שמאית מקרקעין מוסמכת ומלווה משקיעים עם רקע הייטק.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#contact" class="px-8 py-4 bg-accent hover:bg-accent-dark text-white rounded-md font-semibold text-lg transition-all duration-300 hover:shadow-xl text-center">
+            השאירו פרטים לייעוץ חינם
+          </a>
+          <a href="tel:055-2555144" class="px-8 py-4 bg-white hover:bg-brand-50 text-brand-700 border-2 border-brand-200 rounded-md font-semibold text-lg transition-all duration-300 text-center">
+            055-2555144
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TrustBar variant="light" />
+
+  <!-- What's Included -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
+          מה כולל השירות?
+        </h2>
+
+        <div class="space-y-6">
+          {[
+            {
+              title: 'ייעוץ ראשוני מקיף',
+              desc: 'פגישת היכרות להבנת הצרכים, היעדים והתקציב. נגדיר יחד את פרופיל ההשקעה האידיאלי עבורכם.',
+            },
+            {
+              title: 'ניתוח שוק וזיהוי הזדמנויות',
+              desc: 'מחקר מעמיק של השוק, זיהוי אזורים מתאימים ואיתור נכסים פוטנציאליים שעומדים בקריטריונים.',
+            },
+            {
+              title: 'סיורים ובדיקות מקצועיות',
+              desc: 'נלווה אתכם לביקורים בנכסים, נבצע בדיקת כדאיות מקצועית לכל נכס ונספק ניתוח השוואתי.',
+            },
+            {
+              title: 'ניהול משא ומתן',
+              desc: 'ניהול המשא ומתן מולדות המוכר או המתווך - כדי להשיג את המחיר הטוב ביותר עבורכם.',
+            },
+            {
+              title: 'ליווי עד לסגירה',
+              desc: 'ליווי מלא בתהליך המשפטי, בדיקת החוזה, ועד לחתימה וקבלת המפתח.',
+            },
+          ].map((item) => (
+            <div class="flex gap-4 p-6 bg-surface rounded-xl border border-border">
+              <div class="flex-shrink-0 w-8 h-8 bg-brand-100 rounded-full flex items-center justify-center">
+                <svg class="w-5 h-5 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-dark mb-1">{item.title}</h3>
+                <p class="text-muted">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ProcessSteps
+    title="תהליך העבודה"
+    subtitle="ארבעה שלבים להשקעה מוצלחת"
+    steps={serviceSteps}
+  />
+
+  <!-- Why Us -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8">
+          למה לבחור בנו?
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {[
+            { title: 'שמאית מקרקעין מוסמכת', desc: '15 שנות ניסיון בשמאות - הבנה עמוקה של שווי נכסים' },
+            { title: 'מחיר קבוע', desc: '18,000 ש״ח - לא אחוז מהעסקה, בלי ניגוד אינטרסים' },
+            { title: 'רקע הייטק', desc: 'גישה מבוססת נתונים ואנליטיקה להחלטות השקעה' },
+            { title: 'שקיפות מלאה', desc: 'נראה לכם גם את הסיכונים, לא רק את היתרונות' },
+          ].map((item) => (
+            <div class="p-6 bg-brand-50 rounded-xl text-center">
+              <h3 class="font-semibold text-dark mb-2">{item.title}</h3>
+              <p class="text-muted text-sm">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="מוכנים להתחיל?"
+    subtitle="השאירו פרטים ונחזור אליכם לשיחת ייעוץ ראשונית ללא התחייבות"
+  />
+
+  <TestimonialSection />
+
+  <FAQ
+    title="שאלות נפוצות על ליווי משקיעים"
+    items={faqItems}
+  />
+
+  <ContactForm />
+</BaseLayout>

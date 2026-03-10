@@ -1,0 +1,149 @@
+---
+import SEOHead from '../components/SEOHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+  ogType?: string;
+  canonicalUrl?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  ogImage,
+  ogType,
+  canonicalUrl,
+  noindex = false,
+} = Astro.props;
+
+const phone = '055-2555144';
+const whatsappLink = `https://wa.me/972552555144`;
+---
+
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <SEOHead
+      title={title}
+      description={description}
+      ogImage={ogImage}
+      ogType={ogType}
+      canonicalUrl={canonicalUrl}
+      noindex={noindex}
+    />
+  </head>
+  <body class="min-h-screen flex flex-col bg-white text-dark antialiased font-sans">
+    <Header />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+
+    <!-- Mobile Floating Phone Button -->
+    <a
+      href={`tel:${phone}`}
+      class="fixed bottom-20 start-4 z-50 md:hidden w-14 h-14 bg-accent hover:bg-accent-dark text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
+      aria-label="התקשרו אלינו"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+      </svg>
+    </a>
+
+    <!-- Accessibility Widget -->
+    <div id="accessibility-widget" class="fixed bottom-4 start-4 z-50">
+      <button
+        id="accessibility-toggle"
+        class="w-12 h-12 bg-brand-700 hover:bg-brand-800 text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300"
+        aria-label="הגדרות נגישות"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+      </button>
+      <div id="accessibility-panel" class="hidden absolute bottom-14 start-0 bg-white rounded-lg shadow-xl border border-border p-4 w-64">
+        <h3 class="font-bold text-dark mb-3">הגדרות נגישות</h3>
+        <div class="space-y-2">
+          <button class="accessibility-btn w-full text-start px-3 py-2 rounded hover:bg-surface transition" data-action="increase-font">
+            הגדלת גופן
+          </button>
+          <button class="accessibility-btn w-full text-start px-3 py-2 rounded hover:bg-surface transition" data-action="decrease-font">
+            הקטנת גופן
+          </button>
+          <button class="accessibility-btn w-full text-start px-3 py-2 rounded hover:bg-surface transition" data-action="grayscale">
+            מצב גווני אפור
+          </button>
+          <button class="accessibility-btn w-full text-start px-3 py-2 rounded hover:bg-surface transition" data-action="high-contrast">
+            ניגודיות גבוהה
+          </button>
+          <button class="accessibility-btn w-full text-start px-3 py-2 rounded hover:bg-surface transition" data-action="highlight-links">
+            הדגשת קישורים
+          </button>
+          <button class="accessibility-btn w-full text-start px-3 py-2 rounded hover:bg-surface transition text-red-600" data-action="reset">
+            איפוס הגדרות
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script is:inline>
+      // Accessibility Widget
+      const toggle = document.getElementById('accessibility-toggle');
+      const panel = document.getElementById('accessibility-panel');
+
+      toggle?.addEventListener('click', () => {
+        panel?.classList.toggle('hidden');
+      });
+
+      document.querySelectorAll('.accessibility-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const action = e.target.dataset.action;
+          const html = document.documentElement;
+
+          switch(action) {
+            case 'increase-font':
+              const currentSize = parseFloat(getComputedStyle(html).fontSize);
+              html.style.fontSize = (currentSize + 2) + 'px';
+              break;
+            case 'decrease-font':
+              const currSize = parseFloat(getComputedStyle(html).fontSize);
+              html.style.fontSize = Math.max(12, currSize - 2) + 'px';
+              break;
+            case 'grayscale':
+              html.classList.toggle('grayscale');
+              break;
+            case 'high-contrast':
+              html.classList.toggle('contrast-more');
+              break;
+            case 'highlight-links':
+              html.classList.toggle('highlight-links');
+              break;
+            case 'reset':
+              html.style.fontSize = '';
+              html.classList.remove('grayscale', 'contrast-more', 'highlight-links');
+              break;
+          }
+        });
+      });
+
+      // Close panel when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!document.getElementById('accessibility-widget')?.contains(e.target)) {
+          panel?.classList.add('hidden');
+        }
+      });
+    </script>
+
+    <style is:global>
+      .grayscale { filter: grayscale(100%); }
+      .contrast-more { filter: contrast(1.4); }
+      .highlight-links a { background-color: yellow !important; color: black !important; }
+    </style>
+  </body>
+</html>

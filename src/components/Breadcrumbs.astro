@@ -1,0 +1,54 @@
+---
+interface BreadcrumbItem {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  items: BreadcrumbItem[];
+}
+
+const { items } = Astro.props;
+
+// Generate JSON-LD schema
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: items.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.label,
+    ...(item.href && { item: `https://hashkaot-nadlan.co.il${item.href}` }),
+  })),
+};
+---
+
+<nav aria-label="Breadcrumb" class="py-4">
+  <ol class="flex items-center flex-wrap gap-2 text-sm">
+    {items.map((item, index) => (
+      <>
+        {index > 0 && (
+          <li class="text-muted/60">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+          </li>
+        )}
+        <li>
+          {item.href ? (
+            <a
+              href={item.href}
+              class="text-muted hover:text-brand-600 transition-colors"
+            >
+              {item.label}
+            </a>
+          ) : (
+            <span class="text-dark font-medium">{item.label}</span>
+          )}
+        </li>
+      </>
+    ))}
+  </ol>
+
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+</nav>
