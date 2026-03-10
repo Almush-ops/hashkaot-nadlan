@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Heebo', 'Arial', 'sans-serif'],
+        sans: ['Assistant', 'Arial', 'sans-serif'],
         heading: ['Heebo', 'Arial', 'sans-serif'],
       },
       colors: {
