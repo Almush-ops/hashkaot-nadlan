@@ -28,8 +28,19 @@ const stats = [
 ---
 
 <section class="relative min-h-[85vh] flex items-center overflow-hidden">
-  <!-- Background with Gradient -->
-  <div class="absolute inset-0 bg-gradient-to-l from-brand-900 via-brand-800 to-brand-700"></div>
+  <!-- Background Image -->
+  <div class="absolute inset-0">
+    <img
+      src={backgroundImage}
+      alt=""
+      class="w-full h-full object-cover"
+      width="1920"
+      height="1080"
+      loading="eager"
+    />
+    <!-- Gradient Overlay -->
+    <div class="absolute inset-0 bg-gradient-to-l from-brand-900/95 via-brand-800/90 to-brand-700/85"></div>
+  </div>
   <!-- Subtle texture overlay -->
   <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(201,162,39,0.15),transparent_50%)]"></div>
 
@@ -45,7 +56,7 @@ const stats = [
     />
   </div>
 
-  <div class="container mx-auto px-4 relative z-10 py-8 lg:py-12">
+  <div class="max-w-[1200px] w-full mx-auto px-4 relative z-10 py-8 lg:py-12">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
       <!-- Main Content (first = right side in RTL) -->
       <div class="text-center lg:text-start pt-8 lg:pt-8">
