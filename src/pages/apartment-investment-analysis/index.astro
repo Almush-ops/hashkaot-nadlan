@@ -8,11 +8,6 @@ import ContactForm from '../../components/ContactForm.astro';
 import CTASection from '../../components/CTASection.astro';
 import SchemaOrg from '../../components/SchemaOrg.astro';
 
-const breadcrumbs = [
-  { label: 'דף הבית', href: '/' },
-  { label: 'בדיקת כדאיות דירה' },
-];
-
 // Case studies
 const caseStudies = [
   {
@@ -119,7 +114,6 @@ const serviceSchema = {
   <PageHero
     title="בדיקת כדאיות דירה להשקעה"
     subtitle="לפני שקונים דירה להשקעה - בואו נבדוק אם זו באמת עסקה טובה. לא הערכת שווי - אלא ניתוח כדאיות אמיתי."
-    breadcrumbs={breadcrumbs}
     backgroundImage="/images/hero/hero-02.webp"
     showCTA={true}
     ctaText="הזמינו בדיקת כדאיות"

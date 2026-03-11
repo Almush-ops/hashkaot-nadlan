@@ -3,12 +3,15 @@
 const phone = '';
 const currentPath = Astro.url.pathname;
 
-const navItems = [
-  { label: 'ליווי משקיעים', href: '/investor-consulting/' },
+const services = [
+  { label: 'ליווי משקיעים לרכישת דירה', href: '/investor-consulting/' },
   { label: 'ליווי רכישת קרקע', href: '/land-purchase-consulting/' },
-  { label: 'בדיקת קרקע', href: '/land-deal-assessment/' },
+  { label: 'בדיקת עסקת קרקע', href: '/land-deal-assessment/' },
   { label: 'בדיקת כדאיות דירה', href: '/apartment-investment-analysis/' },
   { label: 'התחדשות עירונית', href: '/urban-renewal/' },
+];
+
+const navItems = [
   { label: 'אזורי פעילות', href: '/areas/' },
   { label: 'בלוג', href: '/blog/' },
   { label: 'אודות', href: '/about/' },
@@ -17,6 +20,10 @@ const navItems = [
 function isActive(href: string): boolean {
   if (href === '/') return currentPath === '/';
   return currentPath.startsWith(href);
+}
+
+function isServiceActive(): boolean {
+  return services.some(s => currentPath.startsWith(s.href));
 }
 ---
 
@@ -31,6 +38,38 @@ function isActive(href: string): boolean {
       <!-- Desktop Navigation + CTA (grouped on left side in RTL) -->
       <div class="hidden md:flex items-center gap-6 ms-auto">
         <nav class="flex items-center gap-1">
+          <!-- Services Dropdown -->
+          <div class="relative group">
+            <button
+              class={`flex items-center gap-1 px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                isServiceActive()
+                  ? 'text-brand-600 bg-brand-50'
+                  : 'text-dark hover:text-brand-600 hover:bg-brand-50'
+              }`}
+            >
+              <span>שירותים</span>
+              <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="absolute top-full start-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <div class="bg-white rounded-lg shadow-xl border border-border py-2 min-w-[220px]">
+                {services.map((service) => (
+                  <a
+                    href={service.href}
+                    class={`block px-4 py-2.5 text-sm transition-colors ${
+                      isActive(service.href)
+                        ? 'text-brand-600 bg-brand-50'
+                        : 'text-dark hover:text-brand-600 hover:bg-brand-50'
+                    }`}
+                  >
+                    {service.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+
           {navItems.map((item) => (
             <a
               href={item.href}
@@ -72,20 +111,44 @@ function isActive(href: string): boolean {
 
   <!-- Mobile Menu -->
   <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-border">
-    <nav class="container mx-auto px-4 py-4 space-y-1">
-      {navItems.map((item) => (
-        <a
-          href={item.href}
-          class={`block px-4 py-3 rounded-md font-medium ${
-            isActive(item.href)
-              ? 'text-brand-600 bg-brand-50'
-              : 'text-dark hover:text-brand-600 hover:bg-brand-50'
-          }`}
-        >
-          {item.label}
-        </a>
-      ))}
-      <div class="pt-4 border-t border-border">
+    <nav class="container mx-auto px-4 py-4">
+      <!-- Services Section -->
+      <div class="mb-4">
+        <div class="px-4 py-2 text-sm font-semibold text-muted">שירותים</div>
+        <div class="space-y-1">
+          {services.map((service) => (
+            <a
+              href={service.href}
+              class={`block px-4 py-3 rounded-md font-medium ${
+                isActive(service.href)
+                  ? 'text-brand-600 bg-brand-50'
+                  : 'text-dark hover:text-brand-600 hover:bg-brand-50'
+              }`}
+            >
+              {service.label}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Other Links -->
+      <div class="border-t border-border pt-4 space-y-1">
+        {navItems.map((item) => (
+          <a
+            href={item.href}
+            class={`block px-4 py-3 rounded-md font-medium ${
+              isActive(item.href)
+                ? 'text-brand-600 bg-brand-50'
+                : 'text-dark hover:text-brand-600 hover:bg-brand-50'
+            }`}
+          >
+            {item.label}
+          </a>
+        ))}
+      </div>
+
+      <!-- Phone CTA -->
+      <div class="pt-4 border-t border-border mt-4">
         <a
           href={`tel:${phone}`}
           class="flex items-center justify-center gap-2 px-4 py-3 bg-accent text-white rounded-md font-medium"

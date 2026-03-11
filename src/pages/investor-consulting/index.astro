@@ -9,11 +9,6 @@ import CTASection from '../../components/CTASection.astro';
 import TestimonialSection from '../../components/TestimonialSection.astro';
 import SchemaOrg from '../../components/SchemaOrg.astro';
 
-const breadcrumbs = [
-  { label: 'דף הבית', href: '/' },
-  { label: 'ליווי משקיעים לרכישת דירה' },
-];
-
 const faqItems = [
   {
     question: 'מה כולל שירות ליווי משקיעים לרכישת דירה?',
@@ -124,7 +119,6 @@ const serviceSchema = {
   <PageHero
     title="ליווי משקיעים לרכישת דירה להשקעה"
     subtitle="מלווה משקיעים מקצועי עם שמאית מקרקעין מוסמכת ויועץ השקעות נדל״ן. בדיקת כדאיות מקיפה, ניתוח תשואה על הדירה, משא ומתן וליווי עד החתימה. 18,000₪ מחיר קבוע - ללא ניגוד אינטרסים."
-    breadcrumbs={breadcrumbs}
     backgroundImage="/images/hero/hero-01.webp"
     showCTA={true}
     ctaText="השאירו פרטים לייעוץ חינם"

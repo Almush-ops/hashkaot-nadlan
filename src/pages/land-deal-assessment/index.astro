@@ -8,11 +8,6 @@ import ContactForm from '../../components/ContactForm.astro';
 import CTASection from '../../components/CTASection.astro';
 import SchemaOrg from '../../components/SchemaOrg.astro';
 
-const breadcrumbs = [
-  { label: 'דף הבית', href: '/' },
-  { label: 'בדיקת עסקת קרקע' },
-];
-
 // Case studies - real discoveries
 const caseStudies = [
   {
@@ -120,7 +115,6 @@ const serviceSchema = {
   <PageHero
     title="בדיקת עסקת קרקע"
     subtitle="בדיקה חד-פעמית על ידי שמאית מקרקעין מוסמכת. תדעו בדיוק מה אתם קונים לפני שאתם חותמים."
-    breadcrumbs={breadcrumbs}
     backgroundImage="/images/hero/hero-02.webp"
     showCTA={true}
     ctaText="הזמינו בדיקת קרקע"
