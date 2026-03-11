@@ -21,22 +21,36 @@ const services: Service[] = [
     description: 'ליווי מקיף מהרגע הראשון עד סגירת העסקה - איתור נכסים, בדיקת כדאיות, ניהול משא ומתן וליווי עד החתימה.',
     href: '/investor-consulting/',
     image: '/images/services/livuy-dira.webp',
-    price: 'מ-18,000 ₪',
+    price: '18,000 ₪',
     highlight: true,
+  },
+  {
+    title: 'ליווי רכישת קרקע',
+    description: 'מאיתור ועד סגירה - חיפוש קרקעות, בדיקות מקיפות, ניהול משא ומתן וליווי עד לחתימת החוזה.',
+    href: '/land-purchase-consulting/',
+    image: '/images/services/livuy-karka.png',
+    price: '15,000 ₪',
   },
   {
     title: 'בדיקת עסקת קרקע',
     description: 'בדיקה מקיפה על ידי שמאית מוסמכת - ניתוח תכנוני, משפטי וכלכלי. כדי שתדעו בדיוק מה אתם קונים.',
     href: '/land-deal-assessment/',
     image: '/images/services/bdikat-karka.webp',
-    price: 'מ-2,500 ₪',
+    price: '2,500 ₪',
   },
   {
     title: 'בדיקת כדאיות דירה',
     description: 'ניתוח פיננסי מקיף - תשואה צפויה, עלויות נלוות, השוואה לחלופות. קבלת החלטה מושכלת.',
     href: '/apartment-investment-analysis/',
     image: '/images/services/bdikat-dira.webp',
-    price: 'מ-1,800 ₪',
+    price: '1,800 ₪',
+  },
+  {
+    title: 'ייעוץ התחדשות עירונית',
+    description: 'תמ״א 38, פינוי בינוי, הריסה ובנייה - ייעוץ לבעלי דירות ומשקיעים בכל שלבי התהליך.',
+    href: '/urban-renewal/',
+    image: '/images/services/livuy-dira.webp',
+    price: 'ייעוץ חינם',
   },
 ];
 ---
@@ -64,7 +78,7 @@ const services: Service[] = [
     </div>
 
     <!-- Services Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
       {services.map((service, index) => (
         <a
           href={service.href}

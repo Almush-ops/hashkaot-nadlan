@@ -4,10 +4,11 @@ const currentPath = Astro.url.pathname;
 
 const navItems = [
   { label: 'ליווי משקיעים', href: '/investor-consulting/' },
+  { label: 'ליווי רכישת קרקע', href: '/land-purchase-consulting/' },
   { label: 'בדיקת קרקע', href: '/land-deal-assessment/' },
+  { label: 'בדיקת כדאיות דירה', href: '/apartment-investment-analysis/' },
   { label: 'התחדשות עירונית', href: '/urban-renewal/' },
   { label: 'אודות', href: '/about/' },
-  { label: 'צור קשר', href: '/contact/' },
 ];
 
 function isActive(href: string): boolean {
