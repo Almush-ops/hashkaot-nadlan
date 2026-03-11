@@ -6,6 +6,7 @@ import ProcessSteps from '../../components/ProcessSteps.astro';
 import FAQ from '../../components/FAQ.astro';
 import ContactForm from '../../components/ContactForm.astro';
 import CTASection from '../../components/CTASection.astro';
+import TestimonialSection from '../../components/TestimonialSection.astro';
 import SchemaOrg from '../../components/SchemaOrg.astro';
 
 const breadcrumbs = [
@@ -16,23 +17,35 @@ const breadcrumbs = [
 const faqItems = [
   {
     question: 'מה ההבדל בין ליווי רכישת קרקע לבדיקת עסקת קרקע?',
-    answer: '<a href="/land-deal-assessment/" class="text-brand-600 hover:underline">בדיקת עסקת קרקע</a> היא בדיקה חד-פעמית לקרקע ספציפית (2,500 ש״ח). ליווי רכישת קרקע הוא שירות מקיף שכולל איתור קרקעות מתאימות, בדיקות מרובות, ניהול משא ומתן וליווי עד לחתימה.',
+    answer: '<a href="/land-deal-assessment/" class="text-brand-600 hover:underline">בדיקת עסקת קרקע</a> היא בדיקה חד-פעמית לקרקע ספציפית שאתם כבר מצאתם (2,500 ש״ח). ליווי רכישת קרקע הוא שירות מקיף שכולל איתור קרקעות מתאימות, בדיקות מרובות, ניהול משא ומתן וליווי עד לחתימה.',
   },
   {
     question: 'כמה עולה ליווי רכישת קרקע?',
-    answer: 'עלות הליווי המלא היא 15,000 ש״ח. המחיר כולל איתור, בדיקות מרובות, ניהול משא ומתן וליווי עד לסגירת העסקה.',
+    answer: 'עלות הליווי המלא היא 15,000 ש״ח (כולל מע״מ). התשלום מתחלק ל-5,000 ש״ח מקדמה בתחילת הליווי ו-10,000 ש״ח בחתימה על העסקה. המחיר כולל איתור, בדיקות מרובות (ללא הגבלה), ניהול משא ומתן וליווי עד לסגירה.',
   },
   {
     question: 'איזה סוגי קרקעות אתם מלווים?',
-    answer: 'אנחנו מלווים ברכישת כל סוגי הקרקעות: קרקע למגורים, קרקע חקלאית עם פוטנציאל שינוי ייעוד, קרקע מסחרית ומגרשים בפרצלציה.',
+    answer: 'אנחנו מתמחים בקרקעות צהובות (בתהליכי הפשרה מתקדמים), קרקע למגורים עם זכויות בנייה, קרקע חקלאית עם פוטנציאל שינוי ייעוד, מגרשים בפרצלציה, וקרקע בייעוד מסחרי. לא מלווים ברכישת קרקע חקלאית "ירוקה" ללא תכנון.',
+  },
+  {
+    question: 'מה זה "מחיר ראוי" לקרקע?',
+    answer: 'מחיר ראוי הוא מחיר שמשקף את המציאות הקיימת - לא את התקווה. הוא מבוסס על: הייעוד הקיים של הקרקע, שלב התכנון שבו היא נמצאת, מגבלות רגולטוריות, לוחות זמנים למימוש, ורמת אי-הוודאות. זה מחיר שמאפשר להיכנס לעסקה מתוך היגיון כלכלי.',
   },
   {
     question: 'כמה זמן לוקח למצוא קרקע מתאימה?',
-    answer: 'בממוצע 3-6 חודשים, תלוי בדרישות ובתקציב. קרקעות איכותיות עם פוטנציאל אמיתי דורשות סבלנות וחיפוש מעמיק.',
+    answer: 'בממוצע 3-6 חודשים, תלוי בדרישות ובתקציב. קרקעות איכותיות עם פוטנציאל אמיתי דורשות סבלנות וחיפוש מעמיק. אנחנו לא ממהרים למכור - עדיף לחכות לעסקה נכונה מאשר להיכנס לעסקה בינונית.',
   },
   {
-    question: 'האם אתם עובדים עם עורכי דין ושמאים?',
-    answer: 'כן, מעיין היא שמאית מקרקעין מוסמכת ואנחנו עובדים בשיתוף פעולה עם עורכי דין מומחים בנדל״ן כדי להבטיח עסקה בטוחה.',
+    question: 'מה הבדיקות שאתם מבצעים לכל קרקע?',
+    answer: 'כל קרקע עוברת 3 בדיקות: (1) בדיקה תכנונית - תב״ע, זכויות בנייה, שלב התכנון, צפי לאישורים. (2) בדיקה משפטית - בעלות, שעבודים, הערות אזהרה, הסכמי שיתוף. (3) בדיקה כלכלית - שווי נוכחי, פוטנציאל, היטלי השבחה צפויים, עלויות פיתוח.',
+  },
+  {
+    question: 'למי מתאים להשקיע בקרקע?',
+    answer: 'השקעה בקרקע מתאימה למי שמבין שזו השקעה תכנונית (לא נדל״ן מניב), מחפש השבחת הון ולא הכנסה שוטפת, מוכן לוותר על ודאות לטובת פוטנציאל, ומעדיף מסמכים ונתונים על פני הבטחות. זה לא מתאים למי שמחפש קיצור דרך או תשואה מיידית.',
+  },
+  {
+    question: 'האם המקדמה מוחזרת אם לא מצאתם לי קרקע?',
+    answer: 'המקדמה של 5,000 ש״ח לא מוחזרת במקרה של נסיגה מצד הלקוח, כי היא משקפת עבודת ייעוץ, מחקר ובדיקות שכבר בוצעו. עם זאת, אנחנו ממשיכים לחפש עד שמוצאים את הקרקע המתאימה - אין מגבלת זמן.',
   },
 ];
 
@@ -43,30 +56,65 @@ const serviceSteps = [
   { number: 4, title: 'משא ומתן וסגירה', description: 'ניהול המשא ומתן וליווי עד לחתימת החוזה.' },
 ];
 
+// Case studies data
+const caseStudies = [
+  {
+    title: 'קרקע צהובה בבאר יעקב',
+    description: 'ליווינו משקיע לרכישת קרקע בתהליכי הפשרה. הבדיקה השמאית זיהתה שהמחיר המבוקש גבוה ב-15% מהשווי הריאלי',
+    result: '85,000 ש״ח',
+    resultLabel: 'חיסכון במשא ומתן',
+  },
+  {
+    title: 'קרקע בכפר יונה - מגורים ג׳',
+    description: 'זיהינו בעיה תכנונית שהמוכר לא חשף. חסכנו ללקוח השקעה בקרקע בעייתית',
+    result: '200,000+ ש״ח',
+    resultLabel: 'נמנע מהפסד',
+  },
+  {
+    title: 'קבוצת רוכשים - גבעת שמואל',
+    description: 'ארגנו קבוצת רוכשים לקרקע בשלבי תכנון מתקדמים. כוח הקנייה הוריד את המחיר',
+    result: '12%',
+    resultLabel: 'הנחה מתחת למחיר השוק',
+  },
+  {
+    title: 'קרקע בראשון לציון - אנ״מ צפוני',
+    description: 'בדקנו קרקע שהוצעה "במחיר הזדמנות". גילינו היטלי השבחה צפויים שלא נלקחו בחשבון',
+    result: '150,000 ש״ח',
+    resultLabel: 'חשיפת עלויות נסתרות',
+  },
+];
+
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   name: 'ליווי רכישת קרקע',
-  description: 'ליווי מקיף לרכישת קרקע להשקעה - מאיתור ועד סגירת העסקה',
+  description: 'ליווי מקיף לרכישת קרקע להשקעה על ידי שמאית מקרקעין מוסמכת. איתור קרקעות, בדיקות תכנוניות ומשפטיות, ניהול משא ומתן וסגירה. מחיר קבוע 15,000 ש״ח.',
   provider: {
     '@type': 'ProfessionalService',
     name: 'השקעות נדל״ן - מעין ואור ליבנה',
     url: 'https://hashkaot-nadlan.co.il',
+    telephone: '+972-55-255-5144',
   },
   areaServed: 'ישראל',
-  serviceType: 'ליווי השקעות נדל״ן',
+  serviceType: 'ליווי רכישת קרקע',
+  offers: {
+    '@type': 'Offer',
+    price: '15000',
+    priceCurrency: 'ILS',
+    description: 'ליווי מקיף מקצה לקצה לרכישת קרקע',
+  },
 };
 ---
 
 <BaseLayout
-  title="ליווי רכישת קרקע"
-  description="ליווי מקיף לרכישת קרקע להשקעה - איתור, בדיקות, משא ומתן וסגירה. על ידי שמאית מקרקעין מוסמכת. 15,000 ש״ח מחיר קבוע."
+  title="ליווי רכישת קרקע - שמאית מקרקעין מוסמכת"
+  description="ליווי מקיף לרכישת קרקע להשקעה על ידי שמאית מקרקעין עם 15 שנות ניסיון. איתור קרקעות, בדיקות תכנוניות ומשפטיות. 15,000 ש״ח מחיר קבוע."
 >
   <SchemaOrg schema={serviceSchema} />
 
   <PageHero
     title="ליווי רכישת קרקע"
-    subtitle="מהרגע שמחליטים להשקיע בקרקע ועד לחתימה על החוזה - אנחנו איתכם בכל שלב. איתור, בדיקות, משא ומתן וסגירה."
+    subtitle="קרקע זו השקעה תכנונית - לא הבטחה. אנחנו מלווים אתכם מהרגע שמחליטים להשקיע ועד לחתימה על החוזה, עם בדיקות מקיפות ושקיפות מלאה."
     breadcrumbs={breadcrumbs}
     backgroundImage="/images/hero/hero-02.webp"
     showCTA={true}
@@ -74,6 +122,212 @@ const serviceSchema = {
   />
 
   <TrustBar variant="light" />
+
+  <!-- Stats Section -->
+  <section class="py-12 bg-brand-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div>
+            <div class="text-3xl md:text-4xl font-bold text-brand-600 mb-1">120+</div>
+            <div class="text-sm text-muted">בדיקות קרקע שבוצעו</div>
+          </div>
+          <div>
+            <div class="text-3xl md:text-4xl font-bold text-brand-600 mb-1">35+</div>
+            <div class="text-sm text-muted">עסקאות קרקע שנסגרו</div>
+          </div>
+          <div>
+            <div class="text-3xl md:text-4xl font-bold text-brand-600 mb-1">40%</div>
+            <div class="text-sm text-muted">מהקרקעות נפסלו בבדיקה</div>
+          </div>
+          <div>
+            <div class="text-3xl md:text-4xl font-bold text-brand-600 mb-1">15</div>
+            <div class="text-sm text-muted">שנות ניסיון בשמאות</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy Section -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-6">
+          קרקע זו השקעה - לא הבטחה
+        </h2>
+        <p class="text-muted text-lg mb-8">
+          בשוק הקרקעות נוצר בלבול מכוון בין <strong>מחיר</strong> לבין <strong>שווי</strong>. רוב ההצעות מבוססות על סיפור עתידי: מה יהיה, מה יאושר, כמה זה "אמור" להיות שווה. אנחנו עובדים הפוך.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-right">
+          <div class="p-6 bg-surface rounded-xl border border-border">
+            <h3 class="font-semibold text-dark mb-3">השאלות שאנחנו שואלים:</h3>
+            <ul class="space-y-2 text-muted">
+              <li class="flex items-start gap-2">
+                <span class="text-brand-600 mt-1">←</span>
+                <span>מה הסטטוס התכנוני היום?</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-brand-600 mt-1">←</span>
+                <span>מה ניתן להוכיח במסמכים?</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-brand-600 mt-1">←</span>
+                <span>מה שווי הקרקע במצבה הנוכחי?</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-brand-600 mt-1">←</span>
+                <span>מה רמת הסיכון והזמן למימוש?</span>
+              </li>
+            </ul>
+          </div>
+          <div class="p-6 bg-brand-50 rounded-xl border border-brand-100">
+            <h3 class="font-semibold text-dark mb-3">העיקרון שלנו:</h3>
+            <p class="text-muted mb-4">
+              רק אחרי שיש תשובות - מדברים על עסקה. אם הנתונים לא מסתדרים - העסקה לא יוצאת לדרך.
+            </p>
+            <p class="text-dark font-medium">
+              אנחנו לא מבטיחים עליית ערך. אנחנו בונים עסקה שאפשר להצדיק.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Studies -->
+  <section class="py-16 md:py-20 bg-surface">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-4">
+            איך הבדיקות שלנו חוסכות כסף
+          </h2>
+          <p class="text-muted max-w-2xl mx-auto">
+            40% מהקרקעות שבדקנו נפסלו - או שהמחיר לא היה הוגן, או שהיו בעיות תכנוניות/משפטיות. הנה דוגמאות אמיתיות.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {caseStudies.map((study) => (
+            <div class="p-6 bg-white rounded-xl border border-border hover:border-brand-200 transition-colors">
+              <h3 class="font-semibold text-dark mb-2">{study.title}</h3>
+              <p class="text-muted text-sm mb-4">{study.description}</p>
+              <div class="flex items-baseline gap-2">
+                <span class="text-2xl font-bold text-success-600">{study.result}</span>
+                <span class="text-sm text-muted">{study.resultLabel}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's Different -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
+          מה שונה בליווי שלנו?
+        </h2>
+
+        <div class="space-y-6">
+          <div class="flex gap-4 p-6 bg-surface rounded-xl border border-border">
+            <div class="flex-shrink-0 w-12 h-12 bg-brand-100 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-dark mb-2">אנחנו לא חברת שיווק קרקעות</h3>
+              <p class="text-muted">לא מוכרים חלומות, לא מפעילים לחץ, לא בונים עסקאות סביב "הזדמנות אחרונה". אנחנו גוף מקצועי שמארגן רכישה רק אחרי בדיקה כלכלית, תכנונית ומשפטית מלאה.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 p-6 bg-surface rounded-xl border border-border">
+            <div class="flex-shrink-0 w-12 h-12 bg-brand-100 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-dark mb-2">שמאית מקרקעין מוסמכת עושה את הבדיקות</h3>
+              <p class="text-muted">מעיין היא שמאית מקרקעין מוסמכת עם 15 שנות ניסיון. היא לא רק בודקת - היא יודעת בדיוק מה השווי האמיתי של הקרקע, לא מה המוכר רוצה שתאמינו.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 p-6 bg-surface rounded-xl border border-border">
+            <div class="flex-shrink-0 w-12 h-12 bg-brand-100 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-dark mb-2">כוח קנייה של קבוצה - מחיר של יחיד</h3>
+              <p class="text-muted">כשמתאים, אנחנו מארגנים קבוצות רוכשים. קבוצה היא כלי להורדת מחיר - לא מוצר. הערך נוצר רק כשיש פער אמיתי בין מחיר השוק למחיר הרכישה.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 p-6 bg-surface rounded-xl border border-border">
+            <div class="flex-shrink-0 w-12 h-12 bg-brand-100 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-dark mb-2">שקיפות מלאה - גם על הסיכונים</h3>
+              <p class="text-muted">אנחנו מראים את כל התמונה - לא רק את הפוטנציאל. מה המגבלות, מה לוחות הזמנים הריאליסטיים, ומה יכול להשתבש. מסמכים ונתונים - לא הבטחות.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Land Types -->
+  <section class="py-16 md:py-20 bg-surface">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
+          סוגי קרקעות שאנחנו מלווים
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-6 bg-white rounded-xl border border-border text-center">
+            <div class="w-14 h-14 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-7 h-7 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
+            </div>
+            <h3 class="font-semibold text-dark mb-2">קרקעות צהובות</h3>
+            <p class="text-muted text-sm">קרקעות בתהליכי הפשרה מתקדמים - כבר בייעוד מגורים או בתכנון סופי.</p>
+          </div>
+
+          <div class="p-6 bg-white rounded-xl border border-border text-center">
+            <div class="w-14 h-14 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-7 h-7 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+              </svg>
+            </div>
+            <h3 class="font-semibold text-dark mb-2">מגרשים בפרצלציה</h3>
+            <p class="text-muted text-sm">מגרשים עם זכויות בנייה מוגדרות, מוכנים לבנייה או להשקעה.</p>
+          </div>
+
+          <div class="p-6 bg-white rounded-xl border border-border text-center">
+            <div class="w-14 h-14 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-7 h-7 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+              </svg>
+            </div>
+            <h3 class="font-semibold text-dark mb-2">קרקע עם פוטנציאל</h3>
+            <p class="text-muted text-sm">קרקע חקלאית בתכנון מתקדם או קרקע מסחרית עם אפשרויות השבחה.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- What's Included -->
   <section class="py-16 md:py-20 bg-white">
@@ -86,24 +340,24 @@ const serviceSchema = {
         <div class="space-y-6">
           {[
             {
-              title: 'הגדרת אסטרטגיה',
-              desc: 'פגישת היכרות להבנת היעדים שלכם - האם מחפשים קרקע לבנייה עצמית, להשקעה לטווח ארוך, או קרקע עם פוטנציאל שינוי ייעוד.',
+              title: 'הגדרת אסטרטגיה ופרופיל השקעה',
+              desc: 'פגישת היכרות להבנת היעדים - האם מחפשים קרקע לבנייה עצמית, להשקעה לטווח ארוך, או קרקע עם פוטנציאל שינוי ייעוד. נגדיר יחד תקציב, טווח זמנים ורמת סיכון.',
             },
             {
               title: 'איתור קרקעות מתאימות',
-              desc: 'חיפוש פרואקטיבי של קרקעות שעומדות בקריטריונים - לא רק מה שמפורסם, אלא גם הזדמנויות שמגיעות דרך קשרים בשוק.',
+              desc: 'חיפוש פרואקטיבי של קרקעות שעומדות בקריטריונים - לא רק מה שמפורסם, אלא גם הזדמנויות דרך קשרים בשוק. גישה לעסקאות שלא מגיעות לשוק החופשי.',
             },
             {
-              title: 'בדיקות מקיפות',
-              desc: 'לכל קרקע רלוונטית נבצע בדיקה תכנונית (תב״ע, זכויות), משפטית (בעלות, שעבודים) וכלכלית (שווי, פוטנציאל).',
+              title: 'בדיקות מקיפות (ללא הגבלה)',
+              desc: 'לכל קרקע רלוונטית: בדיקה תכנונית (תב״ע, זכויות, שלב תכנון), בדיקה משפטית (בעלות, שעבודים, הערות), בדיקה כלכלית (שווי, היטלי השבחה, עלויות פיתוח).',
             },
             {
               title: 'ניהול משא ומתן',
-              desc: 'ניהול המשא ומתן מול המוכר או נציגיו - מתוך ידע מעמיק על שווי הקרקע והמצב התכנוני.',
+              desc: 'ניהול המשא ומתן מול המוכר מתוך ידע מעמיק על שווי הקרקע האמיתי והמצב התכנוני. המטרה: להשיג את המחיר הראוי, לא רק את המחיר המבוקש.',
             },
             {
               title: 'ליווי עד לסגירה',
-              desc: 'עבודה מול עורך הדין, בדיקת החוזה, וליווי מלא עד לחתימה ורישום הזכויות.',
+              desc: 'עבודה מול עורך הדין, בדיקת החוזה, וליווי מלא עד לחתימה ורישום הזכויות. גם אחרי - זמינים לשאלות ולייעוץ לגבי השלבים הבאים.',
             },
           ].map((item) => (
             <div class="flex gap-4 p-6 bg-surface rounded-xl border border-border">
@@ -129,43 +383,176 @@ const serviceSchema = {
     steps={serviceSteps}
   />
 
-  <!-- Why Important -->
-  <section class="py-16 md:py-20 bg-surface">
+  <!-- Pricing Transparency -->
+  <section class="py-16 md:py-20 bg-white">
     <div class="container mx-auto px-4">
       <div class="max-w-3xl mx-auto">
         <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
-          למה לקחת ליווי לרכישת קרקע?
+          שקיפות מחירים מלאה
         </h2>
 
-        <div class="space-y-6">
+        <div class="bg-brand-50 rounded-2xl p-8 mb-8">
+          <div class="text-center mb-6">
+            <div class="text-4xl font-bold text-brand-600 mb-2">15,000 ש״ח</div>
+            <div class="text-muted">עלות הליווי המלא (כולל מע״מ)</div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            <div class="bg-white rounded-xl p-4 text-center">
+              <div class="text-2xl font-bold text-dark mb-1">5,000 ש״ח</div>
+              <div class="text-sm text-muted">מקדמה בתחילת הליווי</div>
+            </div>
+            <div class="bg-white rounded-xl p-4 text-center">
+              <div class="text-2xl font-bold text-dark mb-1">10,000 ש״ח</div>
+              <div class="text-sm text-muted">יתרה בחתימה על העסקה</div>
+            </div>
+          </div>
+
+          <p class="text-sm text-muted text-center">
+            המקדמה משקפת עבודת ייעוץ, מחקר ובדיקות ואינה מוחזרת בנסיגה מצד הלקוח.
+          </p>
+        </div>
+
+        <h3 class="font-semibold text-dark mb-4 text-center">עלויות נוספות (לפי הצורך)</h3>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
           {[
-            {
-              title: 'מורכבות גבוהה',
-              desc: 'עסקאות קרקע מורכבות הרבה יותר מדירות - תב״ע, הסכמי שיתוף, זכויות בנייה, היטלי השבחה. בלי ליווי מקצועי קל לטעות.',
-            },
-            {
-              title: 'סיכון גבוה',
-              desc: 'קרקע שנראית זולה יכולה להתברר כהשקעה גרועה אם לא בודקים לעומק את המצב התכנוני והמשפטי.',
-            },
-            {
-              title: 'הזדמנויות נסתרות',
-              desc: 'קרקעות איכותיות לא תמיד מפורסמות. עם הקשרים והניסיון שלנו, נמצא הזדמנויות שלא תמצאו לבד.',
-            },
-            {
-              title: 'חיסכון בזמן',
-              desc: 'במקום לבזבז חודשים על חיפוש ובדיקות, אנחנו עושים את העבודה ומביאים לכם רק אופציות שכדאי לשקול.',
-            },
+            { service: 'עורך דין מקרקעין', price: '5,000-8,000 ש״ח' },
+            { service: 'שומה פרטנית', price: '2,500-4,000 ש״ח' },
+            { service: 'סקר קרקע (מודד)', price: '2,000-3,500 ש״ח' },
           ].map((item) => (
-            <div class="flex gap-4 p-6 bg-white rounded-xl border border-border">
-              <div class="flex-shrink-0 w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center">
-                <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            <div class="p-4 bg-surface rounded-lg border border-border text-center">
+              <div class="text-sm text-muted mb-1">{item.service}</div>
+              <div class="font-semibold text-dark">{item.price}</div>
+            </div>
+          ))}
+        </div>
+
+        <p class="text-sm text-muted text-center mt-6">
+          * כל בעלי המקצוע עברו סינון קפדני ומציעים מחירים מוזלים ללקוחות הליווי שלנו
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Maayan - Land Expert -->
+  <section class="py-16 md:py-20 bg-surface">
+    <div class="container mx-auto px-4">
+      <div class="max-w-5xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+          <!-- Maayan's Image -->
+          <div class="lg:col-span-1 flex justify-center">
+            <div class="relative">
+              <img
+                src="/images/team/maayan-portrait.png"
+                alt="מעיין ליבנה - שמאית מקרקעין מוסמכת"
+                class="w-64 h-auto rounded-2xl shadow-lg"
+                loading="lazy"
+              />
+              <div class="absolute -bottom-4 -right-4 bg-brand-600 text-white px-4 py-2 rounded-lg text-sm font-medium shadow-lg">
+                15+ שנות ניסיון
+              </div>
+            </div>
+          </div>
+
+          <!-- Maayan's Bio -->
+          <div class="lg:col-span-2">
+            <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-6">
+              הכירו את מעיין ליבנה
+            </h2>
+            <p class="text-muted mb-4">
+              שמאית מקרקעין מוסמכת עם 15 שנות ניסיון בהערכת שווי קרקעות ונכסים. מתמחה בקרקעות בתהליכי הפשרה, ניתוח תכנוני ובדיקות כדאיות השקעה בקרקע.
+            </p>
+
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-brand-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                 </svg>
+                <span class="text-dark">שמאית מקרקעין מוסמכת - יודעת לקבוע את השווי האמיתי של קרקע</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-brand-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-dark">מומחית בקריאת תב״ע וניתוח מצב תכנוני</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-brand-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-dark">ביצעה מאות שומות קרקע לאורך השנים</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-brand-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-dark">גישה שקופה והגונה - מראה את כל התמונה, לא רק את היתרונות</span>
+              </li>
+            </ul>
+
+            <p class="text-muted italic border-r-4 border-brand-200 pr-4">
+              "המסע שלי בעולם הנדל״ן התחיל מתוך תשוקה אמיתית להבנה מעמיקה של העולם המורכב הזה. הקמתי את העסק כדי לתת למשקיעים את מה שהיה חסר לי בתחילת הדרך - כלים מקצועיים, ליווי שמעניק ביטחון, וידע אמיתי שמאפשר לקבל החלטות עצמאיות."
+            </p>
+          </div>
+        </div>
+
+        <!-- Who Is It For -->
+        <div class="mt-12 bg-white rounded-2xl p-8 border border-border">
+          <h3 class="font-semibold text-dark mb-6 text-center text-xl">למי מתאים להשקיע בקרקע?</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="text-center">
+              <div class="w-12 h-12 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <span class="text-success-600 text-lg font-bold">✓</span>
               </div>
-              <div>
-                <h3 class="font-semibold text-dark mb-1">{item.title}</h3>
-                <p class="text-muted">{item.desc}</p>
+              <span class="font-medium text-dark block mb-1">מבינים שזו השקעה תכנונית</span>
+              <p class="text-sm text-muted">לא נדל״ן מניב - אלא השבחת הון לאורך זמן</p>
+            </div>
+            <div class="text-center">
+              <div class="w-12 h-12 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <span class="text-success-600 text-lg font-bold">✓</span>
               </div>
+              <span class="font-medium text-dark block mb-1">מחפשים השבחת הון</span>
+              <p class="text-sm text-muted">לא הכנסה שוטפת - אלא עליית ערך משמעותית</p>
+            </div>
+            <div class="text-center">
+              <div class="w-12 h-12 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <span class="text-success-600 text-lg font-bold">✓</span>
+              </div>
+              <span class="font-medium text-dark block mb-1">מוכנים לסבלנות</span>
+              <p class="text-sm text-muted">מוותרים על ודאות לטובת פוטנציאל</p>
+            </div>
+            <div class="text-center">
+              <div class="w-12 h-12 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <span class="text-success-600 text-lg font-bold">✓</span>
+              </div>
+              <span class="font-medium text-dark block mb-1">מעדיפים נתונים</span>
+              <p class="text-sm text-muted">מסמכים ובדיקות - לא הבטחות</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Us - Condensed -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8">
+          למה לבחור בנו?
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {[
+            { title: 'שמאית מקרקעין מוסמכת', desc: '15 שנות ניסיון בהערכת שווי קרקעות - יודעת בדיוק כמה הקרקע שווה באמת' },
+            { title: 'מחיר קבוע - ללא אחוזים', desc: '15,000 ש״ח - לא משנה אם הקרקע עולה 300K או 2M. אפס ניגוד אינטרסים' },
+            { title: '40% מהקרקעות נפסלו', desc: 'אנחנו לא מפחדים להגיד "לא". עסקה גרועה היא עסקה גרועה - לא משנה העמלה' },
+            { title: 'גישה לעסקאות בלעדיות', desc: 'רשת קשרים רחבה עם בעלי קרקעות ויזמים - עסקאות שלא מגיעות לשוק החופשי' },
+          ].map((item) => (
+            <div class="p-6 bg-brand-50 rounded-xl text-center">
+              <h3 class="font-semibold text-dark mb-2">{item.title}</h3>
+              <p class="text-muted text-sm">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -173,41 +560,12 @@ const serviceSchema = {
     </div>
   </section>
 
-  <!-- Pricing -->
-  <section class="py-16 md:py-20 bg-white">
-    <div class="container mx-auto px-4">
-      <div class="max-w-xl mx-auto text-center">
-        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-4">
-          מחיר השירות
-        </h2>
-        <div class="bg-brand-50 rounded-2xl p-8 border border-brand-100">
-          <div class="text-5xl font-bold text-brand-600 mb-2">₪15,000</div>
-          <div class="text-muted mb-6">מחיר קבוע | כולל את כל השירותים</div>
-          <ul class="text-start space-y-3 mb-8">
-            {['הגדרת אסטרטגיה ויעדים', 'איתור קרקעות מתאימות', 'בדיקות מקיפות (ללא הגבלה)', 'ניהול משא ומתן', 'ליווי עד לסגירה'].map((item) => (
-              <li class="flex items-center gap-2 text-dark">
-                <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
-                {item}
-              </li>
-            ))}
-          </ul>
-          <a
-            href="#contact"
-            class="block w-full py-4 bg-accent hover:bg-accent-dark text-white rounded-md font-semibold transition-all duration-300"
-          >
-            התחילו עכשיו
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <CTASection
     title="מחפשים קרקע להשקעה?"
-    subtitle="נעזור לכם למצוא את ההזדמנות הנכונה - עם ליווי מקצועי בכל שלב"
+    subtitle="נעזור לכם למצוא את ההזדמנות הנכונה - עם ליווי מקצועי ובדיקות מקיפות. השאירו פרטים לשיחת ייעוץ ראשונית ללא התחייבות."
   />
+
+  <TestimonialSection />
 
   <FAQ
     title="שאלות נפוצות על ליווי רכישת קרקע"
