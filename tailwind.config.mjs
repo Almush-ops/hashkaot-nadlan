@@ -2,6 +2,17 @@
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
+    container: {
+      center: true,
+      padding: '1rem',
+      screens: {
+        sm: '100%',
+        md: '100%',
+        lg: '100%',
+        xl: '1200px',
+        '2xl': '1200px',
+      },
+    },
     extend: {
       fontFamily: {
         sans: ['Assistant', 'Arial', 'sans-serif'],

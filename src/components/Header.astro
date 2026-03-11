@@ -1,9 +1,9 @@
 ---
-// TODO: Almog - provide phone number for lead tracking
-const phone = '';
+const phone = '055-2555144';
 const currentPath = Astro.url.pathname;
 
 const navItems = [
+  { label: 'דף הבית', href: '/' },
   { label: 'ליווי משקיעים', href: '/livuy-mashkiim/' },
   { label: 'בדיקת קרקע', href: '/bdikat-iska-karka/' },
   { label: 'אודות', href: '/about/' },
@@ -30,24 +30,24 @@ function isActive(href: string): boolean {
         </div>
       </a>
 
-      <!-- Desktop Navigation -->
-      <nav class="hidden md:flex items-center gap-1">
-        {navItems.map((item) => (
-          <a
-            href={item.href}
-            class={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-              isActive(item.href)
-                ? 'text-brand-600 bg-brand-50'
-                : 'text-dark hover:text-brand-600 hover:bg-brand-50'
-            }`}
-          >
-            {item.label}
-          </a>
-        ))}
-      </nav>
+      <!-- Desktop Navigation + CTA (grouped on left side in RTL) -->
+      <div class="hidden md:flex items-center gap-6 ms-auto">
+        <nav class="flex items-center gap-1">
+          {navItems.map((item) => (
+            <a
+              href={item.href}
+              class={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                isActive(item.href)
+                  ? 'text-brand-600 bg-brand-50'
+                  : 'text-dark hover:text-brand-600 hover:bg-brand-50'
+              }`}
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
 
-      <!-- Phone CTA -->
-      <div class="hidden md:flex items-center gap-4">
+        <!-- Phone CTA -->
         <a
           href={`tel:${phone}`}
           class="flex items-center gap-2 px-4 py-2 bg-accent hover:bg-accent-dark text-white rounded-md font-medium transition-all duration-300 hover:shadow-lg"
