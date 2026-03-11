@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
 import TrustBar from '../../components/TrustBar.astro';
+import ProcessSteps from '../../components/ProcessSteps.astro';
 import FAQ from '../../components/FAQ.astro';
 import ContactForm from '../../components/ContactForm.astro';
 import CTASection from '../../components/CTASection.astro';
@@ -12,26 +13,78 @@ const breadcrumbs = [
   { label: 'בדיקת עסקת קרקע' },
 ];
 
-const faqItems = [
+// Case studies - real discoveries
+const caseStudies = [
   {
-    question: 'מה כולל שירות בדיקת עסקת קרקע?',
-    answer: 'הבדיקה כוללת: ניתוח תכנוני (תב״ע, זכויות בנייה), בדיקה משפטית (בעלות, שעבודים, הערות אזהרה), וניתוח כלכלי (שווי נוכחי, פוטנציאל השבחה).',
+    title: 'קרקע חקלאית בגליל',
+    description: 'לקוח רצה לקנות "במחיר מציאה". גילינו שינוי ייעוד מותנה בהסכמת 12 בעלים.',
+    result: '180,000',
+    resultLabel: 'נמנע הפסד',
+    icon: '🚫',
   },
   {
-    question: 'כמה עולה בדיקת עסקת קרקע?',
-    answer: 'עלות הבדיקה היא 2,500 ש״ח + מע״מ. זהו מחיר קבוע שכולל את כל הבדיקות - תכנוני, משפטי וכלכלי.',
+    title: 'מגרש בנתניה',
+    description: 'הערת אזהרה ישנה שלא נמחקה. המוכר לא ידע עליה. עיכבנו חתימה עד הסדרה.',
+    result: '45,000',
+    resultLabel: 'חיסכון בעמלות משפטיות',
+    icon: '⚠️',
+  },
+  {
+    title: 'קרקע למגורים בחיפה',
+    description: 'זכויות בנייה בפועל נמוכות ב-30% ממה שהובטח. ניהלנו מו"מ על המחיר.',
+    result: '120,000',
+    resultLabel: 'הנחה שהושגה',
+    icon: '📉',
+  },
+  {
+    title: 'חלקה בהרצליה',
+    description: 'תכנית חדשה בהפקדה שתכפיל את זכויות הבנייה. הלקוח סגר מהר לפני עליית מחירים.',
+    result: '400,000',
+    resultLabel: 'עליית ערך צפויה',
+    icon: '📈',
+  },
+];
+
+// Process steps
+const serviceSteps = [
+  { number: 1, title: 'קבלת מסמכים', description: 'נסח טאבו, מספר גוש/חלקה, הסכם המכר (טיוטה)' },
+  { number: 2, title: 'בדיקה מקיפה', description: 'תכנונית, משפטית וכלכלית - 3-5 ימי עבודה' },
+  { number: 3, title: 'דוח מפורט', description: 'ממצאים, סיכונים, המלצות והערכת שווי' },
+  { number: 4, title: 'שיחת סיכום', description: 'מענה על שאלות והמלצה האם להתקדם' },
+];
+
+const faqItems = [
+  {
+    question: 'מה ההבדל בין בדיקת עסקה לליווי רכישה מלא?',
+    answer: 'בדיקת עסקה היא שירות חד-פעמי (2,500 ש״ח) שבודק עסקה ספציפית שכבר מצאתם. <a href="/land-purchase-consulting/" class="text-brand-600 hover:underline">ליווי רכישת קרקע</a> (15,000 ש״ח) כולל גם חיפוש קרקע, משא ומתן, ליווי עד לחתימה, וייעוץ שוטף.',
+  },
+  {
+    question: 'מה כולל שירות בדיקת עסקת קרקע?',
+    answer: 'הבדיקה כוללת שלושה רבדים: (1) תכנוני - תב״ע, זכויות בנייה, ייעוד, תכניות עתידיות. (2) משפטי - בעלות, שעבודים, הערות אזהרה, זכויות צד ג׳. (3) כלכלי - שווי נוכחי, פוטנציאל השבחה, השוואה לעסקאות דומות.',
   },
   {
     question: 'כמה זמן לוקחת הבדיקה?',
-    answer: 'בדיקה סטנדרטית לוקחת 3-5 ימי עבודה. במקרים מורכבים יותר (קרקע חקלאית, שותפים רבים וכו\') הזמן עשוי להתארך.',
+    answer: 'בדיקה סטנדרטית לוקחת 3-5 ימי עבודה. קרקעות מורכבות (חקלאית, שותפים רבים, בעיות רישום) עשויות לקחת 7-10 ימים. במקרי חירום יש אפשרות לבדיקה מזורזת תמורת תוספת.',
   },
   {
     question: 'האם הבדיקה מתאימה לקרקע חקלאית?',
-    answer: 'כן, אנחנו מתמחים גם בבדיקת קרקעות חקלאיות. הבדיקה תכלול ניתוח סיכויי שינוי ייעוד, מגבלות תכנוניות וציפיות ריאליות.',
+    answer: 'בהחלט. קרקע חקלאית דורשת בדיקה מעמיקה יותר: סיכויי שינוי ייעוד, ועדות תכנון, מגבלות חקלאיות, הסכמי חכירה. זה בדיוק המקום שבו הבדיקה יכולה לחסוך מאות אלפי שקלים.',
   },
   {
     question: 'מה קורה אם הבדיקה מגלה בעיות?',
-    answer: 'נציג לכם דוח מפורט עם כל הממצאים, כולל המלצות פעולה. במקרים רבים, גילוי בעיות מאפשר לנהל משא ומתן על המחיר או לוותר על העסקה בזמן. מחפשים ליווי מקיף יותר? <a href="/land-purchase-consulting/" class="text-brand-600 hover:underline">ראו את שירות ליווי רכישת קרקע ←</a>',
+    answer: 'תקבלו דוח מפורט עם כל הממצאים והמלצות פעולה. גילוי בעיות הוא למעשה הצלחה - זה מאפשר לנהל משא ומתן על המחיר, לדרוש תיקונים, או לוותר על העסקה בזמן.',
+  },
+  {
+    question: 'האם אתם יכולים לבדוק קרקע בכל הארץ?',
+    answer: 'כן. הבדיקה מתבססת על מסמכים, מאגרי מידע ממשלתיים, ומערכות GIS. אנחנו בודקים קרקעות בכל רחבי הארץ, אם כי באזורים מסוימים (יש״ע, רמת הגולן) יש מורכבויות נוספות שנסביר.',
+  },
+  {
+    question: 'מי עורך את הבדיקה?',
+    answer: 'הבדיקה נערכת על ידי מעיין ליבנה, שמאית מקרקעין מוסמכת עם 15 שנות ניסיון. מעיין מתמחה בקרקעות ובניתוח תכניות בניין עיר.',
+  },
+  {
+    question: 'מחפשים ליווי מלא ולא רק בדיקה?',
+    answer: 'אם אתם רוצים שנלווה אתכם מא׳ עד ת׳ - כולל חיפוש קרקע, משא ומתן, וליווי עד החתימה - ראו את <a href="/land-purchase-consulting/" class="text-brand-600 hover:underline">שירות ליווי רכישת קרקע ←</a>',
   },
 ];
 
@@ -40,31 +93,33 @@ const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   name: 'בדיקת עסקת קרקע',
-  description: 'בדיקת עסקת קרקע מקיפה על ידי שמאית מקרקעין מוסמכת - ניתוח תכנוני, משפטי וכלכלי',
+  description: 'בדיקת עסקת קרקע מקיפה על ידי שמאית מקרקעין מוסמכת - ניתוח תכנוני, משפטי וכלכלי. שירות חד-פעמי לפני רכישה.',
   provider: {
     '@type': 'ProfessionalService',
     name: 'השקעות נדל״ן - מעין ואור ליבנה',
     url: 'https://hashkaot-nadlan.co.il',
+    telephone: '+972-55-255-5144',
   },
   areaServed: 'ישראל',
-  serviceType: 'שמאות מקרקעין',
+  serviceType: 'בדיקת נאותות נדל"ן',
   offers: {
     '@type': 'Offer',
     price: '2500',
     priceCurrency: 'ILS',
+    description: 'בדיקה מקיפה כולל דוח מפורט ושיחת סיכום',
   },
 };
 ---
 
 <BaseLayout
-  title="בדיקת עסקת קרקע"
-  description="בדיקת עסקת קרקע מקיפה על ידי שמאית מקרקעין מוסמכת. ניתוח תכנוני, משפטי וכלכלי ב-2,500 ש״ח + מע״מ. צרו קשר לייעוץ."
+  title="בדיקת עסקת קרקע | שמאית מקרקעין מוסמכת | 2,500 ש״ח"
+  description="בדיקת עסקת קרקע מקיפה על ידי שמאית מוסמכת. ניתוח תכנוני, משפטי וכלכלי ב-2,500 ש״ח + מע״מ. דוח מפורט תוך 3-5 ימים."
 >
   <SchemaOrg schema={serviceSchema} />
 
   <PageHero
     title="בדיקת עסקת קרקע"
-    subtitle="בדיקה מקיפה על ידי שמאית מקרקעין מוסמכת - כדי שתדעו בדיוק מה אתם קונים לפני שאתם חותמים."
+    subtitle="בדיקה חד-פעמית על ידי שמאית מקרקעין מוסמכת. תדעו בדיוק מה אתם קונים לפני שאתם חותמים."
     breadcrumbs={breadcrumbs}
     backgroundImage="/images/hero/hero-02.webp"
     showCTA={true}
@@ -72,6 +127,114 @@ const serviceSchema = {
   />
 
   <TrustBar variant="light" />
+
+  <!-- Stats Section -->
+  <section class="py-12 bg-brand-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div>
+            <div class="text-3xl md:text-4xl font-bold text-brand-600 mb-1">340+</div>
+            <div class="text-sm text-muted">בדיקות קרקע</div>
+          </div>
+          <div>
+            <div class="text-3xl md:text-4xl font-bold text-brand-600 mb-1">38%</div>
+            <div class="text-sm text-muted">עסקאות עם ממצאים</div>
+          </div>
+          <div>
+            <div class="text-3xl md:text-4xl font-bold text-brand-600 mb-1">3-5</div>
+            <div class="text-sm text-muted">ימי עבודה</div>
+          </div>
+          <div>
+            <div class="text-3xl md:text-4xl font-bold text-brand-600 mb-1">15</div>
+            <div class="text-sm text-muted">שנות ניסיון</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Studies -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-4">
+            דוגמאות מהשטח: מה גילינו בבדיקות
+          </h2>
+          <p class="text-muted max-w-2xl mx-auto">
+            38% מהעסקאות שבדקנו כללו ממצאים מהותיים. הנה כמה דוגמאות:
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {caseStudies.map((study) => (
+            <div class="p-6 bg-surface rounded-xl border border-border hover:border-brand-200 transition-colors">
+              <div class="flex items-start gap-4">
+                <span class="text-3xl">{study.icon}</span>
+                <div class="flex-1">
+                  <h3 class="font-semibold text-dark mb-2">{study.title}</h3>
+                  <p class="text-muted text-sm mb-4">{study.description}</p>
+                  <div class="flex items-baseline gap-2">
+                    <span class="text-2xl font-bold text-success-600">₪{study.result}</span>
+                    <span class="text-sm text-muted">{study.resultLabel}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <p class="text-center text-muted mt-8 text-sm">
+          * כל הדוגמאות מבוססות על מקרים אמיתיים. פרטים שונו לשמירה על פרטיות.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's Different -->
+  <section class="py-16 md:py-20 bg-surface">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-12 text-center">
+          למה הבדיקה שלנו שונה?
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {[
+            {
+              title: 'שמאית מקרקעין, לא מתווכת',
+              desc: 'מעיין היא שמאית מוסמכת עם 15 שנות ניסיון. היא יודעת לקרוא תב״ע, להעריך שווי, ולזהות בעיות שמתווכים לא רואים.',
+              icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`,
+            },
+            {
+              title: 'מחיר קבוע - בלי הפתעות',
+              desc: '2,500 ש״ח + מע״מ. לא משנה כמה מורכבת הקרקע. אותו מחיר לחלקה בנתניה או לקרקע חקלאית בגליל.',
+              icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`,
+            },
+            {
+              title: 'דוח מפורט בכתב',
+              desc: 'לא רק שיחת טלפון. תקבלו דוח מפורט שאפשר להראות לעורך דין, לבנק, או לשמור לתיעוד.',
+              icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>`,
+            },
+            {
+              title: 'המלצה כנה',
+              desc: 'אנחנו לא מרוויחים מהעסקה. אם הקרקע בעייתית - נגיד לכם. אם היא טובה - נגיד את זה גם.',
+              icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>`,
+            },
+          ].map((item) => (
+            <div class="flex gap-4 p-6 bg-white rounded-xl border border-border">
+              <div class="flex-shrink-0 w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center text-brand-600" set:html={item.icon} />
+              <div>
+                <h3 class="font-semibold text-dark mb-2">{item.title}</h3>
+                <p class="text-muted text-sm">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- What's Included -->
   <section class="py-16 md:py-20 bg-white">
@@ -85,17 +248,17 @@ const serviceSchema = {
           {[
             {
               title: 'בדיקה תכנונית',
-              items: ['תכנית בניין עיר (תב״ע)', 'זכויות בנייה', 'ייעוד קרקע', 'הגבלות בנייה', 'תכניות עתידיות'],
+              items: ['תכנית בניין עיר (תב״ע)', 'זכויות בנייה בפועל', 'ייעוד קרקע נוכחי', 'הגבלות ומגבלות', 'תכניות עתידיות בהפקדה'],
               icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" /></svg>`,
             },
             {
               title: 'בדיקה משפטית',
-              items: ['אימות בעלות', 'שעבודים ועיקולים', 'הערות אזהרה', 'הסכמי שיתוף', 'זכויות צד ג\''],
+              items: ['אימות בעלות בטאבו', 'שעבודים ועיקולים', 'הערות אזהרה', 'הסכמי שיתוף', 'זכויות צד ג\''],
               icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" /></svg>`,
             },
             {
               title: 'בדיקה כלכלית',
-              items: ['הערכת שווי נוכחי', 'פוטנציאל השבחה', 'עלויות פיתוח', 'השוואה לעסקאות דומות', 'תחזית תשואה'],
+              items: ['הערכת שווי נוכחי', 'פוטנציאל השבחה', 'עלויות פיתוח משוערות', 'השוואה לעסקאות דומות', 'ניתוח כדאיות'],
               icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>`,
             },
           ].map((category) => (
@@ -119,34 +282,129 @@ const serviceSchema = {
     </div>
   </section>
 
-  <!-- Why Important -->
+  <!-- Process Steps -->
+  <ProcessSteps
+    title="איך זה עובד?"
+    subtitle="תהליך פשוט וברור מרגע הפנייה ועד קבלת הדוח"
+    steps={serviceSteps}
+  />
+
+  <!-- Pricing -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-xl mx-auto text-center">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-4">
+          מחיר קבוע - בלי הפתעות
+        </h2>
+        <div class="bg-brand-50 rounded-2xl p-8 border border-brand-100">
+          <div class="text-5xl font-bold text-brand-600 mb-2">₪2,500</div>
+          <div class="text-muted mb-6">+ מע״מ | כולל את כל הבדיקות</div>
+          <ul class="text-start space-y-3 mb-8">
+            {['בדיקה תכנונית מלאה', 'בדיקה משפטית מקיפה', 'ניתוח כלכלי והשוואה', 'דוח מפורט בכתב', 'שיחת סיכום והמלצות'].map((item) => (
+              <li class="flex items-center gap-2 text-dark">
+                <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <a
+            href="#contact"
+            class="block w-full py-4 bg-accent hover:bg-accent-dark text-white rounded-md font-semibold transition-all duration-300"
+          >
+            הזמינו בדיקה עכשיו
+          </a>
+        </div>
+
+        <div class="mt-8 p-4 bg-surface rounded-lg border border-border text-sm text-muted">
+          <strong class="text-dark">מחפשים ליווי מלא?</strong> אם אתם רוצים שנלווה אתכם גם בחיפוש קרקע, משא ומתן, וליווי עד החתימה -
+          <a href="/land-purchase-consulting/" class="text-brand-600 hover:underline">ראו את שירות ליווי רכישת קרקע (15,000 ש״ח) ←</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Maayan -->
   <section class="py-16 md:py-20 bg-surface">
+    <div class="container mx-auto px-4">
+      <div class="max-w-5xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+          <!-- Maayan's Image -->
+          <div class="lg:col-span-1 flex justify-center">
+            <div class="relative">
+              <img
+                src="/images/team/maayan-portrait.png"
+                alt="מעיין ליבנה - שמאית מקרקעין מוסמכת"
+                class="w-64 h-auto rounded-2xl shadow-lg"
+                loading="lazy"
+              />
+              <div class="absolute -bottom-4 -right-4 bg-brand-600 text-white px-4 py-2 rounded-lg text-sm font-medium shadow-lg">
+                שמאית מקרקעין מוסמכת
+              </div>
+            </div>
+          </div>
+
+          <!-- Bio content -->
+          <div class="lg:col-span-2">
+            <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-4">
+              מעיין ליבנה - מי עורכת את הבדיקה?
+            </h2>
+            <p class="text-muted mb-4">
+              מעיין היא שמאית מקרקעין מוסמכת עם 15 שנות ניסיון בהערכות שווי ובדיקות עסקאות קרקע.
+              היא מתמחה בקריאת תוכניות בניין עיר, ניתוח זכויות בנייה, ואיתור בעיות שמתווכים ועורכי דין רגילים לא תמיד רואים.
+            </p>
+            <p class="text-muted mb-6">
+              בעברה עבדה בחברות נדל"ן גדולות ומשרדי שמאות מובילים. היום היא מלווה משקיעים פרטיים ומשפחות בהחלטות הכי חשובות שלהם.
+            </p>
+
+            <div class="grid grid-cols-2 gap-4">
+              {[
+                { label: 'שמאית מוסמכת', value: 'רישיון משרד המשפטים' },
+                { label: 'ניסיון', value: '15+ שנים' },
+                { label: 'התמחות', value: 'קרקעות ותב״ע' },
+                { label: 'בדיקות', value: '340+ עסקאות' },
+              ].map((stat) => (
+                <div class="bg-white rounded-lg p-4 border border-border">
+                  <div class="text-sm text-muted mb-1">{stat.label}</div>
+                  <div class="font-semibold text-dark">{stat.value}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Important -->
+  <section class="py-16 md:py-20 bg-white">
     <div class="container mx-auto px-4">
       <div class="max-w-3xl mx-auto">
         <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
-          למה חשוב לבדוק קרקע לפני רכישה?
+          למה חובה לבדוק קרקע לפני רכישה?
         </h2>
 
         <div class="space-y-6">
           {[
             {
-              title: 'הימנעות מהפסדים',
-              desc: 'בדיקה מקצועית יכולה לחשוף בעיות שיעלו לכם מאות אלפי שקלים - לפני שזה קורה.',
+              title: '38% מהעסקאות - עם ממצאים מהותיים',
+              desc: 'מתוך 340+ עסקאות שבדקנו, כמעט 4 מכל 10 כללו בעיות שהשפיעו על המחיר או על ההחלטה לקנות.',
             },
             {
-              title: 'משא ומתן מושכל',
-              desc: 'ידע הוא כוח. כשאתם יודעים בדיוק מה יש בקרקע, אתם יכולים לנהל משא ומתן חכם יותר.',
+              title: '2,500 ש״ח יכולים לחסוך מאות אלפים',
+              desc: 'הבדיקה עולה פחות מ-1% מעסקת קרקע ממוצעת. הסיכון של לא לבדוק - גדול בהרבה.',
             },
             {
-              title: 'שקט נפשי',
-              desc: 'אחרי הבדיקה תדעו בדיוק מה אתם קונים - בלי הפתעות לא נעימות בהמשך.',
+              title: 'מוכרים לא תמיד יודעים (או מספרים)',
+              desc: 'לפעמים המוכר לא מודע לבעיות. לפעמים הוא מודע ומקווה שלא תגלו. בכל מקרה - אתם צריכים לדעת.',
             },
             {
-              title: 'תכנון נכון',
-              desc: 'הבנת זכויות הבנייה והפוטנציאל מאפשרת תכנון פיננסי מדויק של ההשקעה.',
+              title: 'אחרי החתימה - מאוחר מדי',
+              desc: 'ברגע שחתמתם, קשה מאוד לחזור אחורה. בדיקה לפני החתימה היא ההזדמנות האחרונה לגלות בעיות.',
             },
           ].map((item) => (
-            <div class="flex gap-4 p-6 bg-white rounded-xl border border-border">
+            <div class="flex gap-4 p-6 bg-surface rounded-xl border border-border">
               <div class="flex-shrink-0 w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center">
                 <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -163,40 +421,9 @@ const serviceSchema = {
     </div>
   </section>
 
-  <!-- Pricing -->
-  <section class="py-16 md:py-20 bg-white">
-    <div class="container mx-auto px-4">
-      <div class="max-w-xl mx-auto text-center">
-        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-4">
-          מחיר השירות
-        </h2>
-        <div class="bg-brand-50 rounded-2xl p-8 border border-brand-100">
-          <div class="text-5xl font-bold text-brand-600 mb-2">₪2,500</div>
-          <div class="text-muted mb-6">+ מע״מ | כולל את כל הבדיקות</div>
-          <ul class="text-start space-y-3 mb-8">
-            {['בדיקה תכנונית מלאה', 'בדיקה משפטית מקיפה', 'ניתוח כלכלי', 'דוח מפורט בכתב', 'שיחת סיכום'].map((item) => (
-              <li class="flex items-center gap-2 text-dark">
-                <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
-                {item}
-              </li>
-            ))}
-          </ul>
-          <a
-            href="#contact"
-            class="block w-full py-4 bg-accent hover:bg-accent-dark text-white rounded-md font-semibold transition-all duration-300"
-          >
-            הזמינו בדיקה עכשיו
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <CTASection
     title="לא בטוחים לגבי הקרקע?"
-    subtitle="בדיקה מקצועית תיתן לכם את התשובות שאתם צריכים"
+    subtitle="בדיקה מקצועית תיתן לכם את התשובות שאתם צריכים - לפני שתחתמו"
     ctaText="הזמינו בדיקה"
   />
 
