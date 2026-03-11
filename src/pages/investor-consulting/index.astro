@@ -394,9 +394,25 @@ const serviceSchema = {
   <!-- About Or Livne -->
   <section class="py-16 md:py-20 bg-surface">
     <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <div>
+      <div class="max-w-5xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+          <!-- Or's Image -->
+          <div class="lg:col-span-1 flex justify-center">
+            <div class="relative">
+              <img
+                src="/images/team/or-portrait.webp"
+                alt="אור ליבנה - מלווה משקיעים ויועץ משכנתאות"
+                class="w-64 h-auto rounded-2xl shadow-lg"
+                loading="lazy"
+              />
+              <div class="absolute -bottom-4 -right-4 bg-brand-600 text-white px-4 py-2 rounded-lg text-sm font-medium shadow-lg">
+                12+ שנות ניסיון
+              </div>
+            </div>
+          </div>
+
+          <!-- Or's Bio -->
+          <div class="lg:col-span-2">
             <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-6">
               הכירו את אור ליבנה
             </h2>
@@ -406,76 +422,69 @@ const serviceSchema = {
 
             <ul class="space-y-3 mb-6">
               <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-brand-600 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-5 h-5 text-brand-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                 </svg>
                 <span class="text-dark">8 שנים בהייטק כמנהל שיווק וצמיחה - כולל אקזיט עם גרניולט (נמכרה לאינטל)</span>
               </li>
               <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-brand-600 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-5 h-5 text-brand-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                 </svg>
                 <span class="text-dark">יועץ משכנתאות מוסמך - קשרי עבודה עם כל הבנקים</span>
               </li>
               <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-brand-600 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-5 h-5 text-brand-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                 </svg>
                 <span class="text-dark">רישיון תיווך מטעם משרד המשפטים</span>
               </li>
               <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-brand-600 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-5 h-5 text-brand-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                 </svg>
                 <span class="text-dark">רשת קשרים רחבה עם בעלי קרקעות, יזמים ובעלי מקצוע</span>
               </li>
             </ul>
 
-            <p class="text-muted italic">
+            <p class="text-muted italic border-r-4 border-brand-200 pr-4">
               "בשנים האחרונות זכינו ללוות משקיעים בקבלת החלטות בעסקאות נדל״ן. מי שלא הגיע מהתחום והצליח לקבל החלטה נכונה וכלכלית - ריגש אותנו. בזכותם הבנו את ערך הליווי."
             </p>
           </div>
+        </div>
 
-          <div class="bg-white rounded-2xl p-8 border border-border">
-            <h3 class="font-semibold text-dark mb-4 text-center">למה כדאי להצטרף?</h3>
-            <ul class="space-y-4">
-              <li class="flex items-start gap-3">
-                <div class="flex-shrink-0 w-6 h-6 bg-success-100 rounded-full flex items-center justify-center">
-                  <span class="text-success-600 text-sm font-bold">✓</span>
-                </div>
-                <div>
-                  <span class="font-medium text-dark">תשואה מקסימלית</span>
-                  <p class="text-sm text-muted">עסקאות מתחת למחיר השוק, לאחר בדיקה מקצועית</p>
-                </div>
-              </li>
-              <li class="flex items-start gap-3">
-                <div class="flex-shrink-0 w-6 h-6 bg-success-100 rounded-full flex items-center justify-center">
-                  <span class="text-success-600 text-sm font-bold">✓</span>
-                </div>
-                <div>
-                  <span class="font-medium text-dark">הגשש המקצועי שלכם</span>
-                  <p class="text-sm text-muted">עיניים מנוסות שבוחנות כל עסקה בהתאמה אישית</p>
-                </div>
-              </li>
-              <li class="flex items-start gap-3">
-                <div class="flex-shrink-0 w-6 h-6 bg-success-100 rounded-full flex items-center justify-center">
-                  <span class="text-success-600 text-sm font-bold">✓</span>
-                </div>
-                <div>
-                  <span class="font-medium text-dark">ליווי ארוך טווח</span>
-                  <p class="text-sm text-muted">תמיכה גם אחרי החתימה - שיפוץ, השכרה, מכירה</p>
-                </div>
-              </li>
-              <li class="flex items-start gap-3">
-                <div class="flex-shrink-0 w-6 h-6 bg-success-100 rounded-full flex items-center justify-center">
-                  <span class="text-success-600 text-sm font-bold">✓</span>
-                </div>
-                <div>
-                  <span class="font-medium text-dark">שקיפות מלאה</span>
-                  <p class="text-sm text-muted">מראים את כל התמונה - גם הסיכונים, לא רק היתרונות</p>
-                </div>
-              </li>
-            </ul>
+        <!-- Why Join - Full Width Below -->
+        <div class="mt-12 bg-white rounded-2xl p-8 border border-border">
+          <h3 class="font-semibold text-dark mb-6 text-center text-xl">למה כדאי להצטרף?</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="text-center">
+              <div class="w-12 h-12 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <span class="text-success-600 text-lg font-bold">✓</span>
+              </div>
+              <span class="font-medium text-dark block mb-1">תשואה מקסימלית</span>
+              <p class="text-sm text-muted">עסקאות מתחת למחיר השוק, לאחר בדיקה מקצועית</p>
+            </div>
+            <div class="text-center">
+              <div class="w-12 h-12 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <span class="text-success-600 text-lg font-bold">✓</span>
+              </div>
+              <span class="font-medium text-dark block mb-1">הגשש המקצועי שלכם</span>
+              <p class="text-sm text-muted">עיניים מנוסות שבוחנות כל עסקה בהתאמה אישית</p>
+            </div>
+            <div class="text-center">
+              <div class="w-12 h-12 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <span class="text-success-600 text-lg font-bold">✓</span>
+              </div>
+              <span class="font-medium text-dark block mb-1">ליווי ארוך טווח</span>
+              <p class="text-sm text-muted">תמיכה גם אחרי החתימה - שיפוץ, השכרה, מכירה</p>
+            </div>
+            <div class="text-center">
+              <div class="w-12 h-12 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <span class="text-success-600 text-lg font-bold">✓</span>
+              </div>
+              <span class="font-medium text-dark block mb-1">שקיפות מלאה</span>
+              <p class="text-sm text-muted">מראים את כל התמונה - גם הסיכונים, לא רק היתרונות</p>
+            </div>
           </div>
         </div>
       </div>
