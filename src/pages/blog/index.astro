@@ -7,24 +7,20 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 // const posts = await fetchPosts();
 
 // Placeholder posts - replace with real data source
-const posts = [
-  {
-    slug: 'first-post',
-    title: 'First Blog Post',
-    excerpt: 'This is a placeholder blog post. Replace with real content.',
-    date: '2026-01-01',
-    image: null,
-  },
+const posts: Array<{slug: string; title: string; excerpt: string; date: string; image: string | null}> = [
+  // TODO: Add real blog posts here
 ];
 ---
 
 <BaseLayout
-  title="Blog"
-  description="Read our latest articles and updates."
+  title="מאמרים"
+  description="מאמרים ומדריכים על השקעות נדל״ן, קרקעות, תמ״א 38 והתחדשות עירונית. טיפים להשקעה חכמה מצוות מעין ואור ליבנה."
+  noindex={true}
 >
   <section class="py-20">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h1 class="text-4xl font-bold text-gray-900 mb-12">Blog</h1>
+      <h1 class="text-4xl font-bold text-gray-900 mb-12">מאמרים</h1>
+        <p class="text-lg text-muted mb-12 -mt-8">בקרוב - מאמרים ומדריכים על השקעות נדל״ן בישראל</p>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {posts.map((post) => (

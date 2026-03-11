@@ -1,0 +1,160 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHero from '../../../components/PageHero.astro';
+import TrustBar from '../../../components/TrustBar.astro';
+import ServicesGrid from '../../../components/ServicesGrid.astro';
+import FAQ from '../../../components/FAQ.astro';
+import ContactForm from '../../../components/ContactForm.astro';
+import CTASection from '../../../components/CTASection.astro';
+import SchemaOrg from '../../../components/SchemaOrg.astro';
+
+const breadcrumbs = [
+  { label: 'דף הבית', href: '/' },
+  { label: 'אזורי שירות', href: '/areas/' },
+  { label: 'גבעת שמואל' },
+];
+
+const faqItems = [
+  {
+    question: 'למה גבעת שמואל נחשבת להשקעה טובה?',
+    answer: 'גבעת שמואל נהנית ממיקום מרכזי מצוין - צמודה לפתח תקווה ולרמת גן, עם גישה מהירה לתל אביב. האוכלוסייה איכותית (רופאים, אנשי הייטק), והביקוש לשכירות גבוה ויציב.',
+  },
+  {
+    question: 'מה התשואה הממוצעת בגבעת שמואל?',
+    answer: 'התשואה הממוצעת נעה בין 3% ל-4% ברוטו. התשואה נמוכה יחסית אך השוכרים איכותיים ויציבים, ויש פוטנציאל טוב לעליית ערך.',
+  },
+  {
+    question: 'האם יש קרקעות להשקעה באזור?',
+    answer: 'גבעת שמואל עיר קטנה עם מעט קרקעות פנויות. רוב ההזדמנויות הן דירות קיימות או דירות בפרויקטים חדשים. <a href="/land-deal-assessment/" class="text-brand-600 hover:underline">אם מצאתם קרקע - נשמח לבדוק אותה ←</a>',
+  },
+  {
+    question: 'כמה עולה ליווי משקיעים בגבעת שמואל?',
+    answer: 'מחירים קבועים: <a href="/investor-consulting/" class="text-brand-600 hover:underline">ליווי משקיעים</a> - 18,000 ש״ח, <a href="/apartment-investment-analysis/" class="text-brand-600 hover:underline">בדיקת כדאיות דירה</a> - 1,800 ש״ח.',
+  },
+];
+
+const marketStats = [
+  { label: 'מחיר ממוצע לדירה 3 חד\'', value: '2.5-3.5M ש״ח' },
+  { label: 'תשואה ממוצעת', value: '3-4%' },
+  { label: 'שכירות ממוצעת', value: '5,500-7,500 ש״ח' },
+  { label: 'אוכלוסייה', value: '30K' },
+];
+
+const localSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'ליווי משקיעי נדל״ן בגבעת שמואל - מעין ואור ליבנה',
+  description: 'ליווי משקיעי נדל״ן בגבעת שמואל על ידי שמאית מקרקעין מוסמכת. בדיקות נכסים, ניתוח כדאיות וליווי עד לסגירת העסקה.',
+  url: 'https://hashkaot-nadlan.co.il/areas/givat-shmuel/',
+  telephone: '+972-55-2555144',
+  areaServed: {
+    '@type': 'City',
+    name: 'גבעת שמואל',
+  },
+};
+---
+
+<BaseLayout
+  title="ליווי משקיעי נדל״ן בגבעת שמואל"
+  description="ליווי משקיעי נדל״ן בגבעת שמואל - שמאית מקרקעין מוסמכת. בדיקות נכסים, ניתוח כדאיות. עיר יוקרתית עם שוכרים איכותיים. צרו קשר."
+>
+  <SchemaOrg schema={localSchema} />
+
+  <PageHero
+    title="ליווי משקיעי נדל״ן בגבעת שמואל"
+    subtitle="גבעת שמואל - עיר קטנה ויוקרתית עם אוכלוסייה איכותית. מיקום מרכזי, שוכרים יציבים ופוטנציאל עליית ערך. נעזור לכם למצוא את ההזדמנות הנכונה."
+    breadcrumbs={breadcrumbs}
+    backgroundImage="/images/hero/hero-02.webp"
+    showCTA={true}
+    ctaText="השאירו פרטים לייעוץ"
+  />
+
+  <TrustBar variant="light" />
+
+  <!-- Market Overview -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
+          שוק הנדל״ן בגבעת שמואל - 2026
+        </h2>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+          {marketStats.map((stat) => (
+            <div class="bg-brand-50 rounded-xl p-4 text-center">
+              <div class="text-lg md:text-xl font-bold text-brand-600 mb-1">{stat.value}</div>
+              <div class="text-sm text-muted">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+
+        <div class="prose prose-lg max-w-none text-muted">
+          <p>
+            גבעת שמואל היא אחת הערים היוקרתיות ביותר במרכז הארץ. למרות גודלה הקטן (30,000 תושבים), היא מושכת אוכלוסייה איכותית - רופאים, מהנדסים ואנשי הייטק שמעדיפים סביבה שקטה עם גישה מהירה למרכז.
+          </p>
+          <p>
+            ההיצע בגבעת שמואל מוגבל, מה שמייצר ביקוש גבוה ומחירים יציבים. המשקיעים נהנים משוכרים איכותיים שמשלמים בזמן ושומרים על הנכס.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Givat Shmuel -->
+  <section class="py-16 md:py-20 bg-surface">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
+          למה להשקיע בגבעת שמואל?
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {[
+            {
+              title: 'אוכלוסייה איכותית',
+              desc: 'שוכרים מבוססים שמשלמים בזמן ושומרים על הנכס. פחות תחלופה ופחות כאבי ראש.',
+            },
+            {
+              title: 'מיקום מרכזי',
+              desc: 'צמודה לפתח תקווה ולרמת גן, 15 דקות מתל אביב. נגישות מצוינת לכל המרכז.',
+            },
+            {
+              title: 'היצע מוגבל',
+              desc: 'עיר קטנה עם מעט בנייה חדשה. הביקוש עולה על ההיצע, מה שתומך במחירים.',
+            },
+            {
+              title: 'יציבות',
+              desc: 'פחות תנודתיות ממרכזי ערים גדולות. מתאים למשקיעים שמעדיפים שקט על תשואה מקסימלית.',
+            },
+          ].map((item) => (
+            <div class="bg-white rounded-xl p-6 border border-border">
+              <h3 class="font-semibold text-dark mb-2">{item.title}</h3>
+              <p class="text-muted text-sm">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ServicesGrid
+    title="השירותים שלנו בגבעת שמואל"
+    subtitle="כל השירותים שלנו זמינים בגבעת שמואל והסביבה"
+  />
+
+  <CTASection
+    title="מחפשים השקעה בגבעת שמואל?"
+    subtitle="נעזור לכם למצוא את הנכס הנכון בעיר היוקרתית"
+    ctaText="השאירו פרטים"
+  />
+
+  <FAQ
+    title="שאלות נפוצות על השקעות בגבעת שמואל"
+    items={faqItems}
+  />
+
+  <ContactForm
+    title="מעוניינים בייעוץ לגבעת שמואל?"
+    subtitle="השאירו פרטים ונחזור אליכם בהקדם"
+  />
+</BaseLayout>

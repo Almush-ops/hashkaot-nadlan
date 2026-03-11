@@ -1,0 +1,192 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHero from '../../../components/PageHero.astro';
+import TrustBar from '../../../components/TrustBar.astro';
+import ServicesGrid from '../../../components/ServicesGrid.astro';
+import FAQ from '../../../components/FAQ.astro';
+import ContactForm from '../../../components/ContactForm.astro';
+import CTASection from '../../../components/CTASection.astro';
+import SchemaOrg from '../../../components/SchemaOrg.astro';
+
+const breadcrumbs = [
+  { label: 'דף הבית', href: '/' },
+  { label: 'אזורי שירות', href: '/areas/' },
+  { label: 'חיפה והקריות' },
+];
+
+const faqItems = [
+  {
+    question: 'באיזה אזורים בחיפה אתם ממליצים להשקיע?',
+    answer: 'האזורים המומלצים להשקעה בחיפה משתנים בהתאם לתקציב והיעדים. הכרמל ואחוזה מציעים יציבות אך מחירים גבוהים. שכונות כמו נווה שאנן והדר מציעות תשואות גבוהות יותר עם פוטנציאל השבחה. הקריות מתאימות למי שמחפש מחירי כניסה נמוכים.',
+  },
+  {
+    question: 'מה התשואה הממוצעת על דירה להשקעה בחיפה?',
+    answer: 'התשואה הממוצעת בחיפה נעה בין 4% ל-6% ברוטו, גבוהה משמעותית מתל אביב והמרכז. באזורים מסוימים ניתן להגיע ל-7%+ עם ניהול נכון של הנכס.',
+  },
+  {
+    question: 'האם יש פרויקטי התחדשות עירונית בחיפה?',
+    answer: 'כן, חיפה עוברת מהפכת התחדשות עירונית משמעותית. אזורים כמו הדר הכרמל, נווה שאנן ועיר תחתית כוללים מאות פרויקטים מאושרים ומתוכננים. <a href="/urban-renewal/" class="text-brand-600 hover:underline">ראו את שירות ייעוץ התחדשות עירונית שלנו ←</a>',
+  },
+  {
+    question: 'כמה עולה ליווי משקיעים באזור חיפה?',
+    answer: 'המחירים שלנו קבועים ללא קשר לאזור: <a href="/investor-consulting/" class="text-brand-600 hover:underline">ליווי משקיעים לרכישת דירה</a> - 18,000 ש״ח, <a href="/apartment-investment-analysis/" class="text-brand-600 hover:underline">בדיקת כדאיות דירה</a> - 1,800 ש״ח, <a href="/land-deal-assessment/" class="text-brand-600 hover:underline">בדיקת עסקת קרקע</a> - 2,500 ש״ח.',
+  },
+];
+
+// Market stats for Haifa
+const marketStats = [
+  { label: 'מחיר ממוצע לדירה 3 חד\'', value: '1.3-1.8M ש״ח' },
+  { label: 'תשואה ממוצעת', value: '4-6%' },
+  { label: 'שכירות ממוצעת', value: '3,500-5,500 ש״ח' },
+  { label: 'פרויקטי התחדשות', value: '200+' },
+];
+
+const localSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'ליווי משקיעי נדל״ן בחיפה - מעין ואור ליבנה',
+  description: 'ליווי משקיעי נדל״ן בחיפה והקריות על ידי שמאית מקרקעין מוסמכת. בדיקות נכסים, ניתוח כדאיות וליווי עד לסגירת העסקה.',
+  url: 'https://hashkaot-nadlan.co.il/areas/haifa/',
+  telephone: '+972-55-2555144',
+  areaServed: {
+    '@type': 'City',
+    name: 'חיפה',
+  },
+  priceRange: '₪₪',
+};
+---
+
+<BaseLayout
+  title="ליווי משקיעי נדל״ן בחיפה והקריות"
+  description="ליווי משקיעי נדל״ן בחיפה והקריות - שמאית מקרקעין מוסמכת מלווה אתכם בכל שלב. בדיקות נכסים, ניתוח כדאיות, ניהול מו״מ. תשואות של 4-6%. צרו קשר."
+>
+  <SchemaOrg schema={localSchema} />
+
+  <PageHero
+    title="ליווי משקיעי נדל״ן בחיפה והקריות"
+    subtitle="חיפה מציעה הזדמנויות השקעה ייחודיות - מחירים נמוכים מהמרכז, תשואות גבוהות, והתחדשות עירונית מואצת. אנחנו כאן כדי לעזור לכם למצוא את ההשקעה הנכונה."
+    breadcrumbs={breadcrumbs}
+    backgroundImage="/images/hero/hero-02.webp"
+    showCTA={true}
+    ctaText="השאירו פרטים לייעוץ"
+  />
+
+  <TrustBar variant="light" />
+
+  <!-- Market Overview -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
+          שוק הנדל״ן בחיפה - 2026
+        </h2>
+
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+          {marketStats.map((stat) => (
+            <div class="bg-brand-50 rounded-xl p-4 text-center">
+              <div class="text-lg md:text-xl font-bold text-brand-600 mb-1">{stat.value}</div>
+              <div class="text-sm text-muted">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+
+        <div class="prose prose-lg max-w-none text-muted">
+          <p>
+            חיפה היא אחד משווקי הנדל״ן האטרקטיביים ביותר למשקיעים בישראל. בעוד מחירי הדירות במרכז הארץ מרקיעים שחקים, חיפה מציעה נקודת כניסה נוחה יותר עם תשואות גבוהות יחסית.
+          </p>
+          <p>
+            המשרד שלנו ממוקם באזור חיפה, ואנחנו מכירים את השוק המקומי לעומק - השכונות, המגמות, היזמים, ופרויקטי ההתחדשות העירונית. הידע המקומי הזה הוא יתרון משמעותי כשמחפשים נכס להשקעה.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Neighborhoods -->
+  <section class="py-16 md:py-20 bg-surface">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
+          שכונות מומלצות להשקעה
+        </h2>
+
+        <div class="space-y-6">
+          {[
+            {
+              name: 'הכרמל ואחוזה',
+              profile: 'יציבות גבוהה',
+              price: '2-3M ש״ח',
+              yield: '3-4%',
+              desc: 'האזור היוקרתי של חיפה. מחירים גבוהים יחסית אך ביקוש קבוע ושוכרים איכותיים. מתאים למשקיעים שמחפשים יציבות לטווח ארוך.',
+            },
+            {
+              name: 'נווה שאנן',
+              profile: 'תשואה + השבחה',
+              price: '1.2-1.8M ש״ח',
+              yield: '5-6%',
+              desc: 'שכונה בהתחדשות עם פוטנציאל השבחה משמעותי. קרובה לטכניון ולאוניברסיטה. תשואות גבוהות עם אפשרות להשכרה לסטודנטים.',
+            },
+            {
+              name: 'הדר הכרמל',
+              profile: 'התחדשות עירונית',
+              price: '1-1.5M ש״ח',
+              yield: '5-7%',
+              desc: 'מרכז ההתחדשות העירונית של חיפה. עשרות פרויקטים מתוכננים. מחירי כניסה נמוכים עם פוטנציאל עליית ערך משמעותית.',
+            },
+            {
+              name: 'הקריות',
+              profile: 'כניסה נמוכה',
+              price: '800K-1.3M ש״ח',
+              yield: '5-6%',
+              desc: 'קריית ביאליק, קריית מוצקין וקריית ים. מחירי כניסה נמוכים מאוד עם תשואות טובות. מתאים למשקיעים בתקציב מוגבל.',
+            },
+          ].map((neighborhood) => (
+            <div class="bg-white rounded-xl p-6 border border-border">
+              <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+                <div>
+                  <h3 class="font-heading font-bold text-dark text-xl">{neighborhood.name}</h3>
+                  <span class="inline-block px-3 py-1 bg-brand-100 text-brand-600 rounded-full text-sm">
+                    {neighborhood.profile}
+                  </span>
+                </div>
+                <div class="flex gap-6 text-sm">
+                  <div>
+                    <span class="text-muted">מחיר: </span>
+                    <span class="font-semibold text-dark">{neighborhood.price}</span>
+                  </div>
+                  <div>
+                    <span class="text-muted">תשואה: </span>
+                    <span class="font-semibold text-accent">{neighborhood.yield}</span>
+                  </div>
+                </div>
+              </div>
+              <p class="text-muted">{neighborhood.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ServicesGrid
+    title="השירותים שלנו בחיפה"
+    subtitle="כל השירותים שלנו זמינים באזור חיפה והקריות - ליווי מלא או בדיקות נקודתיות"
+  />
+
+  <CTASection
+    title="מחפשים השקעה בחיפה?"
+    subtitle="נעזור לכם למצוא את הנכס הנכון באזור שאתם מכירים פחות"
+    ctaText="השאירו פרטים"
+  />
+
+  <FAQ
+    title="שאלות נפוצות על השקעות בחיפה"
+    items={faqItems}
+  />
+
+  <ContactForm
+    title="מעוניינים בייעוץ לאזור חיפה?"
+    subtitle="השאירו פרטים ונחזור אליכם בהקדם"
+  />
+</BaseLayout>

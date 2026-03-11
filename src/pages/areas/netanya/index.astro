@@ -1,0 +1,189 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHero from '../../../components/PageHero.astro';
+import TrustBar from '../../../components/TrustBar.astro';
+import ServicesGrid from '../../../components/ServicesGrid.astro';
+import FAQ from '../../../components/FAQ.astro';
+import ContactForm from '../../../components/ContactForm.astro';
+import CTASection from '../../../components/CTASection.astro';
+import SchemaOrg from '../../../components/SchemaOrg.astro';
+
+const breadcrumbs = [
+  { label: 'דף הבית', href: '/' },
+  { label: 'אזורי שירות', href: '/areas/' },
+  { label: 'נתניה' },
+];
+
+const faqItems = [
+  {
+    question: 'מה מיוחד בשוק הנדל״ן בנתניה?',
+    answer: 'נתניה נהנית ממיקום מעולה - קרבה לים, גישה נוחה למרכז, ומחירים נוחים יחסית לתל אביב והרצליה. העיר מושכת אוכלוסייה צעירה ומשפחות, מה שמבטיח ביקוש יציב לשכירות.',
+  },
+  {
+    question: 'מה התשואה הממוצעת על דירה להשקעה בנתניה?',
+    answer: 'התשואה הממוצעת בנתניה נעה בין 3.5% ל-5% ברוטו. באזורים מסוימים כמו שכונות הוותיקות או קו החוף השני ניתן להגיע לתשואות גבוהות יותר.',
+  },
+  {
+    question: 'האם כדאי להשקיע בקו הראשון לים בנתניה?',
+    answer: 'קו ראשון לים מציע יציבות ופוטנציאל עליית ערך, אך התשואה השוטפת נמוכה יותר (2.5-3.5%). מתאים למשקיעים שמעדיפים שימור ערך על תשואה.',
+  },
+  {
+    question: 'כמה עולה ליווי משקיעים בנתניה?',
+    answer: 'המחירים קבועים: <a href="/investor-consulting/" class="text-brand-600 hover:underline">ליווי משקיעים לרכישת דירה</a> - 18,000 ש״ח, <a href="/apartment-investment-analysis/" class="text-brand-600 hover:underline">בדיקת כדאיות דירה</a> - 1,800 ש״ח.',
+  },
+];
+
+const marketStats = [
+  { label: 'מחיר ממוצע לדירה 3 חד\'', value: '1.8-2.5M ש״ח' },
+  { label: 'תשואה ממוצעת', value: '3.5-5%' },
+  { label: 'שכירות ממוצעת', value: '4,000-6,000 ש״ח' },
+  { label: 'קרבה לים', value: 'עד 10 דק\'' },
+];
+
+const localSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'ליווי משקיעי נדל״ן בנתניה - מעין ואור ליבנה',
+  description: 'ליווי משקיעי נדל״ן בנתניה על ידי שמאית מקרקעין מוסמכת. בדיקות נכסים, ניתוח כדאיות וליווי עד לסגירת העסקה.',
+  url: 'https://hashkaot-nadlan.co.il/areas/netanya/',
+  telephone: '+972-55-2555144',
+  areaServed: {
+    '@type': 'City',
+    name: 'נתניה',
+  },
+};
+---
+
+<BaseLayout
+  title="ליווי משקיעי נדל״ן בנתניה"
+  description="ליווי משקיעי נדל״ן בנתניה - שמאית מקרקעין מוסמכת מלווה אתכם בכל שלב. בדיקות נכסים, ניתוח כדאיות. קרבה לים ותשואות של 3.5-5%. צרו קשר."
+>
+  <SchemaOrg schema={localSchema} />
+
+  <PageHero
+    title="ליווי משקיעי נדל״ן בנתניה"
+    subtitle="נתניה מציעה שילוב מנצח - קרבה לים, גישה נוחה למרכז, ומחירים נוחים יחסית. בואו נמצא יחד את ההשקעה שתתאים לכם."
+    breadcrumbs={breadcrumbs}
+    backgroundImage="/images/hero/hero-02.webp"
+    showCTA={true}
+    ctaText="השאירו פרטים לייעוץ"
+  />
+
+  <TrustBar variant="light" />
+
+  <!-- Market Overview -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
+          שוק הנדל״ן בנתניה - 2026
+        </h2>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+          {marketStats.map((stat) => (
+            <div class="bg-brand-50 rounded-xl p-4 text-center">
+              <div class="text-lg md:text-xl font-bold text-brand-600 mb-1">{stat.value}</div>
+              <div class="text-sm text-muted">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+
+        <div class="prose prose-lg max-w-none text-muted">
+          <p>
+            נתניה היא אחת הערים הגדלות במהירות בישראל, עם אוכלוסייה צעירה וביקוש גובר לדירות להשכרה. המיקום האסטרטגי - 20 דקות מתל אביב ועל חוף הים - הופך אותה לאטרקטיבית למשקיעים.
+          </p>
+          <p>
+            בשנים האחרונות נתניה עוברת מהפכת פיתוח עם קניונים חדשים, שדרוג תשתיות ופרויקטים חדשים לאורך קו החוף. כל אלה תורמים לעליית ערך הנכסים באזור.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Neighborhoods -->
+  <section class="py-16 md:py-20 bg-surface">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
+          שכונות מומלצות להשקעה
+        </h2>
+
+        <div class="space-y-6">
+          {[
+            {
+              name: 'קו ראשון לים',
+              profile: 'יוקרה ויציבות',
+              price: '3-5M ש״ח',
+              yield: '2.5-3.5%',
+              desc: 'דירות עם נוף לים. תשואה נמוכה יותר אך פוטנציאל עליית ערך ושימור הון. מתאים למשקיעים ארוכי טווח.',
+            },
+            {
+              name: 'מרכז העיר',
+              profile: 'ביקוש גבוה',
+              price: '1.8-2.5M ש״ח',
+              yield: '3.5-4.5%',
+              desc: 'קרבה לחוף, לקניונים ולתחבורה ציבורית. ביקוש קבוע מצעירים ומשפחות. איזון טוב בין תשואה לעליית ערך.',
+            },
+            {
+              name: 'שכונות הוותיקות',
+              profile: 'תשואה גבוהה',
+              price: '1.3-1.8M ש״ח',
+              yield: '4.5-5.5%',
+              desc: 'מחירי כניסה נמוכים יחסית עם תשואות גבוהות. פוטנציאל להתחדשות עירונית בשנים הקרובות.',
+            },
+            {
+              name: 'קריית נורדאו',
+              profile: 'מתפתחת',
+              price: '1.5-2M ש״ח',
+              yield: '4-5%',
+              desc: 'שכונה בצמיחה עם פרויקטים חדשים. מושכת אוכלוסייה צעירה. איזון טוב בין מחיר לתשואה.',
+            },
+          ].map((neighborhood) => (
+            <div class="bg-white rounded-xl p-6 border border-border">
+              <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+                <div>
+                  <h3 class="font-heading font-bold text-dark text-xl">{neighborhood.name}</h3>
+                  <span class="inline-block px-3 py-1 bg-brand-100 text-brand-600 rounded-full text-sm">
+                    {neighborhood.profile}
+                  </span>
+                </div>
+                <div class="flex gap-6 text-sm">
+                  <div>
+                    <span class="text-muted">מחיר: </span>
+                    <span class="font-semibold text-dark">{neighborhood.price}</span>
+                  </div>
+                  <div>
+                    <span class="text-muted">תשואה: </span>
+                    <span class="font-semibold text-accent">{neighborhood.yield}</span>
+                  </div>
+                </div>
+              </div>
+              <p class="text-muted">{neighborhood.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ServicesGrid
+    title="השירותים שלנו בנתניה"
+    subtitle="כל השירותים שלנו זמינים בנתניה והסביבה"
+  />
+
+  <CTASection
+    title="מחפשים השקעה בנתניה?"
+    subtitle="נעזור לכם למצוא את הנכס הנכון ליד הים"
+    ctaText="השאירו פרטים"
+  />
+
+  <FAQ
+    title="שאלות נפוצות על השקעות בנתניה"
+    items={faqItems}
+  />
+
+  <ContactForm
+    title="מעוניינים בייעוץ לאזור נתניה?"
+    subtitle="השאירו פרטים ונחזור אליכם בהקדם"
+  />
+</BaseLayout>

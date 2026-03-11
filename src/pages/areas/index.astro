@@ -1,0 +1,142 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import TrustBar from '../../components/TrustBar.astro';
+import CTASection from '../../components/CTASection.astro';
+
+const breadcrumbs = [
+  { label: 'דף הבית', href: '/' },
+  { label: 'אזורי שירות' },
+];
+
+const areas = [
+  {
+    name: 'חיפה והקריות',
+    slug: 'haifa',
+    description: 'תשואות גבוהות, התחדשות עירונית מואצת, מחירי כניסה נוחים',
+    priceRange: '0.8-2M ש״ח',
+    yield: '4-6%',
+    highlights: ['התחדשות עירונית', 'תשואות גבוהות', 'קרבה לטכניון'],
+  },
+  {
+    name: 'נתניה',
+    slug: 'netanya',
+    description: 'עיר חוף עם מחירים נוחים יחסית וביקוש גבוה',
+    priceRange: '1.3-3M ש״ח',
+    yield: '3.5-5%',
+    highlights: ['קו ראשון לים', 'גישה למרכז', 'אוכלוסייה צעירה'],
+  },
+  {
+    name: 'ראשון לציון',
+    slug: 'rishon',
+    description: 'העיר הרביעית בישראל עם תשתיות מתקדמות וביקוש יציב',
+    priceRange: '1.3-3M ש״ח',
+    yield: '3-4.5%',
+    highlights: ['רכבת קלה', 'התחדשות עירונית', 'קרבה לתל אביב'],
+  },
+  {
+    name: 'גבעת שמואל',
+    slug: 'givat-shmuel',
+    description: 'עיר יוקרתית עם אוכלוסייה איכותית ושוכרים יציבים',
+    priceRange: '2.5-3.5M ש״ח',
+    yield: '3-4%',
+    highlights: ['אוכלוסייה איכותית', 'יציבות', 'מיקום מרכזי'],
+  },
+];
+---
+
+<BaseLayout
+  title="אזורי שירות"
+  description="ליווי משקיעי נדל״ן בחיפה, נתניה, ראשון לציון וגבעת שמואל. שמאית מקרקעין מוסמכת מלווה אתכם בכל שלב. בדיקות, ניתוח ומשא ומתן."
+>
+  <!-- Hero -->
+  <section class="bg-gradient-to-b from-brand-50 to-white py-12 md:py-20">
+    <div class="container mx-auto px-4">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-dark leading-tight mb-6">
+          אזורי שירות
+        </h1>
+        <p class="text-lg md:text-xl text-muted">
+          אנחנו פועלים בצפון ובמרכז הארץ - חיפה והקריות, נתניה, ראשון לציון וגבעת שמואל.
+          לכל אזור מאפיינים ייחודיים והזדמנויות שונות.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <TrustBar variant="light" />
+
+  <!-- Areas Grid -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-5xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {areas.map((area) => (
+            <a
+              href={`/areas/${area.slug}/`}
+              class="group bg-surface rounded-2xl p-6 border border-border hover:border-brand-300 hover:shadow-lg transition-all duration-300"
+            >
+              <div class="flex items-start justify-between mb-4">
+                <h2 class="font-heading text-xl md:text-2xl font-bold text-dark group-hover:text-brand-600 transition-colors">
+                  {area.name}
+                </h2>
+                <svg class="w-6 h-6 text-brand-600 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </div>
+
+              <p class="text-muted mb-4">{area.description}</p>
+
+              <div class="flex gap-4 mb-4 text-sm">
+                <div>
+                  <span class="text-muted">מחירים: </span>
+                  <span class="font-semibold text-dark">{area.priceRange}</span>
+                </div>
+                <div>
+                  <span class="text-muted">תשואה: </span>
+                  <span class="font-semibold text-accent">{area.yield}</span>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap gap-2">
+                {area.highlights.map((highlight) => (
+                  <span class="px-3 py-1 bg-brand-100 text-brand-600 rounded-full text-xs">
+                    {highlight}
+                  </span>
+                ))}
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Other Areas -->
+  <section class="py-16 md:py-20 bg-surface">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-4">
+          לא נמצא האזור שלכם?
+        </h2>
+        <p class="text-muted mb-8">
+          אנחנו מרחיבים את אזורי השירות שלנו באופן שוטף. גם אם האזור שלכם לא מופיע ברשימה,
+          צרו קשר ונבדוק אם נוכל לעזור.
+        </p>
+        <a
+          href="/#contact"
+          class="inline-flex items-center justify-center px-6 py-3 bg-accent hover:bg-accent-dark text-white rounded-md font-semibold transition-colors"
+        >
+          צרו קשר
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="מוכנים להתחיל?"
+    subtitle="בחרו את האזור שמעניין אתכם ונשמח לעזור למצוא את ההשקעה הנכונה"
+  />
+</BaseLayout>
