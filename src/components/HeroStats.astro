@@ -44,19 +44,18 @@ const stats = [
   <!-- Subtle texture overlay -->
   <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(201,162,39,0.15),transparent_50%)]"></div>
 
-  <!-- Maayan Image - Desktop (bottom-aligned, slightly towards center) -->
-  <div class="hidden lg:block absolute bottom-0 left-16 z-10">
-    <img
-      src="/images/team/maayan-hero.png"
-      alt="מעיין ליבנה - שמאית מקרקעין"
-      class="h-[75vh] w-auto object-contain object-bottom"
-      width="600"
-      height="800"
-      loading="eager"
-    />
-  </div>
-
   <div class="max-w-[1200px] w-full mx-auto px-4 relative z-10 py-8 lg:py-12">
+    <!-- Maayan Image - Desktop (inside container, left side in RTL = צד שמאל) -->
+    <div class="hidden lg:block absolute bottom-0 left-4 z-10">
+      <img
+        src="/images/team/maayan-hero.png"
+        alt="מעיין ליבנה - שמאית מקרקעין"
+        class="h-[75vh] w-auto object-contain object-bottom"
+        width="600"
+        height="800"
+        loading="eager"
+      />
+    </div>
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
       <!-- Main Content (first = right side in RTL) -->
       <div class="text-center lg:text-start pt-8 lg:pt-8">
@@ -138,7 +137,7 @@ const stats = [
     </div>
 
     <!-- Mobile: Couple Image + Stats -->
-    <div class="lg:hidden mt-8 pb-56">
+    <div class="lg:hidden mt-8 pb-72">
       <!-- Mobile Stats Row -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-6">
         {stats.map((stat) => (
@@ -161,9 +160,9 @@ const stats = [
     <img
       src="/images/team/maayan-hero.png"
       alt="מעיין ליבנה - שמאית מקרקעין"
-      class="h-[55vh] w-auto object-contain object-bottom"
-      width="400"
-      height="533"
+      class="h-[70vh] w-auto object-contain object-bottom"
+      width="500"
+      height="667"
       loading="eager"
     />
   </div>
