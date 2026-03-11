@@ -82,6 +82,34 @@
   .prose blockquote {
     @apply border-s-4 border-brand-300 ps-4 my-4 italic text-muted;
   }
+
+  .prose table {
+    @apply w-full border-collapse text-sm my-6;
+  }
+
+  .prose th {
+    @apply bg-brand-50 font-bold text-dark text-right p-3 border border-border;
+  }
+
+  .prose td {
+    @apply p-3 border border-border;
+  }
+
+  .prose tr:nth-child(even) {
+    @apply bg-surface;
+  }
+
+  .prose code {
+    @apply bg-brand-50 text-brand-700 px-1.5 py-0.5 rounded text-sm;
+  }
+
+  .prose pre {
+    @apply bg-brand-900 text-white p-4 rounded-lg overflow-x-auto my-4;
+  }
+
+  .prose pre code {
+    @apply bg-transparent text-white p-0;
+  }
 }
 
 /* Smooth Accordion Animation */
