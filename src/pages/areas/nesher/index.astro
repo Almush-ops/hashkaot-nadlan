@@ -1,0 +1,256 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHero from '../../../components/PageHero.astro';
+import TrustBar from '../../../components/TrustBar.astro';
+import ServicesGrid from '../../../components/ServicesGrid.astro';
+import FAQ from '../../../components/FAQ.astro';
+import ContactForm from '../../../components/ContactForm.astro';
+import CTASection from '../../../components/CTASection.astro';
+import SchemaOrg from '../../../components/SchemaOrg.astro';
+
+const faqItems = [
+  {
+    question: 'למה נשר נחשבת להזדמנות השקעה?',
+    answer: 'נשר משלבת מחירי כניסה נמוכים (900K-1.3M) עם קרבה לטכניון ולחיפה. הביקוש לשכירות יציב מסטודנטים וצוותי מחקר. תמ"א 38 פעיל באזורים הותיקים. יחס מחיר-תשואה מעולה.',
+  },
+  {
+    question: 'מה ההבדל בין נשר לטירת הכרמל?',
+    answer: 'נשר קרובה יותר לטכניון ויש בה יותר פעילות תמ"א 38. טירת הכרמל זולה יותר (מ-700K) אך פחות מבוקשת לשכירות. שתיהן מציעות תשואות טובות, אבל נשר נחשבת ליציבה יותר.',
+  },
+  {
+    question: 'מי השוכרים הטיפוסיים בנשר?',
+    answer: 'סטודנטים ומרצים מהטכניון (5 דקות נסיעה), עובדי חברות הייטק באזור מפרץ חיפה, משפחות צעירות שמחפשות שכירות נגישה קרוב לחיפה.',
+  },
+  {
+    question: 'יש התחדשות עירונית בנשר?',
+    answer: 'כן, נשר נמצאת באמצע תהליכי תמ"א 38 נרחבים. השכונות הותיקות (נשר הותיקה, רמת אלמוגי) כוללות עשרות פרויקטים מאושרים. <a href="/urban-renewal/" class="text-brand-600 hover:underline">ראו את שירות ייעוץ התחדשות עירונית שלנו ←</a>',
+  },
+  {
+    question: 'כמה עולה ליווי משקיעים באזור נשר?',
+    answer: 'המחירים שלנו קבועים ללא קשר לאזור: <a href="/investor-consulting/" class="text-brand-600 hover:underline">ליווי משקיעים לרכישת דירה</a> - 18,000 ש״ח, <a href="/apartment-investment-analysis/" class="text-brand-600 hover:underline">בדיקת כדאיות דירה</a> - 1,800 ש״ח.',
+  },
+];
+
+// Market stats for Nesher
+const marketStats = [
+  { label: 'מחיר ממוצע לדירה 3 חד\'', value: '950K-1.3M ש״ח' },
+  { label: 'תשואה ממוצעת', value: '5-6%' },
+  { label: 'שכירות ממוצעת', value: '3,200-4,000 ש״ח' },
+  { label: 'מרחק מהטכניון', value: '5 דק\'' },
+];
+
+const localSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'ליווי משקיעי נדל״ן בנשר וטירת הכרמל - מעין ואור ליבנה',
+  description: 'ליווי משקיעי נדל״ן בנשר וטירת הכרמל. ליד הטכניון, מחירים נגישים, תשואות 5-6%. תמ"א 38 פעיל. שמאית מקרקעין מוסמכת.',
+  url: 'https://hashkaot-nadlan.co.il/areas/nesher/',
+  telephone: '+972-55-2555144',
+  areaServed: [
+    { '@type': 'City', name: 'נשר' },
+    { '@type': 'City', name: 'טירת הכרמל' },
+  ],
+  priceRange: '₪₪',
+};
+---
+
+<BaseLayout
+  title="ליווי משקיעי נדל״ן בנשר וטירת הכרמל"
+  description="ליווי משקיעי נדל״ן בנשר וטירת הכרמל - ליד הטכניון, מחירים נגישים (950K-1.3M), תשואות 5-6%. תמ״א 38 פעיל. שמאית מקרקעין מוסמכת. צרו קשר."
+>
+  <SchemaOrg schema={localSchema} />
+
+  <PageHero
+    title="ליווי משקיעי נדל״ן בנשר וטירת הכרמל"
+    subtitle="נשר וטירת הכרמל - הזדמנות השקעה מתחת לרדאר. קרבה לטכניון, מחירים נגישים, תמ״א 38 פעיל. שילוב מנצח של תשואה ופוטנציאל השבחה."
+    backgroundImage="/images/hero/hero-02.webp"
+    showCTA={true}
+    ctaText="השאירו פרטים לייעוץ"
+  />
+
+  <TrustBar variant="light" />
+
+  <!-- Market Overview -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
+          שוק הנדל״ן בנשר - 2026
+        </h2>
+
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+          {marketStats.map((stat) => (
+            <div class="bg-brand-50 rounded-xl p-4 text-center">
+              <div class="text-lg md:text-xl font-bold text-brand-600 mb-1">{stat.value}</div>
+              <div class="text-sm text-muted">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+
+        <div class="prose prose-lg max-w-none text-muted">
+          <p>
+            נשר היא "פנינה נסתרת" בשוק הנדל"ן באזור חיפה. העיר הקטנה ממוקמת בדיוק בין חיפה לקריות, ו-5 דקות נסיעה מהטכניון - מה שמבטיח ביקוש קבוע לשכירות מסטודנטים, מרצים וצוותי מחקר.
+          </p>
+          <p>
+            היתרון המרכזי של נשר הוא השילוב של מחירים נגישים (מתחת למיליון לדירת 3 חדרים) עם תשואות גבוהות (5-6%) ופוטנציאל השבחה מתמ"א 38. אזורים ותיקים כמו נשר הותיקה ורמת אלמוגי עוברים התחדשות משמעותית.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Neighborhoods -->
+  <section class="py-16 md:py-20 bg-surface">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
+          אזורים בנשר וסביבתה
+        </h2>
+
+        <div class="space-y-6">
+          {[
+            {
+              name: 'נשר הותיקה',
+              profile: 'התחדשות עירונית',
+              price: '900K-1.2M ש״ח',
+              yield: '5-6%',
+              desc: 'האזור הותיק של נשר עם פוטנציאל תמ"א 38 משמעותי. בניינים ישנים במחירים נמוכים, שהולכים לעלות משמעותית עם ההתחדשות. קרוב למרכז המסחרי.',
+              highlight: 'פוטנציאל: תמ"א 38 + קרבה לטכניון',
+            },
+            {
+              name: 'רמת אלמוגי',
+              profile: 'איזון מחיר-איכות',
+              price: '1-1.3M ש״ח',
+              yield: '5%',
+              desc: 'שכונה מבוססת יותר עם דירות חדשות יותר. מחירים מעט גבוהים יותר אך תחזוקה נמוכה. מתאימה למשקיעים שמעדיפים שקט נפשי.',
+              highlight: 'יתרון: דירות חדשות יותר, תחזוקה נמוכה',
+            },
+            {
+              name: 'טירת הכרמל',
+              profile: 'מחיר כניסה מינימלי',
+              price: '700K-1M ש״ח',
+              yield: '5-7%',
+              desc: 'העיר השכנה מציעה את מחירי הכניסה הנמוכים ביותר באזור. תשואות גבוהות אך ביקוש נמוך יותר לשכירות. מתאימה למי שמחפש תשואה מקסימלית על תקציב מוגבל.',
+              highlight: 'יתרון: מחיר נמוך מאוד, תשואה גבוהה',
+            },
+          ].map((neighborhood) => (
+            <div class="bg-white rounded-xl p-6 border border-border">
+              <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+                <div>
+                  <h3 class="font-heading font-bold text-dark text-xl">{neighborhood.name}</h3>
+                  <span class="inline-block px-3 py-1 bg-brand-100 text-brand-600 rounded-full text-sm">
+                    {neighborhood.profile}
+                  </span>
+                </div>
+                <div class="flex gap-6 text-sm">
+                  <div>
+                    <span class="text-muted">מחיר: </span>
+                    <span class="font-semibold text-dark">{neighborhood.price}</span>
+                  </div>
+                  <div>
+                    <span class="text-muted">תשואה: </span>
+                    <span class="font-semibold text-accent">{neighborhood.yield}</span>
+                  </div>
+                </div>
+              </div>
+              <p class="text-muted mb-3">{neighborhood.desc}</p>
+              <p class="text-sm text-brand-600 font-medium">{neighborhood.highlight}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Nesher -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
+          למה להשקיע בנשר?
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          {[
+            {
+              icon: '🎓',
+              title: 'קרבה לטכניון',
+              desc: '5 דקות נסיעה מהטכניון. ביקוש קבוע לשכירות מסטודנטים, מרצים, חוקרים וסטארט-אפיסטים.',
+            },
+            {
+              icon: '💰',
+              title: 'מחירים נגישים',
+              desc: 'מתחת למיליון לדירת 3 חדרים. נקודת כניסה מצוינת למשקיעים ראשונים או בתקציב מוגבל.',
+            },
+            {
+              icon: '🏗️',
+              title: 'תמ״א 38 פעיל',
+              desc: 'עשרות פרויקטים מאושרים ומתוכננים. פוטנציאל השבחה של 20-40% בטווח 3-5 שנים.',
+            },
+            {
+              icon: '📍',
+              title: 'מיקום אסטרטגי',
+              desc: 'בין חיפה לקריות, ליד כביש 4. גישה מהירה לכל אזור המטרופולין.',
+            },
+          ].map((item) => (
+            <div class="bg-surface rounded-xl p-6">
+              <div class="text-3xl mb-3">{item.icon}</div>
+              <h3 class="font-heading font-bold text-dark text-lg mb-2">{item.title}</h3>
+              <p class="text-muted text-sm">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technion Proximity Highlight -->
+  <section class="py-16 md:py-20 bg-brand-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-6">
+          יתרון הטכניון
+        </h2>
+        <p class="text-lg text-muted mb-8">
+          הטכניון הוא אחד המוסדות האקדמיים המובילים בעולם עם אלפי סטודנטים, מרצים וחוקרים. הקרבה של נשר לטכניון מבטיחה:
+        </p>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-white rounded-xl p-5">
+            <div class="text-2xl font-bold text-brand-600 mb-2">15,000+</div>
+            <div class="text-sm text-muted">סטודנטים שמחפשים דירות</div>
+          </div>
+          <div class="bg-white rounded-xl p-5">
+            <div class="text-2xl font-bold text-brand-600 mb-2">12 חודש</div>
+            <div class="text-sm text-muted">ביקוש לאורך כל השנה</div>
+          </div>
+          <div class="bg-white rounded-xl p-5">
+            <div class="text-2xl font-bold text-brand-600 mb-2">שוכרים איכותיים</div>
+            <div class="text-sm text-muted">סטודנטים ואנשי מחקר</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ServicesGrid
+    title="השירותים שלנו בנשר"
+    subtitle="כל השירותים שלנו זמינים באזור נשר וטירת הכרמל - ליווי מלא או בדיקות נקודתיות"
+  />
+
+  <CTASection
+    title="מחפשים השקעה ליד הטכניון?"
+    subtitle="נעזור לכם למצוא את הדירה המושלמת באזור נשר"
+    ctaText="השאירו פרטים"
+  />
+
+  <FAQ
+    title="שאלות נפוצות על השקעות בנשר"
+    items={faqItems}
+  />
+
+  <ContactForm
+    title="מעוניינים בייעוץ לאזור נשר?"
+    subtitle="השאירו פרטים ונחזור אליכם בהקדם"
+  />
+</BaseLayout>

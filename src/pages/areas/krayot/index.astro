@@ -1,0 +1,238 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHero from '../../../components/PageHero.astro';
+import TrustBar from '../../../components/TrustBar.astro';
+import ServicesGrid from '../../../components/ServicesGrid.astro';
+import FAQ from '../../../components/FAQ.astro';
+import ContactForm from '../../../components/ContactForm.astro';
+import CTASection from '../../../components/CTASection.astro';
+import SchemaOrg from '../../../components/SchemaOrg.astro';
+
+const faqItems = [
+  {
+    question: 'מה ההבדלים בין הקריות השונות מבחינת השקעה?',
+    answer: 'קריית ביאליק נחשבת ליוקרתית יותר עם מחירים גבוהים יחסית. קריית מוצקין מציעה איזון טוב בין מחיר לתשואה. קריית חיים מזרח היא הזולה ביותר עם תשואות גבוהות. קריית ים עוברת התחדשות משמעותית עם פוטנציאל השבחה.',
+  },
+  {
+    question: 'האם כדאי להשקיע בקריות או בחיפה עצמה?',
+    answer: 'תלוי בתקציב ובאסטרטגיה. הקריות מציעות מחירי כניסה נמוכים יותר (800K-1.3M לעומת 1.3-2M בחיפה) עם תשואות דומות. אם התקציב מוגבל, הקריות עשויות להתאים יותר. <a href="/areas/haifa/" class="text-brand-600 hover:underline">ראו את אזור חיפה ←</a>',
+  },
+  {
+    question: 'יש התחדשות עירונית בקריות?',
+    answer: 'כן, בעיקר בקריית חיים ובקריית ים. עשרות פרויקטי תמ"א 38 ופינוי-בינוי מתוכננים ומאושרים. <a href="/urban-renewal/" class="text-brand-600 hover:underline">ראו את שירות ייעוץ התחדשות עירונית שלנו ←</a>',
+  },
+  {
+    question: 'מי גרים בקריות ומה הביקוש לשכירות?',
+    answer: 'הקריות הן עיירות משפחתיות עם אוכלוסייה מבוססת. הביקוש לשכירות יציב - משפחות צעירות, זוגות, ועובדים במפעלי התעשייה באזור. קרבה לטכניון ולאוניברסיטת חיפה מביאה גם סטודנטים.',
+  },
+  {
+    question: 'כמה עולה ליווי משקיעים באזור הקריות?',
+    answer: 'המחירים שלנו קבועים ללא קשר לאזור: <a href="/investor-consulting/" class="text-brand-600 hover:underline">ליווי משקיעים לרכישת דירה</a> - 18,000 ש״ח, <a href="/apartment-investment-analysis/" class="text-brand-600 hover:underline">בדיקת כדאיות דירה</a> - 1,800 ש״ח.',
+  },
+];
+
+// Market stats for Krayot
+const marketStats = [
+  { label: 'מחיר ממוצע לדירה 3 חד\'', value: '900K-1.3M ש״ח' },
+  { label: 'תשואה ממוצעת', value: '5-7%' },
+  { label: 'שכירות ממוצעת', value: '3,000-4,200 ש״ח' },
+  { label: 'פרויקטי התחדשות', value: '80+' },
+];
+
+const localSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'ליווי משקיעי נדל״ן בקריות - מעין ואור ליבנה',
+  description: 'ליווי משקיעי נדל״ן בקריות - קריית ביאליק, קריית מוצקין, קריית חיים וקריית ים. שמאית מקרקעין מוסמכת, תשואות 5-7%, מחירי כניסה נגישים.',
+  url: 'https://hashkaot-nadlan.co.il/areas/krayot/',
+  telephone: '+972-55-2555144',
+  areaServed: [
+    { '@type': 'City', name: 'קריית ביאליק' },
+    { '@type': 'City', name: 'קריית מוצקין' },
+    { '@type': 'City', name: 'קריית חיים' },
+    { '@type': 'City', name: 'קריית ים' },
+  ],
+  priceRange: '₪₪',
+};
+---
+
+<BaseLayout
+  title="ליווי משקיעי נדל״ן בקריות - קריית ביאליק, מוצקין, חיים, ים"
+  description="ליווי משקיעי נדל״ן בקריות - מחירי כניסה נמוכים (900K-1.3M), תשואות גבוהות (5-7%). קריית ביאליק, מוצקין, חיים וים. שמאית מקרקעין מוסמכת. צרו קשר."
+>
+  <SchemaOrg schema={localSchema} />
+
+  <PageHero
+    title="ליווי משקיעי נדל״ן בקריות"
+    subtitle="הקריות מציעות את מחירי הכניסה הנמוכים ביותר באזור המטרופולין - עם תשואות מהגבוהות בארץ. קריית ביאליק, מוצקין, חיים וים - הזדמנויות השקעה לכל תקציב."
+    backgroundImage="/images/hero/hero-02.webp"
+    showCTA={true}
+    ctaText="השאירו פרטים לייעוץ"
+  />
+
+  <TrustBar variant="light" />
+
+  <!-- Market Overview -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
+          שוק הנדל״ן בקריות - 2026
+        </h2>
+
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+          {marketStats.map((stat) => (
+            <div class="bg-brand-50 rounded-xl p-4 text-center">
+              <div class="text-lg md:text-xl font-bold text-brand-600 mb-1">{stat.value}</div>
+              <div class="text-sm text-muted">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+
+        <div class="prose prose-lg max-w-none text-muted">
+          <p>
+            הקריות - קריית ביאליק, קריית מוצקין, קריית חיים וקריית ים - הן הרחבה טבעית של מטרופולין חיפה ומציעות הזדמנויות השקעה ייחודיות. עם מחירי כניסה שמתחילים מ-800,000 ש"ח לדירת 3 חדרים, זוהי אחת הנקודות הנגישות ביותר בישראל.
+          </p>
+          <p>
+            היתרון המרכזי של הקריות הוא התשואה הגבוהה - 5% עד 7% ברוטו, בשילוב עם פוטנציאל השבחה באזורים שעוברים התחדשות עירונית. הקרבה לטכניון, לאוניברסיטת חיפה ולאזורי התעשייה מבטיחה ביקוש יציב לשכירות.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cities Breakdown -->
+  <section class="py-16 md:py-20 bg-surface">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
+          הקריות - לפי עיר
+        </h2>
+
+        <div class="space-y-6">
+          {[
+            {
+              name: 'קריית ביאליק',
+              profile: 'יוקרה בקריות',
+              price: '1.1-1.5M ש״ח',
+              yield: '4-5%',
+              desc: 'היוקרתית בקריות. שכונות מבוססות, בתי ספר טובים, קניון ביאליק. מחירים גבוהים יחסית לקריות אך עדיין נמוכים מחיפה. מתאימה למשקיעים שמחפשים יציבות.',
+              highlight: 'שכונות מומלצות: מזרח, נאות אלון',
+            },
+            {
+              name: 'קריית מוצקין',
+              profile: 'איזון מושלם',
+              price: '1-1.4M ש״ח',
+              yield: '5-6%',
+              desc: 'איזון טוב בין מחיר לתשואה. מרכז עירוני פעיל, קרבה לתחנת רכבת. אזורים ישנים עם פוטנציאל תמ"א 38. שילוב של ביקוש יציב ומחירים סבירים.',
+              highlight: 'שכונות מומלצות: מרכז, דרום',
+            },
+            {
+              name: 'קריית חיים',
+              profile: 'תשואה מקסימלית',
+              price: '800K-1.1M ש״ח',
+              yield: '6-7%',
+              desc: 'מחירי הכניסה הנמוכים ביותר עם תשואות גבוהות. קריית חיים מזרח זולה יותר. קרבה לאזורי תעשייה מבטיחה שוכרים. הרבה פרויקטי התחדשות מתוכננים.',
+              highlight: 'אזורים מומלצים: מזרח (זול), מערב (יציב)',
+            },
+            {
+              name: 'קריית ים',
+              profile: 'התחדשות + ים',
+              price: '900K-1.2M ש״ח',
+              yield: '5-6%',
+              desc: 'עיר חוף עם פוטנציאל השבחה משמעותי. הרבה פרויקטי פינוי-בינוי. קו חוף ארוך מוסיף ערך לטווח ארוך. מחירים עולים בהתמדה בשנים האחרונות.',
+              highlight: 'יתרון: קו חוף + התחדשות',
+            },
+          ].map((city) => (
+            <div class="bg-white rounded-xl p-6 border border-border">
+              <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+                <div>
+                  <h3 class="font-heading font-bold text-dark text-xl">{city.name}</h3>
+                  <span class="inline-block px-3 py-1 bg-brand-100 text-brand-600 rounded-full text-sm">
+                    {city.profile}
+                  </span>
+                </div>
+                <div class="flex gap-6 text-sm">
+                  <div>
+                    <span class="text-muted">מחיר: </span>
+                    <span class="font-semibold text-dark">{city.price}</span>
+                  </div>
+                  <div>
+                    <span class="text-muted">תשואה: </span>
+                    <span class="font-semibold text-accent">{city.yield}</span>
+                  </div>
+                </div>
+              </div>
+              <p class="text-muted mb-3">{city.desc}</p>
+              <p class="text-sm text-brand-600 font-medium">{city.highlight}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Krayot -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
+          למה להשקיע בקריות?
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          {[
+            {
+              icon: '💰',
+              title: 'מחירי כניסה נגישים',
+              desc: 'מ-800K ש״ח לדירת 3 חדרים - הנמוך ביותר במטרופולין חיפה. אידיאלי למשקיעים ראשונים.',
+            },
+            {
+              icon: '📈',
+              title: 'תשואות גבוהות',
+              desc: '5-7% ברוטו - מהגבוהות בישראל. שכירות יציבה וביקוש קבוע לאורך השנה.',
+            },
+            {
+              icon: '🏗️',
+              title: 'התחדשות עירונית',
+              desc: 'עשרות פרויקטי תמ"א 38 ופינוי-בינוי. פוטנציאל השבחה משמעותי לטווח בינוני.',
+            },
+            {
+              icon: '🚊',
+              title: 'נגישות מעולה',
+              desc: 'תחנות רכבת, כבישי גישה מהירים. 15 דקות מחיפה, שעה מתל אביב ברכבת.',
+            },
+          ].map((item) => (
+            <div class="bg-surface rounded-xl p-6">
+              <div class="text-3xl mb-3">{item.icon}</div>
+              <h3 class="font-heading font-bold text-dark text-lg mb-2">{item.title}</h3>
+              <p class="text-muted text-sm">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ServicesGrid
+    title="השירותים שלנו בקריות"
+    subtitle="כל השירותים שלנו זמינים באזור הקריות - ליווי מלא או בדיקות נקודתיות"
+  />
+
+  <CTASection
+    title="מחפשים השקעה בקריות?"
+    subtitle="נעזור לכם למצוא את הדירה הנכונה בתקציב שלכם"
+    ctaText="השאירו פרטים"
+  />
+
+  <FAQ
+    title="שאלות נפוצות על השקעות בקריות"
+    items={faqItems}
+  />
+
+  <ContactForm
+    title="מעוניינים בייעוץ לאזור הקריות?"
+    subtitle="השאירו פרטים ונחזור אליכם בהקדם"
+  />
+</BaseLayout>
