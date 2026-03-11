@@ -1,47 +1,80 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
-// For static blog: use Astro Content Collections
-// For WordPress CMS: uncomment the import below and use fetchPosts()
-// import { fetchPosts } from '../../lib/wordpress';
-// const posts = await fetchPosts();
+const posts = await getCollection('blog', ({ data }) => !data.draft);
+posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
-// Placeholder posts - replace with real data source
-const posts: Array<{slug: string; title: string; excerpt: string; date: string; image: string | null}> = [
-  // TODO: Add real blog posts here
+const breadcrumbs = [
+  { label: 'דף הבית', href: '/' },
+  { label: 'מאמרים' },
 ];
+
+const authorNames: Record<string, string> = {
+  maayan: 'מעין ליבנה',
+  or: 'אור ליבנה',
+  team: 'צוות מעין ואור ליבנה',
+};
 ---
 
 <BaseLayout
   title="מאמרים"
   description="מאמרים ומדריכים על השקעות נדל״ן, קרקעות, תמ״א 38 והתחדשות עירונית. טיפים להשקעה חכמה מצוות מעין ואור ליבנה."
-  noindex={true}
 >
-  <section class="py-20">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h1 class="text-4xl font-bold text-gray-900 mb-12">מאמרים</h1>
-        <p class="text-lg text-muted mb-12 -mt-8">בקרוב - מאמרים ומדריכים על השקעות נדל״ן בישראל</p>
+  <section class="py-12 md:py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-5xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {posts.map((post) => (
-          <article class="group rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow border border-gray-100">
-            {post.image && (
-              <img
-                src={post.image}
-                alt={post.title}
-                class="w-full h-48 object-cover"
-                loading="lazy"
-              />
-            )}
-            <div class="p-6">
-              <time class="text-sm text-gray-500">{post.date}</time>
-              <h2 class="mt-2 text-xl font-semibold text-gray-900 group-hover:text-primary-600 transition-colors">
-                <a href={`/blog/${post.slug}`}>{post.title}</a>
-              </h2>
-              <p class="mt-3 text-gray-600 line-clamp-3">{post.excerpt}</p>
-            </div>
-          </article>
-        ))}
+        <h1 class="font-heading text-3xl md:text-4xl font-bold text-dark mb-4">מאמרים</h1>
+        <p class="text-lg text-muted mb-12">
+          מדריכים ומאמרים על השקעות נדל״ן בישראל - תשואות, בדיקות, קרקעות והתחדשות עירונית.
+        </p>
+
+        {posts.length === 0 ? (
+          <div class="text-center py-12 bg-surface rounded-2xl">
+            <p class="text-muted">בקרוב יתווספו מאמרים חדשים...</p>
+          </div>
+        ) : (
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {posts.map((post) => (
+              <article class="group rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-lg transition-all duration-300 border border-border">
+                {post.data.image && (
+                  <img
+                    src={post.data.image}
+                    alt={post.data.imageAlt || post.data.title}
+                    class="w-full h-48 object-cover"
+                    loading="lazy"
+                  />
+                )}
+                <div class="p-6">
+                  <div class="flex items-center gap-2 text-sm text-muted mb-3">
+                    <time datetime={post.data.date.toISOString()}>
+                      {post.data.date.toLocaleDateString('he-IL', { year: 'numeric', month: 'short', day: 'numeric' })}
+                    </time>
+                    <span>•</span>
+                    <span>{authorNames[post.data.author]}</span>
+                  </div>
+                  <h2 class="font-heading text-xl font-bold text-dark group-hover:text-brand-600 transition-colors mb-3">
+                    <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
+                  </h2>
+                  <p class="text-muted text-sm line-clamp-3">{post.data.description}</p>
+
+                  {post.data.tags.length > 0 && (
+                    <div class="flex flex-wrap gap-2 mt-4">
+                      {post.data.tags.slice(0, 2).map((tag: string) => (
+                        <span class="px-2 py-1 bg-brand-50 text-brand-600 rounded text-xs">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   </section>
