@@ -17,31 +17,71 @@ const breadcrumbs = [
 const faqItems = [
   {
     question: 'מה כולל שירות ליווי משקיעים לרכישת דירה?',
-    answer: 'השירות כולל: ייעוץ ראשוני והגדרת מטרות, ניתוח שוק וזיהוי הזדמנויות, סיורים בנכסים פוטנציאליים, <a href="/apartment-investment-analysis/" class="text-brand-600 hover:underline">בדיקת כדאיות מקצועית</a> לכל נכס, ניהול משא ומתן, וליווי עד לחתימה וקבלת מפתח.',
+    answer: 'השירות כולל: ייעוץ ראשוני והגדרת מטרות, בניית פרופיל משקיע, ניתוח שוק וזיהוי הזדמנויות, סיורים בנכסים פוטנציאליים, <a href="/apartment-investment-analysis/" class="text-brand-600 hover:underline">בדיקת כדאיות מקצועית</a> לכל נכס, ניהול משא ומתן, ליווי עד לחתימה וקבלת מפתח, וגישה לקבוצת וואטסאפ עם כל בעלי המקצוע.',
   },
   {
     question: 'כמה עולה ליווי משקיעים?',
-    answer: 'עלות הליווי המלא היא 18,000 ש״ח. זהו מחיר קבוע ללא קשר לגודל העסקה, בניגוד למתווכים שגובים אחוז מהעסקה.',
+    answer: 'עלות הליווי המלא היא 18,000 ש״ח (כולל מע״מ). התשלום מתחלק ל-5,000 ש״ח מקדמה בתחילת הליווי ו-13,000 ש״ח בחתימה על העסקה. זהו מחיר קבוע ללא קשר לגודל העסקה.',
   },
   {
     question: 'מה ההבדל בינכם לבין מתווך?',
-    answer: 'מתווך מרוויח אחוז מהעסקה - ולכן יש לו אינטרס שתקנו נכס כלשהו ובמחיר גבוה ככל האפשר. אנחנו גובים מחיר קבוע וליווינו על ידי שמאית מוסמכת - האינטרס שלנו הוא שתעשו עסקה טובה.',
+    answer: 'מתווך מרוויח 1-2% מהעסקה - בדירה של מיליון ש״ח זה 10,000-20,000 ש״ח. יש לו אינטרס שתקנו נכס כלשהו ובמחיר גבוה. אנחנו גובים מחיר קבוע (18,000 ש״ח) והליווי מתבצע על ידי שמאית מקרקעין מוסמכת - האינטרס שלנו הוא שתעשו עסקה טובה, גם אם זה לוקח יותר זמן.',
+  },
+  {
+    question: 'באילו סוגי נכסים אתם מתמחים?',
+    answer: 'אנחנו מתמחים בדירות בהתחדשות עירונית (פינוי-בינוי, תמ״א 38), דירות על הנייר (פריסייל 15/85), דירות יד שנייה עם פוטנציאל השבחה, ונכסים למשפרי דיור. ההתמחות שלנו היא באזור חיפה, הקריות וקו החוף הצפוני, אך אנחנו פועלים גם במרכז הארץ.',
   },
   {
     question: 'כמה זמן לוקח למצוא נכס מתאים?',
-    answer: 'בממוצע 2-4 חודשים. הזמן תלוי בדרישות שלכם, בתקציב ובהיצע בשוק. אנחנו לא ממהרים - עדיף לחכות לנכס הנכון מאשר לרכוש נכס בינוני.',
+    answer: 'בממוצע 2-4 חודשים. הזמן תלוי בדרישות שלכם, בתקציב ובהיצע בשוק. אנחנו לא ממהרים - עדיף לחכות לנכס הנכון מאשר לרכוש נכס בינוני. יש לקוחות שמצאנו להם עסקה תוך 3 שבועות, ויש שלקח 6 חודשים.',
+  },
+  {
+    question: 'מה קורה אחרי החתימה על העסקה?',
+    answer: 'הליווי לא נגמר בחתימה. אנחנו עומדים מאחורי הלקוחות שלנו גם שנים קדימה - עוזרים בתיאום שיפוצים, מציאת שוכרים, ייעוץ לגבי מכירה עתידית. קבוצת הוואטסאפ נשארת פתוחה לכל שאלה.',
+  },
+  {
+    question: 'האם המקדמה מוחזרת אם לא מצאתם לי נכס?',
+    answer: 'המקדמה של 5,000 ש״ח לא מוחזרת במקרה של נסיגה מצד הלקוח, כי היא משקפת עבודת ייעוץ, ניתוח ועבודת שטח שכבר בוצעו. עם זאת, אנחנו ממשיכים לחפש עד שמוצאים את הנכס המתאים - אין מגבלת זמן.',
   },
   {
     question: 'באיזה אזורים אתם פועלים?',
-    answer: 'אנחנו פועלים בצפון ובמרכז הארץ: חיפה והקריות, נתניה, ראשון לציון, גבעת שמואל, פתח תקווה ועוד. צרו קשר לבדוק זמינות.',
+    answer: 'ההתמחות העיקרית שלנו היא בצפון: חיפה, הקריות (קריית חיים, קריית ביאליק, קריית מוצקין), נשר, טירת הכרמל, עכו ונהריה. אנחנו פועלים גם במרכז: נתניה, ראשון לציון, גבעת שמואל ופתח תקווה. צרו קשר לבדוק זמינות.',
   },
 ];
 
 const serviceSteps = [
-  { number: 1, title: 'פגישת היכרות', description: 'הבנת הצרכים, היעדים והתקציב שלכם.' },
-  { number: 2, title: 'ניתוח שוק', description: 'מחקר מעמיק וזיהוי הזדמנויות מתאימות.' },
-  { number: 3, title: 'סיורים ובדיקות', description: 'ביקור בנכסים ובדיקת כדאיות מקצועית.' },
-  { number: 4, title: 'סגירת עסקה', description: 'משא ומתן וליווי עד לחתימה.' },
+  { number: 1, title: 'פגישת היכרות', description: 'הבנת הצרכים, היעדים והתקציב. בניית פרופיל משקיע אישי.' },
+  { number: 2, title: 'ניתוח שוק', description: 'מחקר מעמיק של השוק, זיהוי אזורים חמים והזדמנויות.' },
+  { number: 3, title: 'סיורים ובדיקות', description: 'ביקור בנכסים, בדיקת כדאיות מקצועית וניתוח השוואתי.' },
+  { number: 4, title: 'סגירת עסקה', description: 'משא ומתן, ליווי משפטי ועד לחתימה וקבלת מפתח.' },
+];
+
+// Case studies data
+const caseStudies = [
+  {
+    title: 'דירה בהתחדשות עירונית - קריית חיים',
+    description: 'ליווינו משקיע לדירה ברחוב טרומן. לאחר 3 שנים, עם קבלת היתר דיפון וחפירה',
+    result: '323,000 ש״ח',
+    resultLabel: 'עליית ערך',
+  },
+  {
+    title: 'דירה בקריית שפרינצק, חיפה',
+    description: 'איתרנו דירה חתומה על פינוי-בינוי, עם תשואה נאה משכירות',
+    result: '167,000 ש״ח',
+    resultLabel: 'מתחת למחיר השוק',
+  },
+  {
+    title: 'פריסייל במרכז הארץ',
+    description: 'ליווינו לקוח להשקעת דירה על הנייר. לאחר 3 שנים',
+    result: '380,000 ש״ח',
+    resultLabel: 'עליית ערך',
+  },
+  {
+    title: 'התחדשות עירונית - נשר',
+    description: 'דירה ליד הטכניון המשלבת תשואה גבוהה משכירות ועליית ערך. בתהליכי מכירה',
+    result: '410,000 ש״ח',
+    resultLabel: 'רווח על הנייר',
+  },
 ];
 
 // Service schema
@@ -49,26 +89,33 @@ const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   name: 'ליווי משקיעים לרכישת דירה',
-  description: 'ליווי מקיף לרכישת דירה להשקעה - מהפגישה הראשונה ועד סגירת העסקה',
+  description: 'ליווי מקיף לרכישת דירה להשקעה על ידי שמאית מקרקעין מוסמכת. התמחות בהתחדשות עירונית, פריסייל ודירות יד שנייה. מחיר קבוע 18,000 ש״ח.',
   provider: {
     '@type': 'ProfessionalService',
     name: 'השקעות נדל״ן - מעין ואור ליבנה',
     url: 'https://hashkaot-nadlan.co.il',
+    telephone: '+972-55-255-5144',
   },
-  areaServed: ['חיפה', 'נתניה', 'ראשון לציון', 'גבעת שמואל'],
+  areaServed: ['חיפה', 'קריות', 'נשר', 'נתניה', 'ראשון לציון', 'גבעת שמואל'],
   serviceType: 'ליווי השקעות נדל״ן',
+  offers: {
+    '@type': 'Offer',
+    price: '18000',
+    priceCurrency: 'ILS',
+    description: 'ליווי מקיף מקצה לקצה',
+  },
 };
 ---
 
 <BaseLayout
-  title="ליווי משקיעים לרכישת דירה"
-  description="ליווי מקיף לרכישת דירה להשקעה - מהפגישה הראשונה ועד סגירת העסקה. על ידי שמאית מקרקעין מוסמכת. 18,000 ש״ח מחיר קבוע."
+  title="ליווי משקיעים לרכישת דירה - שמאית מקרקעין מוסמכת"
+  description="ליווי מקיף לרכישת דירה להשקעה על ידי שמאית מקרקעין עם 15 שנות ניסיון. התמחות בהתחדשות עירונית ופריסייל. 18,000 ש״ח מחיר קבוע - ללא אחוזים מהעסקה."
 >
   <SchemaOrg schema={serviceSchema} />
 
   <PageHero
     title="ליווי משקיעים לרכישת דירה"
-    subtitle="ליווי מקצועי מהרגע הראשון ועד סגירת העסקה - על ידי שמאית מקרקעין מוסמכת ומלווה משקיעים עם רקע הייטק."
+    subtitle="ליווי מקצועי מהרגע הראשון ועד סגירת העסקה - על ידי שמאית מקרקעין מוסמכת ומלווה משקיעים עם רקע הייטק. מחיר קבוע, ללא ניגוד אינטרסים."
     breadcrumbs={breadcrumbs}
     backgroundImage="/images/hero/hero-01.webp"
     showCTA={true}
@@ -77,8 +124,167 @@ const serviceSchema = {
 
   <TrustBar variant="light" />
 
-  <!-- What's Included -->
+  <!-- Stats Section - Key Numbers -->
+  <section class="py-12 bg-brand-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div>
+            <div class="text-3xl md:text-4xl font-bold text-brand-600 mb-1">617+</div>
+            <div class="text-sm text-muted">בדיקות עסקה וייעוצים</div>
+          </div>
+          <div>
+            <div class="text-3xl md:text-4xl font-bold text-brand-600 mb-1">98+</div>
+            <div class="text-sm text-muted">משקיעים מרוצים</div>
+          </div>
+          <div>
+            <div class="text-3xl md:text-4xl font-bold text-brand-600 mb-1">13%</div>
+            <div class="text-sm text-muted">תשואה שנתית ממוצעת</div>
+          </div>
+          <div>
+            <div class="text-3xl md:text-4xl font-bold text-brand-600 mb-1">15</div>
+            <div class="text-sm text-muted">שנות ניסיון בנדל״ן</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Studies - Real Results -->
   <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-4">
+            630,000 ש״ח חיסכון ב-4 עסקאות בלבד
+          </h2>
+          <p class="text-muted max-w-2xl mx-auto">
+            ההבדל בין לחפש לבד לבין ליווי מקצועי - לא רק הידע והניסיון, אלא חיסכון של עשרות אלפי שקלים שהופכים לרווח יותר גדול בהמשך הדרך.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {caseStudies.map((study) => (
+            <div class="p-6 bg-surface rounded-xl border border-border hover:border-brand-200 transition-colors">
+              <h3 class="font-semibold text-dark mb-2">{study.title}</h3>
+              <p class="text-muted text-sm mb-4">{study.description}</p>
+              <div class="flex items-baseline gap-2">
+                <span class="text-2xl font-bold text-success-600">{study.result}</span>
+                <span class="text-sm text-muted">{study.resultLabel}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's Different - Key Differentiators -->
+  <section class="py-16 md:py-20 bg-surface">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
+          מה שונה בליווי המשקיעים שלנו?
+        </h2>
+
+        <div class="space-y-6">
+          <div class="flex gap-4 p-6 bg-white rounded-xl border border-border">
+            <div class="flex-shrink-0 w-12 h-12 bg-brand-100 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-dark mb-2">מעין ואור מלווים אתכם אישית - ללא שליחים</h3>
+              <p class="text-muted">אין עוזרים, נציגים וסגנים. כל הליווי מתבצע מולנו ישירות, בגובה העיניים, בצורה מקצועית ואישית. אתם לא "עוד לקוח במערכת".</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 p-6 bg-white rounded-xl border border-border">
+            <div class="flex-shrink-0 w-12 h-12 bg-brand-100 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-dark mb-2">שילוב נדיר: שמאית מקרקעין + רקע הייטק</h3>
+              <p class="text-muted">מעין - שמאית מקרקעין מוסמכת עם 15 שנות ניסיון. אור - מלווה משקיעים עם 12 שנים בנדל״ן ו-8 שנים בהייטק (כולל אקזיט עם גרניולט שנמכרה לאינטל). הידע המשולב מאפשר ניתוח עסקאות ברמה שאי אפשר למצוא במקום אחר.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 p-6 bg-white rounded-xl border border-border">
+            <div class="flex-shrink-0 w-12 h-12 bg-brand-100 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-dark mb-2">מחיר קבוע = אפס ניגוד אינטרסים</h3>
+              <p class="text-muted">מתווך מרוויח 1-2% מהעסקה, אז יש לו אינטרס שתקנו כמה שיותר יקר. אנחנו גובים 18,000 ש״ח קבוע - לא משנה אם הדירה עולה 800,000 או 2,000,000. האינטרס שלנו: שתעשו את העסקה הכי טובה.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 p-6 bg-white rounded-xl border border-border">
+            <div class="flex-shrink-0 w-12 h-12 bg-brand-100 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-dark mb-2">קבוצת וואטסאפ עם כל בעלי המקצוע</h3>
+              <p class="text-muted">אתם לא לבד. קבוצת וואטסאפ סגורה עם כל המומחים: יועץ משכנתאות, עורך דין, מהנדס בדק בית, ואנחנו. כל שאלה מקבלת מענה מיידי - אין תשובה שאין לה מענה.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Specializations -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
+          התמחויות - סוגי נכסים שאנחנו מלווים
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-6 bg-surface rounded-xl border border-border text-center">
+            <div class="w-14 h-14 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-7 h-7 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
+            </div>
+            <h3 class="font-semibold text-dark mb-2">התחדשות עירונית</h3>
+            <p class="text-muted text-sm">פינוי-בינוי, תמ״א 38. דירות עם פוטנציאל עליית ערך משמעותית לאורך זמן.</p>
+          </div>
+
+          <div class="p-6 bg-surface rounded-xl border border-border text-center">
+            <div class="w-14 h-14 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-7 h-7 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+            </div>
+            <h3 class="font-semibold text-dark mb-2">פריסייל 15/85</h3>
+            <p class="text-muted text-sm">דירות על הנייר עם תנאי כניסה נוחים ופוטנציאל רווח כבר בחתימה.</p>
+          </div>
+
+          <div class="p-6 bg-surface rounded-xl border border-border text-center">
+            <div class="w-14 h-14 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-7 h-7 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+              </svg>
+            </div>
+            <h3 class="font-semibold text-dark mb-2">דירות יד שנייה</h3>
+            <p class="text-muted text-sm">נכסים מתחת למחיר השוק עם פוטנציאל השבחה ותשואה משכירות.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's Included -->
+  <section class="py-16 md:py-20 bg-surface">
     <div class="container mx-auto px-4">
       <div class="max-w-3xl mx-auto">
         <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
@@ -88,27 +294,27 @@ const serviceSchema = {
         <div class="space-y-6">
           {[
             {
-              title: 'ייעוץ ראשוני מקיף',
-              desc: 'פגישת היכרות להבנת הצרכים, היעדים והתקציב. נגדיר יחד את פרופיל ההשקעה האידיאלי עבורכם.',
+              title: 'ייעוץ ראשוני ובניית פרופיל משקיע',
+              desc: 'פגישת היכרות מעמיקה להבנת הצרכים, היעדים, התקציב ורמת הסיכון. נגדיר יחד את פרופיל ההשקעה האידיאלי עבורכם - האם אתם מחפשים תשואה שוטפת, עליית ערך, או שילוב.',
             },
             {
               title: 'ניתוח שוק וזיהוי הזדמנויות',
-              desc: 'מחקר מעמיק של השוק, זיהוי אזורים מתאימים ואיתור נכסים פוטנציאליים שעומדים בקריטריונים.',
+              desc: 'מחקר מעמיק של השוק באזורים הרלוונטיים, זיהוי פרויקטים ומתחמים מתאימים, ואיתור נכסים שעומדים בקריטריונים - כולל גישה לעסקאות שלא מפורסמות בשוק החופשי.',
             },
             {
               title: 'סיורים ובדיקות מקצועיות',
-              desc: 'נלווה אתכם לביקורים בנכסים, נבצע בדיקת כדאיות מקצועית לכל נכס ונספק ניתוח השוואתי.',
+              desc: 'נלווה אתכם לביקורים בנכסים, נבצע בדיקת כדאיות מקצועית לכל נכס (שווי, פוטנציאל, סיכונים), ונספק ניתוח השוואתי בין האפשרויות.',
             },
             {
               title: 'ניהול משא ומתן',
-              desc: 'ניהול המשא ומתן מולדות המוכר או המתווך - כדי להשיג את המחיר הטוב ביותר עבורכם.',
+              desc: 'ניהול המשא ומתן מול המוכר, הקבלן או המתווך. המטרה: להשיג את המחיר והתנאים הטובים ביותר עבורכם. חסכנו למשקיעים שלנו מאות אלפי שקלים.',
             },
             {
-              title: 'ליווי עד לסגירה',
-              desc: 'ליווי מלא בתהליך המשפטי, בדיקת החוזה, ועד לחתימה וקבלת המפתח.',
+              title: 'ליווי עד לסגירה ואחריה',
+              desc: 'ליווי מלא בתהליך המשפטי, תיאום עם עורך דין ויועץ משכנתאות, בדיקת החוזה, ועד לחתימה וקבלת המפתח. גם אחרי - עוזרים בשיפוץ, השכרה ותכנון לטווח ארוך.',
             },
           ].map((item) => (
-            <div class="flex gap-4 p-6 bg-surface rounded-xl border border-border">
+            <div class="flex gap-4 p-6 bg-white rounded-xl border border-border">
               <div class="flex-shrink-0 w-8 h-8 bg-brand-100 rounded-full flex items-center justify-center">
                 <svg class="w-5 h-5 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -131,7 +337,152 @@ const serviceSchema = {
     steps={serviceSteps}
   />
 
-  <!-- Why Us -->
+  <!-- Pricing Transparency -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
+          שקיפות מחירים מלאה
+        </h2>
+
+        <div class="bg-brand-50 rounded-2xl p-8 mb-8">
+          <div class="text-center mb-6">
+            <div class="text-4xl font-bold text-brand-600 mb-2">18,000 ש״ח</div>
+            <div class="text-muted">עלות הליווי המלא (כולל מע״מ)</div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            <div class="bg-white rounded-xl p-4 text-center">
+              <div class="text-2xl font-bold text-dark mb-1">5,000 ש״ח</div>
+              <div class="text-sm text-muted">מקדמה בתחילת הליווי</div>
+            </div>
+            <div class="bg-white rounded-xl p-4 text-center">
+              <div class="text-2xl font-bold text-dark mb-1">13,000 ש״ח</div>
+              <div class="text-sm text-muted">יתרה בחתימה על העסקה</div>
+            </div>
+          </div>
+
+          <p class="text-sm text-muted text-center">
+            המקדמה משקפת עבודת ייעוץ, ניתוח ועבודת שטח ואינה מוחזרת בנסיגה מצד הלקוח.
+          </p>
+        </div>
+
+        <h3 class="font-semibold text-dark mb-4 text-center">עלויות נוספות (לא חובה, לפי הצורך)</h3>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+          {[
+            { service: 'ייעוץ משכנתאות', price: '~7,000 ש״ח' },
+            { service: 'עורך דין', price: '~5,000 ש״ח' },
+            { service: 'שומה מוקדמת', price: '1,000-2,500 ש״ח' },
+            { service: 'בדק בית (מהנדס)', price: '~1,650 ש״ח' },
+            { service: 'תיווך (אם נדרש)', price: '1-2% מהעסקה' },
+          ].map((item) => (
+            <div class="p-4 bg-surface rounded-lg border border-border text-center">
+              <div class="text-sm text-muted mb-1">{item.service}</div>
+              <div class="font-semibold text-dark">{item.price}</div>
+            </div>
+          ))}
+        </div>
+
+        <p class="text-sm text-muted text-center mt-6">
+          * כל בעלי המקצוע עברו סינון קפדני ומציעים מחירים מוזלים ללקוחות הליווי שלנו
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Or Livne -->
+  <section class="py-16 md:py-20 bg-surface">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div>
+            <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-6">
+              הכירו את אור ליבנה
+            </h2>
+            <p class="text-muted mb-4">
+              מלווה משקיעים ויועץ משכנתאות עם 12 שנות ניסיון בשוק הנדל״ן הישראלי. מתמחה בדירות יד ראשונה ושנייה, דירות על הנייר והתחדשות עירונית.
+            </p>
+
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-brand-600 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-dark">8 שנים בהייטק כמנהל שיווק וצמיחה - כולל אקזיט עם גרניולט (נמכרה לאינטל)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-brand-600 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-dark">יועץ משכנתאות מוסמך - קשרי עבודה עם כל הבנקים</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-brand-600 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-dark">רישיון תיווך מטעם משרד המשפטים</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-brand-600 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-dark">רשת קשרים רחבה עם בעלי קרקעות, יזמים ובעלי מקצוע</span>
+              </li>
+            </ul>
+
+            <p class="text-muted italic">
+              "בשנים האחרונות זכינו ללוות משקיעים בקבלת החלטות בעסקאות נדל״ן. מי שלא הגיע מהתחום והצליח לקבל החלטה נכונה וכלכלית - ריגש אותנו. בזכותם הבנו את ערך הליווי."
+            </p>
+          </div>
+
+          <div class="bg-white rounded-2xl p-8 border border-border">
+            <h3 class="font-semibold text-dark mb-4 text-center">למה כדאי להצטרף?</h3>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3">
+                <div class="flex-shrink-0 w-6 h-6 bg-success-100 rounded-full flex items-center justify-center">
+                  <span class="text-success-600 text-sm font-bold">✓</span>
+                </div>
+                <div>
+                  <span class="font-medium text-dark">תשואה מקסימלית</span>
+                  <p class="text-sm text-muted">עסקאות מתחת למחיר השוק, לאחר בדיקה מקצועית</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="flex-shrink-0 w-6 h-6 bg-success-100 rounded-full flex items-center justify-center">
+                  <span class="text-success-600 text-sm font-bold">✓</span>
+                </div>
+                <div>
+                  <span class="font-medium text-dark">הגשש המקצועי שלכם</span>
+                  <p class="text-sm text-muted">עיניים מנוסות שבוחנות כל עסקה בהתאמה אישית</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="flex-shrink-0 w-6 h-6 bg-success-100 rounded-full flex items-center justify-center">
+                  <span class="text-success-600 text-sm font-bold">✓</span>
+                </div>
+                <div>
+                  <span class="font-medium text-dark">ליווי ארוך טווח</span>
+                  <p class="text-sm text-muted">תמיכה גם אחרי החתימה - שיפוץ, השכרה, מכירה</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="flex-shrink-0 w-6 h-6 bg-success-100 rounded-full flex items-center justify-center">
+                  <span class="text-success-600 text-sm font-bold">✓</span>
+                </div>
+                <div>
+                  <span class="font-medium text-dark">שקיפות מלאה</span>
+                  <p class="text-sm text-muted">מראים את כל התמונה - גם הסיכונים, לא רק היתרונות</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Us - Condensed -->
   <section class="py-16 md:py-20 bg-white">
     <div class="container mx-auto px-4">
       <div class="max-w-3xl mx-auto text-center">
@@ -141,10 +492,10 @@ const serviceSchema = {
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           {[
-            { title: 'שמאית מקרקעין מוסמכת', desc: '15 שנות ניסיון בשמאות - הבנה עמוקה של שווי נכסים' },
-            { title: 'מחיר קבוע', desc: '18,000 ש״ח - לא אחוז מהעסקה, בלי ניגוד אינטרסים' },
-            { title: 'רקע הייטק', desc: 'גישה מבוססת נתונים ואנליטיקה להחלטות השקעה' },
-            { title: 'שקיפות מלאה', desc: 'נראה לכם גם את הסיכונים, לא רק את היתרונות' },
+            { title: 'שמאית מקרקעין מוסמכת', desc: '15 שנות ניסיון בשמאות - הבנה עמוקה של שווי נכסים, זיהוי בעיות נסתרות ומציאת הזדמנויות' },
+            { title: 'מחיר קבוע - ללא אחוזים', desc: '18,000 ש״ח - לא משנה אם הדירה עולה 800K או 2M. אפס ניגוד אינטרסים' },
+            { title: 'רקע הייטק + נדל״ן', desc: 'גישה מבוססת נתונים ואנליטיקה. ניסיון בניהול פרויקטים מורכבים ומשא ומתן' },
+            { title: 'גישה לעסקאות בלעדיות', desc: 'רשת קשרים רחבה עם יזמים ובעלי נכסים - עסקאות שלא מגיעות לשוק החופשי' },
           ].map((item) => (
             <div class="p-6 bg-brand-50 rounded-xl text-center">
               <h3 class="font-semibold text-dark mb-2">{item.title}</h3>
@@ -158,7 +509,7 @@ const serviceSchema = {
 
   <CTASection
     title="מוכנים להתחיל?"
-    subtitle="השאירו פרטים ונחזור אליכם לשיחת ייעוץ ראשונית ללא התחייבות"
+    subtitle="השאירו פרטים ונחזור אליכם לשיחת ייעוץ ראשונית ללא התחייבות. בשיחה נבין את הצרכים שלכם ונסביר איך אנחנו יכולים לעזור."
   />
 
   <TestimonialSection />
