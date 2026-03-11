@@ -1,13 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PageHero from '../../components/PageHero.astro';
 import TrustBar from '../../components/TrustBar.astro';
 import CTASection from '../../components/CTASection.astro';
-
-const breadcrumbs = [
-  { label: 'דף הבית', href: '/' },
-  { label: 'אזורי שירות' },
-];
 
 const areas = [
   {
@@ -97,22 +92,13 @@ const areas = [
   title="אזורי שירות"
   description="ליווי משקיעי נדל״ן בחיפה, נתניה, ראשון לציון וגבעת שמואל. שמאית מקרקעין מוסמכת מלווה אתכם בכל שלב. בדיקות, ניתוח ומשא ומתן."
 >
-  <!-- Hero -->
-  <section class="bg-gradient-to-b from-brand-50 to-white py-12 md:py-20">
-    <div class="container mx-auto px-4">
-      <Breadcrumbs items={breadcrumbs} />
-
-      <div class="max-w-3xl mx-auto text-center">
-        <h1 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-dark leading-tight mb-6">
-          אזורי שירות
-        </h1>
-        <p class="text-lg md:text-xl text-muted">
-          אנחנו פועלים בצפון, במרכז ובדרום - חיפה והקריות, באר שבע, פתח תקווה, נתניה, הרצליה ועוד.
-          לכל אזור מאפיינים ייחודיים והזדמנויות שונות.
-        </p>
-      </div>
-    </div>
-  </section>
+  <PageHero
+    title="אזורי שירות"
+    subtitle="אנחנו פועלים בצפון, במרכז ובדרום - חיפה והקריות, באר שבע, פתח תקווה, נתניה, הרצליה ועוד. לכל אזור מאפיינים ייחודיים והזדמנויות שונות."
+    backgroundImage="/images/hero/hero-02.webp"
+    showCTA={true}
+    ctaText="השאירו פרטים לייעוץ"
+  />
 
   <TrustBar variant="light" />
 

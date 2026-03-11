@@ -30,6 +30,14 @@ const authorNames = {
 
 const authorName = authorNames[post.data.author];
 
+const authorImages = {
+  maayan: '/images/team/maayan-portrait.png',
+  or: '/images/team/or-portrait.webp',
+  team: '/images/team/maayan-or-hero.png',
+};
+
+const authorImage = authorImages[post.data.author];
+
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
@@ -74,8 +82,8 @@ const articleSchema = {
 
           <div class="flex flex-wrap items-center gap-4 text-sm text-muted">
             <div class="flex items-center gap-2">
-              <div class="w-10 h-10 bg-brand-100 rounded-full flex items-center justify-center">
-                <span class="font-bold text-brand-600">{authorName.charAt(0)}</span>
+              <div class="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
+                <img src={authorImage} alt={authorName} class="w-full h-full object-cover" />
               </div>
               <div>
                 <a href="/about/" class="font-medium text-dark hover:text-brand-600 transition-colors">
@@ -111,8 +119,8 @@ const articleSchema = {
         <!-- Author Box -->
         <div class="mt-16 p-6 bg-surface rounded-2xl border border-border">
           <div class="flex items-start gap-4">
-            <div class="w-16 h-16 bg-brand-100 rounded-full flex items-center justify-center flex-shrink-0">
-              <span class="text-2xl font-bold text-brand-600">{authorName.charAt(0)}</span>
+            <div class="w-16 h-16 rounded-full overflow-hidden flex-shrink-0">
+              <img src={authorImage} alt={authorName} class="w-full h-full object-cover" />
             </div>
             <div>
               <a href="/about/" class="font-heading font-bold text-dark text-lg hover:text-brand-600 transition-colors">
