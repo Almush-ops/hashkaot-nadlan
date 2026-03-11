@@ -47,11 +47,12 @@ const certificates = [
       <div class="absolute end-0 top-0 bottom-0 w-16 bg-gradient-to-r from-transparent to-white z-10 pointer-events-none"></div>
 
       <!-- Scrollable Container -->
-      <div class="overflow-x-auto pb-4 -mx-4 px-4 scrollbar-hide">
+      <div id="cert-carousel" class="overflow-x-auto pb-4 -mx-4 px-4 scrollbar-hide scroll-smooth">
         <div class="flex gap-6 min-w-max">
           {certificates.map((cert, index) => (
             <div
-              class="group relative w-48 md:w-56 flex-shrink-0 cursor-pointer"
+              class="cert-item group relative w-48 md:w-56 flex-shrink-0 cursor-pointer"
+              data-index={index}
               style={`animation-delay: ${index * 100}ms`}
             >
               <div class="aspect-[3/4] rounded-xl overflow-hidden bg-surface border-2 border-brand-100 transition-all duration-300 group-hover:border-brand-300 group-hover:shadow-xl group-hover:-translate-y-2">
@@ -71,6 +72,17 @@ const certificates = [
             </div>
           ))}
         </div>
+      </div>
+
+      <!-- Slider Dots -->
+      <div class="flex justify-center gap-2 mt-6">
+        {certificates.map((_, index) => (
+          <button
+            class="cert-dot w-2.5 h-2.5 rounded-full bg-brand-200 transition-all duration-300 hover:bg-brand-400"
+            data-index={index}
+            aria-label={`תעודה ${index + 1}`}
+          />
+        ))}
       </div>
     </div>
 
@@ -108,4 +120,53 @@ const certificates = [
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+  .cert-dot.active {
+    @apply bg-brand-600 w-6;
+  }
 </style>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const carousel = document.getElementById('cert-carousel');
+    const dots = document.querySelectorAll('.cert-dot');
+    const items = document.querySelectorAll('.cert-item');
+
+    if (!carousel || !dots.length) return;
+
+    // Set first dot as active initially
+    dots[0]?.classList.add('active');
+
+    // Click handler for dots
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        const index = parseInt(dot.dataset.index);
+        const item = items[index];
+        if (item) {
+          const scrollLeft = item.offsetLeft - carousel.offsetLeft - 16;
+          carousel.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Scroll handler to update active dot
+    let scrollTimeout;
+    carousel.addEventListener('scroll', () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        const scrollLeft = carousel.scrollLeft;
+        let activeIndex = 0;
+
+        items.forEach((item, index) => {
+          const itemLeft = item.offsetLeft - carousel.offsetLeft;
+          if (scrollLeft >= itemLeft - 100) {
+            activeIndex = index;
+          }
+        });
+
+        dots.forEach((dot, index) => {
+          dot.classList.toggle('active', index === activeIndex);
+        });
+      }, 50);
+    });
+  });
+</script>
