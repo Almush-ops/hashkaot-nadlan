@@ -33,24 +33,21 @@ const stats = [
   <!-- Subtle texture overlay -->
   <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(201,162,39,0.15),transparent_50%)]"></div>
 
-  <!-- Couple Image - Desktop (bottom-aligned, left side in RTL) -->
-  <div class="hidden lg:block absolute bottom-0 start-0 z-10 w-[45%] max-w-[600px]">
+  <!-- Couple Image - Desktop (bottom-aligned, left side in RTL = end-0) -->
+  <div class="hidden lg:block absolute bottom-0 end-0 z-10 w-[40%] max-w-[500px]">
     <img
-      src="/images/team/maayan-or-hero.png"
+      src="/images/team/or-maayan-together.png"
       alt="אור ומעיין ליבנה - מלווי משקיעים"
       class="w-full h-auto object-contain object-bottom"
-      width="600"
-      height="700"
+      width="500"
+      height="600"
       loading="eager"
     />
   </div>
 
   <div class="container mx-auto px-4 relative z-10 py-8 lg:py-12">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-      <!-- Spacer for image on desktop -->
-      <div class="hidden lg:block"></div>
-
-      <!-- Main Content -->
+      <!-- Main Content (first = right side in RTL) -->
       <div class="text-center lg:text-start pt-24 lg:pt-8">
         <!-- Badge -->
         <div class="inline-flex items-center gap-2 px-4 py-2 bg-accent/20 backdrop-blur-sm border border-accent/30 rounded-full mb-6">
@@ -124,6 +121,9 @@ const stats = [
           ))}
         </div>
       </div>
+
+      <!-- Spacer for image on desktop (second = left side in RTL) -->
+      <div class="hidden lg:block"></div>
     </div>
 
     <!-- Mobile: Couple Image + Stats -->
@@ -145,7 +145,7 @@ const stats = [
       <!-- Mobile Couple Image -->
       <div class="flex justify-center">
         <img
-          src="/images/team/maayan-or-hero.png"
+          src="/images/team/or-maayan-together.png"
           alt="אור ומעיין ליבנה - מלווי משקיעים"
           class="w-full max-w-sm h-auto object-contain"
           width="400"
