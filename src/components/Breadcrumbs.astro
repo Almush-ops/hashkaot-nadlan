@@ -6,11 +6,9 @@ interface BreadcrumbItem {
 
 interface Props {
   items: BreadcrumbItem[];
-  variant?: 'default' | 'light';
 }
 
-const { items, variant = 'default' } = Astro.props;
-const isLight = variant === 'light';
+const { items } = Astro.props;
 
 // Generate JSON-LD schema
 const breadcrumbSchema = {
@@ -30,7 +28,7 @@ const breadcrumbSchema = {
     {items.map((item, index) => (
       <>
         {index > 0 && (
-          <li class={isLight ? 'text-white/50' : 'text-muted/60'}>
+          <li class="text-muted/60">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
             </svg>
@@ -40,12 +38,12 @@ const breadcrumbSchema = {
           {item.href ? (
             <a
               href={item.href}
-              class={isLight ? 'text-white/70 hover:text-white transition-colors' : 'text-muted hover:text-brand-600 transition-colors'}
+              class="text-muted hover:text-brand-600 transition-colors"
             >
               {item.label}
             </a>
           ) : (
-            <span class={isLight ? 'text-white font-medium' : 'text-dark font-medium'}>{item.label}</span>
+            <span class="text-dark font-medium">{item.label}</span>
           )}
         </li>
       </>

@@ -1,0 +1,247 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import TrustBar from '../../components/TrustBar.astro';
+import FAQ from '../../components/FAQ.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import CTASection from '../../components/CTASection.astro';
+import SchemaOrg from '../../components/SchemaOrg.astro';
+
+const breadcrumbs = [
+  { label: 'דף הבית', href: '/' },
+  { label: 'התחדשות עירונית' },
+];
+
+const faqItems = [
+  {
+    question: 'מה ההבדל בין תמ״א 38 לפינוי בינוי?',
+    answer: 'תמ״א 38 מתייחסת לחיזוק מבנים קיימים (38/1) או הריסה ובנייה מחדש (38/2) של בניינים בודדים. פינוי בינוי הוא פרויקט גדול יותר שכולל מתחמים שלמים, עם תכנון מחודש של השכונה.',
+  },
+  {
+    question: 'כמה עולה ייעוץ בהתחדשות עירונית?',
+    answer: 'פגישת ייעוץ ראשונית היא ללא עלות. לליווי מקיף של התהליך - צרו קשר ונתאים הצעה לפי הצרכים שלכם.',
+  },
+  {
+    question: 'כמה זמן לוקח פרויקט התחדשות עירונית?',
+    answer: 'תלוי בסוג הפרויקט. תמ״א 38/1 (חיזוק) יכולה לקחת 2-3 שנים. תמ״א 38/2 והריסה ובנייה - 4-6 שנים. פינוי בינוי - 7-10 שנים.',
+  },
+  {
+    question: 'האם כדאי לקנות דירה בבניין שעובר התחדשות?',
+    answer: 'יש יתרונות (דירה חדשה בסוף התהליך) וחסרונות (אי-ודאות, זמן ארוך). אנחנו יכולים לעזור לכם לבדוק את הכדאיות של עסקה כזו.',
+  },
+  {
+    question: 'מה תפקידכם בתהליך?',
+    answer: 'אנחנו מייעצים לבעלי דירות או למשקיעים - בדיקת כדאיות, הערכת שווי עתידי, ייעוץ במשא ומתן מול יזמים, וליווי לאורך התהליך.',
+  },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'ייעוץ התחדשות עירונית',
+  description: 'ייעוץ מקצועי בפרויקטי התחדשות עירונית - תמ״א 38, פינוי בינוי והריסה ובנייה',
+  provider: {
+    '@type': 'ProfessionalService',
+    name: 'השקעות נדל״ן - מעין ואור ליבנה',
+    url: 'https://hashkaot-nadlan.co.il',
+  },
+  areaServed: 'ישראל',
+  serviceType: 'ייעוץ נדל״ן',
+};
+---
+
+<BaseLayout
+  title="ייעוץ התחדשות עירונית"
+  description="ייעוץ מקצועי בפרויקטי התחדשות עירונית - תמ״א 38, פינוי בינוי והריסה ובנייה. ליווי בעלי דירות ומשקיעים. פגישת ייעוץ ראשונית חינם."
+>
+  <SchemaOrg schema={serviceSchema} />
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-b from-brand-50 to-white py-12 md:py-20">
+    <div class="container mx-auto px-4">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <div class="max-w-3xl">
+        <h1 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-dark leading-tight mb-6">
+          ייעוץ התחדשות עירונית
+        </h1>
+        <p class="text-lg md:text-xl text-muted mb-8">
+          תמ״א 38, פינוי בינוי, הריסה ובנייה - אנחנו מלווים בעלי דירות ומשקיעים בכל שלבי התהליך. כדי שתדעו מה מגיע לכם ולא תוותרו על זכויות.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#contact" class="px-8 py-4 bg-accent hover:bg-accent-dark text-white rounded-md font-semibold text-lg transition-all duration-300 hover:shadow-xl text-center">
+            פגישת ייעוץ חינם
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TrustBar variant="light" />
+
+  <!-- Types of Projects -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-12 text-center">
+          סוגי פרויקטי התחדשות עירונית
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {[
+            {
+              title: 'תמ״א 38/1',
+              subtitle: 'חיזוק ותוספת',
+              items: ['חיזוק מבנה קיים', 'תוספת קומות', 'מעלית וחניה', 'שדרוג הדירות', '2-3 שנים'],
+              color: 'brand',
+            },
+            {
+              title: 'תמ״א 38/2',
+              subtitle: 'הריסה ובנייה',
+              items: ['הריסת הבניין', 'בנייה חדשה מאפס', 'דירה חדשה וגדולה יותר', 'דיור חלופי בזמן הבנייה', '4-6 שנים'],
+              color: 'accent',
+            },
+            {
+              title: 'פינוי בינוי',
+              subtitle: 'מתחם שלם',
+              items: ['מתחם של מספר בניינים', 'תכנון מחודש של האזור', 'שטחים ציבוריים חדשים', 'דירה חדשה משודרגת', '7-10 שנים'],
+              color: 'brand',
+            },
+          ].map((project) => (
+            <div class={`bg-surface rounded-xl p-6 border-2 ${project.color === 'accent' ? 'border-accent' : 'border-brand-100'}`}>
+              <div class="mb-4">
+                <h3 class="font-heading font-bold text-dark text-xl">{project.title}</h3>
+                <p class={`text-sm ${project.color === 'accent' ? 'text-accent' : 'text-brand-600'}`}>{project.subtitle}</p>
+              </div>
+              <ul class="space-y-2">
+                {project.items.map((item) => (
+                  <li class="flex items-center gap-2 text-muted text-sm">
+                    <svg class={`w-4 h-4 flex-shrink-0 ${project.color === 'accent' ? 'text-accent' : 'text-brand-600'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How We Help -->
+  <section class="py-16 md:py-20 bg-surface">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
+          איך אנחנו עוזרים?
+        </h2>
+
+        <div class="space-y-6">
+          {[
+            {
+              title: 'לבעלי דירות',
+              items: [
+                'הערכת שווי הזכויות שלכם',
+                'ייעוץ בבחירת יזם',
+                'בדיקת הצעות מיזמים',
+                'ליווי במשא ומתן',
+                'בדיקת חוזים לפני חתימה',
+              ],
+              icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>`,
+            },
+            {
+              title: 'למשקיעים',
+              items: [
+                'בדיקת כדאיות רכישת דירה בבניין להתחדשות',
+                'הערכת שווי עתידי',
+                'זיהוי הזדמנויות בשוק',
+                'ניתוח סיכונים ותשואה צפויה',
+                'ליווי עד לסגירת העסקה',
+              ],
+              icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`,
+            },
+          ].map((audience) => (
+            <div class="bg-white rounded-xl p-6 border border-border">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center text-brand-600" set:html={audience.icon} />
+                <h3 class="font-heading font-bold text-dark text-lg">{audience.title}</h3>
+              </div>
+              <ul class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                {audience.items.map((item) => (
+                  <li class="flex items-center gap-2 text-muted text-sm">
+                    <svg class="w-4 h-4 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Important -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
+          למה חשוב להתייעץ?
+        </h2>
+
+        <div class="space-y-6">
+          {[
+            {
+              title: 'הבנת הזכויות שלכם',
+              desc: 'רבים לא יודעים מה באמת מגיע להם. אנחנו נעזור לכם להבין את מלוא הזכויות שלכם בפרויקט.',
+            },
+            {
+              title: 'משא ומתן חכם',
+              desc: 'יזמים מציעים הצעות שונות. איך יודעים מה טוב ומה פחות? אנחנו נעזור לכם להשוות ולנהל משא ומתן.',
+            },
+            {
+              title: 'הימנעות מטעויות',
+              desc: 'חתימה על חוזה גרוע יכולה לעלות מאות אלפי שקלים. בדיקה מקצועית מראש חוסכת בעיות.',
+            },
+            {
+              title: 'שקט נפשי',
+              desc: 'פרויקט התחדשות לוקח שנים. חשוב להתחיל עם בסיס טוב ולדעת שעשיתם את הבחירה הנכונה.',
+            },
+          ].map((item) => (
+            <div class="flex gap-4 p-6 bg-surface rounded-xl border border-border">
+              <div class="flex-shrink-0 w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center">
+                <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-dark mb-1">{item.title}</h3>
+                <p class="text-muted">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="יש לכם שאלות על התחדשות עירונית?"
+    subtitle="פגישת ייעוץ ראשונית ללא עלות - נעזור לכם להבין את האפשרויות שלכם"
+    ctaText="קבעו פגישה"
+  />
+
+  <FAQ
+    title="שאלות נפוצות על התחדשות עירונית"
+    items={faqItems}
+  />
+
+  <ContactForm
+    title="קבעו פגישת ייעוץ"
+    subtitle="מלאו את הפרטים ונחזור אליכם לתיאום פגישה"
+  />
+</BaseLayout>

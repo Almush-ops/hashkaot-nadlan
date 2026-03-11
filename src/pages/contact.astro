@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PageHero from '../components/PageHero.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 import ContactForm from '../components/ContactForm.astro';
 import FAQ from '../components/FAQ.astro';
 import SchemaOrg from '../components/SchemaOrg.astro';
@@ -10,8 +10,7 @@ const breadcrumbs = [
   { label: 'צור קשר' },
 ];
 
-// TODO: Almog - provide phone number for lead tracking
-const phone = '';
+const phone = '055-2555144';
 const email = 'maayan@maayanlivne.co.il';
 const address = 'כביש ההר הירוק, יגור';
 
@@ -36,7 +35,7 @@ const localBusinessSchema = {
   '@type': 'ProfessionalService',
   name: 'השקעות נדל״ן - מעין ואור ליבנה',
   image: 'https://hashkaot-nadlan.co.il/images/logo.png',
-  telephone: '', // TODO: Add phone
+  telephone: '+972-55-2555144',
   email: 'maayan@maayanlivne.co.il',
   address: {
     '@type': 'PostalAddress',
@@ -56,15 +55,25 @@ const localBusinessSchema = {
 
 <BaseLayout
   title="צור קשר"
-  description="צרו קשר עם מעין ואור ליבנה לייעוץ השקעות נדל״ן. כתובת: קיבוץ יגור. תגובה תוך יום עסקים."
+  description="צרו קשר עם מעין ואור ליבנה לייעוץ השקעות נדל״ן. טלפון: 055-2555144, כתובת: קיבוץ יגור. תגובה תוך יום עסקים."
 >
   <SchemaOrg schema={localBusinessSchema} />
 
-  <PageHero
-    title="צור קשר"
-    subtitle="יש לכם שאלה? רוצים לשמוע עוד? השאירו פרטים ונחזור אליכם בהקדם."
-    breadcrumbs={breadcrumbs}
-  />
+  <!-- Hero -->
+  <section class="bg-gradient-to-b from-brand-50 to-white py-12 md:py-16">
+    <div class="container mx-auto px-4">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-dark leading-tight mb-6">
+          צור קשר
+        </h1>
+        <p class="text-lg md:text-xl text-muted">
+          יש לכם שאלה? רוצים לשמוע עוד? השאירו פרטים ונחזור אליכם בהקדם.
+        </p>
+      </div>
+    </div>
+  </section>
 
   <!-- Contact Info + Form -->
   <section class="py-16 md:py-20 bg-white">

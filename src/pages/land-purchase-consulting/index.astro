@@ -1,0 +1,230 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import TrustBar from '../../components/TrustBar.astro';
+import ProcessSteps from '../../components/ProcessSteps.astro';
+import FAQ from '../../components/FAQ.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import CTASection from '../../components/CTASection.astro';
+import SchemaOrg from '../../components/SchemaOrg.astro';
+
+const breadcrumbs = [
+  { label: 'דף הבית', href: '/' },
+  { label: 'ליווי רכישת קרקע' },
+];
+
+const faqItems = [
+  {
+    question: 'מה ההבדל בין ליווי רכישת קרקע לבדיקת עסקת קרקע?',
+    answer: 'בדיקת עסקת קרקע היא בדיקה חד-פעמית לקרקע ספציפית. ליווי רכישת קרקע הוא שירות מקיף שכולל איתור קרקעות מתאימות, בדיקות מרובות, ניהול משא ומתן וליווי עד לחתימה.',
+  },
+  {
+    question: 'כמה עולה ליווי רכישת קרקע?',
+    answer: 'עלות הליווי המלא היא 15,000 ש״ח. המחיר כולל איתור, בדיקות מרובות, ניהול משא ומתן וליווי עד לסגירת העסקה.',
+  },
+  {
+    question: 'איזה סוגי קרקעות אתם מלווים?',
+    answer: 'אנחנו מלווים ברכישת כל סוגי הקרקעות: קרקע למגורים, קרקע חקלאית עם פוטנציאל שינוי ייעוד, קרקע מסחרית ומגרשים בפרצלציה.',
+  },
+  {
+    question: 'כמה זמן לוקח למצוא קרקע מתאימה?',
+    answer: 'בממוצע 3-6 חודשים, תלוי בדרישות ובתקציב. קרקעות איכותיות עם פוטנציאל אמיתי דורשות סבלנות וחיפוש מעמיק.',
+  },
+  {
+    question: 'האם אתם עובדים עם עורכי דין ושמאים?',
+    answer: 'כן, מעיין היא שמאית מקרקעין מוסמכת ואנחנו עובדים בשיתוף פעולה עם עורכי דין מומחים בנדל״ן כדי להבטיח עסקה בטוחה.',
+  },
+];
+
+const serviceSteps = [
+  { number: 1, title: 'הגדרת צרכים', description: 'פגישת היכרות להבנת היעדים, התקציב וסוג הקרקע המבוקש.' },
+  { number: 2, title: 'איתור קרקעות', description: 'חיפוש מעמיק וסינון ראשוני של קרקעות פוטנציאליות.' },
+  { number: 3, title: 'בדיקות מקיפות', description: 'בדיקה תכנונית, משפטית וכלכלית לכל קרקע רלוונטית.' },
+  { number: 4, title: 'משא ומתן וסגירה', description: 'ניהול המשא ומתן וליווי עד לחתימת החוזה.' },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'ליווי רכישת קרקע',
+  description: 'ליווי מקיף לרכישת קרקע להשקעה - מאיתור ועד סגירת העסקה',
+  provider: {
+    '@type': 'ProfessionalService',
+    name: 'השקעות נדל״ן - מעין ואור ליבנה',
+    url: 'https://hashkaot-nadlan.co.il',
+  },
+  areaServed: 'ישראל',
+  serviceType: 'ליווי השקעות נדל״ן',
+};
+---
+
+<BaseLayout
+  title="ליווי רכישת קרקע"
+  description="ליווי מקיף לרכישת קרקע להשקעה - איתור, בדיקות, משא ומתן וסגירה. על ידי שמאית מקרקעין מוסמכת. 15,000 ש״ח מחיר קבוע."
+>
+  <SchemaOrg schema={serviceSchema} />
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-b from-brand-50 to-white py-12 md:py-20">
+    <div class="container mx-auto px-4">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <div class="max-w-3xl">
+        <h1 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-dark leading-tight mb-6">
+          ליווי רכישת קרקע
+        </h1>
+        <p class="text-lg md:text-xl text-muted mb-8">
+          מהרגע שמחליטים להשקיע בקרקע ועד לחתימה על החוזה - אנחנו איתכם בכל שלב. איתור, בדיקות, משא ומתן וסגירה.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#contact" class="px-8 py-4 bg-accent hover:bg-accent-dark text-white rounded-md font-semibold text-lg transition-all duration-300 hover:shadow-xl text-center">
+            השאירו פרטים לייעוץ חינם
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TrustBar variant="light" />
+
+  <!-- What's Included -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
+          מה כולל השירות?
+        </h2>
+
+        <div class="space-y-6">
+          {[
+            {
+              title: 'הגדרת אסטרטגיה',
+              desc: 'פגישת היכרות להבנת היעדים שלכם - האם מחפשים קרקע לבנייה עצמית, להשקעה לטווח ארוך, או קרקע עם פוטנציאל שינוי ייעוד.',
+            },
+            {
+              title: 'איתור קרקעות מתאימות',
+              desc: 'חיפוש פרואקטיבי של קרקעות שעומדות בקריטריונים - לא רק מה שמפורסם, אלא גם הזדמנויות שמגיעות דרך קשרים בשוק.',
+            },
+            {
+              title: 'בדיקות מקיפות',
+              desc: 'לכל קרקע רלוונטית נבצע בדיקה תכנונית (תב״ע, זכויות), משפטית (בעלות, שעבודים) וכלכלית (שווי, פוטנציאל).',
+            },
+            {
+              title: 'ניהול משא ומתן',
+              desc: 'ניהול המשא ומתן מול המוכר או נציגיו - מתוך ידע מעמיק על שווי הקרקע והמצב התכנוני.',
+            },
+            {
+              title: 'ליווי עד לסגירה',
+              desc: 'עבודה מול עורך הדין, בדיקת החוזה, וליווי מלא עד לחתימה ורישום הזכויות.',
+            },
+          ].map((item) => (
+            <div class="flex gap-4 p-6 bg-surface rounded-xl border border-border">
+              <div class="flex-shrink-0 w-8 h-8 bg-brand-100 rounded-full flex items-center justify-center">
+                <svg class="w-5 h-5 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-dark mb-1">{item.title}</h3>
+                <p class="text-muted">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ProcessSteps
+    title="תהליך העבודה"
+    subtitle="ארבעה שלבים לרכישת קרקע מוצלחת"
+    steps={serviceSteps}
+  />
+
+  <!-- Why Important -->
+  <section class="py-16 md:py-20 bg-surface">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
+          למה לקחת ליווי לרכישת קרקע?
+        </h2>
+
+        <div class="space-y-6">
+          {[
+            {
+              title: 'מורכבות גבוהה',
+              desc: 'עסקאות קרקע מורכבות הרבה יותר מדירות - תב״ע, הסכמי שיתוף, זכויות בנייה, היטלי השבחה. בלי ליווי מקצועי קל לטעות.',
+            },
+            {
+              title: 'סיכון גבוה',
+              desc: 'קרקע שנראית זולה יכולה להתברר כהשקעה גרועה אם לא בודקים לעומק את המצב התכנוני והמשפטי.',
+            },
+            {
+              title: 'הזדמנויות נסתרות',
+              desc: 'קרקעות איכותיות לא תמיד מפורסמות. עם הקשרים והניסיון שלנו, נמצא הזדמנויות שלא תמצאו לבד.',
+            },
+            {
+              title: 'חיסכון בזמן',
+              desc: 'במקום לבזבז חודשים על חיפוש ובדיקות, אנחנו עושים את העבודה ומביאים לכם רק אופציות שכדאי לשקול.',
+            },
+          ].map((item) => (
+            <div class="flex gap-4 p-6 bg-white rounded-xl border border-border">
+              <div class="flex-shrink-0 w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center">
+                <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-dark mb-1">{item.title}</h3>
+                <p class="text-muted">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-xl mx-auto text-center">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-4">
+          מחיר השירות
+        </h2>
+        <div class="bg-brand-50 rounded-2xl p-8 border border-brand-100">
+          <div class="text-5xl font-bold text-brand-600 mb-2">₪15,000</div>
+          <div class="text-muted mb-6">מחיר קבוע | כולל את כל השירותים</div>
+          <ul class="text-start space-y-3 mb-8">
+            {['הגדרת אסטרטגיה ויעדים', 'איתור קרקעות מתאימות', 'בדיקות מקיפות (ללא הגבלה)', 'ניהול משא ומתן', 'ליווי עד לסגירה'].map((item) => (
+              <li class="flex items-center gap-2 text-dark">
+                <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <a
+            href="#contact"
+            class="block w-full py-4 bg-accent hover:bg-accent-dark text-white rounded-md font-semibold transition-all duration-300"
+          >
+            התחילו עכשיו
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="מחפשים קרקע להשקעה?"
+    subtitle="נעזור לכם למצוא את ההזדמנות הנכונה - עם ליווי מקצועי בכל שלב"
+  />
+
+  <FAQ
+    title="שאלות נפוצות על ליווי רכישת קרקע"
+    items={faqItems}
+  />
+
+  <ContactForm />
+</BaseLayout>
