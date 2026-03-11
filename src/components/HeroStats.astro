@@ -27,23 +27,11 @@ const stats = [
 ];
 ---
 
-<section class="relative min-h-[85vh] flex items-end overflow-hidden">
-  <!-- Background Image with Overlay -->
-  <div class="absolute inset-0">
-    <img
-      src={backgroundImage}
-      alt=""
-      class="w-full h-full object-cover"
-      width="1820"
-      height="1024"
-      loading="eager"
-      fetchpriority="high"
-    />
-    <!-- Gradient overlay for readability -->
-    <div class="absolute inset-0 bg-gradient-to-l from-brand-900/95 via-brand-800/90 to-brand-900/85"></div>
-    <!-- Additional subtle texture overlay -->
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(201,162,39,0.1),transparent_50%)]"></div>
-  </div>
+<section class="relative min-h-[85vh] flex items-center overflow-hidden">
+  <!-- Background with Gradient -->
+  <div class="absolute inset-0 bg-gradient-to-l from-brand-900 via-brand-800 to-brand-700"></div>
+  <!-- Subtle texture overlay -->
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(201,162,39,0.15),transparent_50%)]"></div>
 
   <!-- Couple Image - Desktop -->
   <div class="hidden lg:block absolute bottom-0 start-0 z-10 w-[45%] max-w-[600px]">
@@ -57,8 +45,8 @@ const stats = [
     />
   </div>
 
-  <div class="container mx-auto px-4 relative z-10 pb-8 lg:pb-12">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-end">
+  <div class="container mx-auto px-4 relative z-10 py-8 lg:py-12">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
       <!-- Spacer for image on desktop -->
       <div class="hidden lg:block"></div>
 
