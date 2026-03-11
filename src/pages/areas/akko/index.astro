@@ -1,0 +1,179 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHero from '../../../components/PageHero.astro';
+import TrustBar from '../../../components/TrustBar.astro';
+import ServicesGrid from '../../../components/ServicesGrid.astro';
+import FAQ from '../../../components/FAQ.astro';
+import ContactForm from '../../../components/ContactForm.astro';
+import CTASection from '../../../components/CTASection.astro';
+import SchemaOrg from '../../../components/SchemaOrg.astro';
+
+const faqItems = [
+  {
+    question: 'האם עכו נחשבת להזדמנות השקעה טובה?',
+    answer: 'עכו מציעה מחירי כניסה נמוכים מאוד (600K-1M) עם תשואות גבוהות (5-7%). יש פוטנציאל תיירותי משמעותי, התחדשות עירונית באזורים מסוימים, ותוכניות פיתוח עירוניות. זו עיר עם סיכון גבוה יותר אך תשואה פוטנציאלית גבוהה.',
+  },
+  {
+    question: 'מה ההבדל בין עכו העתיקה לעכו החדשה?',
+    answer: 'עכו העתיקה מציעה נכסים ייחודיים עם פוטנציאל תיירותי (Airbnb) אך עם אתגרי תחזוקה. עכו החדשה מציעה מחירים נגישים יותר עם שוכרים קבועים. שתיהן מציעות תשואות טובות בדרכים שונות.',
+  },
+  {
+    question: 'מי השוכרים הטיפוסיים בעכו?',
+    answer: 'משפחות מקומיות, עובדי התעשייה באזור (מפעלים, נמל), וסטודנטים מהמכללה האקדמית. בעכו העתיקה - גם תיירים קצרי טווח.',
+  },
+  {
+    question: 'יש התחדשות עירונית בעכו?',
+    answer: 'כן, יש תוכניות מתאר חדשות לאזורים מסוימים. עכו העתיקה עוברת שימור ופיתוח תיירותי. באזורים החדשים יש פרויקטי תמ"א 38. <a href="/urban-renewal/" class="text-brand-600 hover:underline">ראו את שירות ייעוץ התחדשות עירונית שלנו ←</a>',
+  },
+  {
+    question: 'כמה עולה ליווי משקיעים בעכו?',
+    answer: 'המחירים שלנו קבועים ללא קשר לאזור: <a href="/investor-consulting/" class="text-brand-600 hover:underline">ליווי משקיעים לרכישת דירה</a> - 18,000 ש״ח, <a href="/apartment-investment-analysis/" class="text-brand-600 hover:underline">בדיקת כדאיות דירה</a> - 1,800 ש״ח.',
+  },
+];
+
+const marketStats = [
+  { label: 'מחיר ממוצע לדירה 3 חד\'', value: '700K-1.1M ש״ח' },
+  { label: 'תשואה ממוצעת', value: '5-7%' },
+  { label: 'שכירות ממוצעת', value: '2,800-3,800 ש״ח' },
+  { label: 'פוטנציאל תיירותי', value: 'גבוה' },
+];
+
+const localSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'ליווי משקיעי נדל״ן בעכו - מעין ואור ליבנה',
+  description: 'ליווי משקיעי נדל״ן בעכו. מחירים נגישים מאוד, תשואות 5-7%, פוטנציאל תיירותי.',
+  url: 'https://hashkaot-nadlan.co.il/areas/akko/',
+  telephone: '+972-55-2555144',
+  areaServed: { '@type': 'City', name: 'עכו' },
+  priceRange: '₪',
+};
+---
+
+<BaseLayout
+  title="ליווי משקיעי נדל״ן בעכו - מחירים נגישים ותשואות גבוהות"
+  description="ליווי משקיעי נדל״ן בעכו - מחירי כניסה נמוכים (700K-1.1M), תשואות 5-7%, פוטנציאל תיירותי. שמאית מקרקעין מוסמכת. צרו קשר."
+>
+  <SchemaOrg schema={localSchema} />
+
+  <PageHero
+    title="ליווי משקיעי נדל״ן בעכו"
+    subtitle="עכו מציעה את מחירי הכניסה הנמוכים ביותר באזור עם תשואות גבוהות ופוטנציאל תיירותי ייחודי. עיר עתיקה עם הזדמנויות חדשות."
+    backgroundImage="/images/hero/hero-02.webp"
+    showCTA={true}
+    ctaText="השאירו פרטים לייעוץ"
+  />
+
+  <TrustBar variant="light" />
+
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
+          שוק הנדל״ן בעכו - 2026
+        </h2>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+          {marketStats.map((stat) => (
+            <div class="bg-brand-50 rounded-xl p-4 text-center">
+              <div class="text-lg md:text-xl font-bold text-brand-600 mb-1">{stat.value}</div>
+              <div class="text-sm text-muted">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+
+        <div class="prose prose-lg max-w-none text-muted">
+          <p>
+            עכו היא הזדמנות ייחודית למשקיעים שמוכנים לקחת קצת יותר סיכון בתמורה לתשואה גבוהה יותר. מחירי הדירות כאן מהנמוכים בישראל - ניתן למצוא דירת 3 חדרים מ-600,000 ש"ח בלבד.
+          </p>
+          <p>
+            היתרון הייחודי של עכו הוא הפוטנציאל התיירותי - העיר העתיקה היא אתר מורשת עולמית של אונסק"ו, ומושכת מאות אלפי תיירים בשנה. נכסים בעיר העתיקה יכולים לייצר הכנסה משמעותית מהשכרה קצרת טווח.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20 bg-surface">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
+          אזורים בעכו
+        </h2>
+
+        <div class="space-y-6">
+          {[
+            {
+              name: 'עכו העתיקה',
+              profile: 'תיירות + Airbnb',
+              price: '600K-1.2M ש״ח',
+              yield: '6-10% (קצר טווח)',
+              desc: 'נכסים היסטוריים ייחודיים עם פוטנציאל להשכרה קצרת טווח (Airbnb, Booking). דורש ניהול אקטיבי יותר אך התשואה יכולה להיות גבוהה מאוד. אתגרי תחזוקה במבנים עתיקים.',
+              highlight: 'יתרון: תשואה גבוהה מתיירות',
+            },
+            {
+              name: 'עכו החדשה',
+              profile: 'תשואה יציבה',
+              price: '700K-1M ש״ח',
+              yield: '5-6%',
+              desc: 'שכונות מגורים רגילות עם מחירים נגישים מאוד. מתאים להשכרה ארוכת טווח למשפחות מקומיות. פחות ניהול, תשואה יציבה אך נמוכה יותר.',
+              highlight: 'יתרון: מחיר כניסה נמוך, שקט',
+            },
+            {
+              name: 'נהריה (סמוך)',
+              profile: 'יציבות + חוף',
+              price: '1-1.5M ש״ח',
+              yield: '4-5%',
+              desc: 'עיר שכנה עם מחירים מעט גבוהים יותר אך יציבות גבוהה יותר. קו חוף ארוך, אוכלוסייה מבוססת. אלטרנטיבה לעכו עם פחות סיכון.',
+              highlight: 'יתרון: יציבות גבוהה יותר',
+            },
+          ].map((neighborhood) => (
+            <div class="bg-white rounded-xl p-6 border border-border">
+              <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+                <div>
+                  <h3 class="font-heading font-bold text-dark text-xl">{neighborhood.name}</h3>
+                  <span class="inline-block px-3 py-1 bg-brand-100 text-brand-600 rounded-full text-sm">
+                    {neighborhood.profile}
+                  </span>
+                </div>
+                <div class="flex gap-6 text-sm">
+                  <div>
+                    <span class="text-muted">מחיר: </span>
+                    <span class="font-semibold text-dark">{neighborhood.price}</span>
+                  </div>
+                  <div>
+                    <span class="text-muted">תשואה: </span>
+                    <span class="font-semibold text-accent">{neighborhood.yield}</span>
+                  </div>
+                </div>
+              </div>
+              <p class="text-muted mb-3">{neighborhood.desc}</p>
+              <p class="text-sm text-brand-600 font-medium">{neighborhood.highlight}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ServicesGrid
+    title="השירותים שלנו בעכו"
+    subtitle="כל השירותים שלנו זמינים באזור עכו - ליווי מלא או בדיקות נקודתיות"
+  />
+
+  <CTASection
+    title="מחפשים השקעה בעכו?"
+    subtitle="נעזור לכם להבין את הסיכונים והפוטנציאל"
+    ctaText="השאירו פרטים"
+  />
+
+  <FAQ
+    title="שאלות נפוצות על השקעות בעכו"
+    items={faqItems}
+  />
+
+  <ContactForm
+    title="מעוניינים בייעוץ לאזור עכו?"
+    subtitle="השאירו פרטים ונחזור אליכם בהקדם"
+  />
+</BaseLayout>

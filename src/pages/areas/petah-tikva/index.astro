@@ -1,0 +1,187 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHero from '../../../components/PageHero.astro';
+import TrustBar from '../../../components/TrustBar.astro';
+import ServicesGrid from '../../../components/ServicesGrid.astro';
+import FAQ from '../../../components/FAQ.astro';
+import ContactForm from '../../../components/ContactForm.astro';
+import CTASection from '../../../components/CTASection.astro';
+import SchemaOrg from '../../../components/SchemaOrg.astro';
+
+const faqItems = [
+  {
+    question: 'למה פתח תקווה נחשבת לאטרקטיבית למשקיעים?',
+    answer: 'פתח תקווה משלבת מיקום מרכזי (15 דקות מת"א), מחירים נמוכים יחסית למרכז, ביקוש גבוה לשכירות, ותשתיות תחבורה מצוינות. העיר צומחת ומתפתחת, עם הרבה משפחות צעירות ועובדי הייטק.',
+  },
+  {
+    question: 'מה התשואה הממוצעת בפתח תקווה?',
+    answer: 'התשואה בפתח תקווה נעה בין 3.5% ל-4.5% - נמוכה יותר מהצפון אבל גבוהה יותר מתל אביב. היתרון הוא ביציבות ובביקוש הקבוע.',
+  },
+  {
+    question: 'אילו שכונות מומלצות להשקעה?',
+    answer: 'שכונת כפר גנים ג\' ופסגת אריאל לשוכרים איכותיים. מרכז העיר והשכונות הוותיקות לתשואה גבוהה יותר עם פוטנציאל התחדשות. קריית אריה (פארק הייטק) ליציבות מקסימלית.',
+  },
+  {
+    question: 'יש התחדשות עירונית בפתח תקווה?',
+    answer: 'כן, הרבה. פתח תקווה עוברת התחדשות עירונית מואצת. אלפי יחידות דיור מאושרות בתמ"א 38 ופינוי-בינוי, בעיקר במרכז העיר ובשכונות הוותיקות. <a href="/urban-renewal/" class="text-brand-600 hover:underline">ראו את שירות ייעוץ התחדשות עירונית שלנו ←</a>',
+  },
+  {
+    question: 'כמה עולה ליווי משקיעים בפתח תקווה?',
+    answer: 'המחירים שלנו קבועים ללא קשר לאזור: <a href="/investor-consulting/" class="text-brand-600 hover:underline">ליווי משקיעים לרכישת דירה</a> - 18,000 ש״ח, <a href="/apartment-investment-analysis/" class="text-brand-600 hover:underline">בדיקת כדאיות דירה</a> - 1,800 ש״ח.',
+  },
+];
+
+const marketStats = [
+  { label: 'מחיר ממוצע לדירה 3 חד\'', value: '1.5-2.2M ש״ח' },
+  { label: 'תשואה ממוצעת', value: '3.5-4.5%' },
+  { label: 'שכירות ממוצעת', value: '4,500-6,500 ש״ח' },
+  { label: 'מרחק מת״א', value: '15 דק\'' },
+];
+
+const localSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'ליווי משקיעי נדל״ן בפתח תקווה - מעין ואור ליבנה',
+  description: 'ליווי משקיעי נדל״ן בפתח תקווה. מיקום מרכזי, ביקוש גבוה לשכירות, התחדשות עירונית.',
+  url: 'https://hashkaot-nadlan.co.il/areas/petah-tikva/',
+  telephone: '+972-55-2555144',
+  areaServed: { '@type': 'City', name: 'פתח תקווה' },
+  priceRange: '₪₪',
+};
+---
+
+<BaseLayout
+  title="ליווי משקיעי נדל״ן בפתח תקווה - המרכז בזול"
+  description="ליווי משקיעי נדל״ן בפתח תקווה - 15 דקות מת״א, מחירים נוחים (1.5-2.2M), ביקוש גבוה לשכירות, התחדשות עירונית מואצת. שמאית מקרקעין מוסמכת. צרו קשר."
+>
+  <SchemaOrg schema={localSchema} />
+
+  <PageHero
+    title="ליווי משקיעי נדל״ן בפתח תקווה"
+    subtitle="פתח תקווה היא המרכז במחיר נגיש - 15 דקות מתל אביב, ביקוש גבוה לשכירות, והתחדשות עירונית מואצת. יציבות עם פוטנציאל צמיחה."
+    backgroundImage="/images/hero/hero-02.webp"
+    showCTA={true}
+    ctaText="השאירו פרטים לייעוץ"
+  />
+
+  <TrustBar variant="light" />
+
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
+          שוק הנדל״ן בפתח תקווה - 2026
+        </h2>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+          {marketStats.map((stat) => (
+            <div class="bg-brand-50 rounded-xl p-4 text-center">
+              <div class="text-lg md:text-xl font-bold text-brand-600 mb-1">{stat.value}</div>
+              <div class="text-sm text-muted">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+
+        <div class="prose prose-lg max-w-none text-muted">
+          <p>
+            פתח תקווה היא העיר החמישית בגודלה בישראל ואחת האטרקטיביות למשקיעים במרכז הארץ. המחירים כאן נמוכים ב-30-40% מתל אביב ורמת גן, אבל הביקוש לשכירות גבוה מאוד.
+          </p>
+          <p>
+            הסיבה לביקוש: קריית אריה - פארק ההייטק הגדול בישראל עם עשרות אלפי עובדים. הקרבה לכבישים ראשיים (4, 5) ולרכבת הקלה (בקרוב) הופכים את העיר לנגישה מאוד. המחירים עולים בהתמדה.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20 bg-surface">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
+          שכונות בפתח תקווה
+        </h2>
+
+        <div class="space-y-6">
+          {[
+            {
+              name: 'כפר גנים ג\' ופסגת אריאל',
+              profile: 'יוקרה + יציבות',
+              price: '2-3M ש״ח',
+              yield: '3-3.5%',
+              desc: 'השכונות היוקרתיות עם שוכרים איכותיים - משפחות הייטק, זוגות צעירים מבוססים. תשואה נמוכה יותר אך יציבות מקסימלית ופחות כאבי ראש.',
+              highlight: 'יתרון: שוכרים איכותיים, יציבות',
+            },
+            {
+              name: 'מרכז העיר',
+              profile: 'התחדשות עירונית',
+              price: '1.4-1.8M ש״ח',
+              yield: '4-5%',
+              desc: 'בניינים ישנים עם פוטנציאל תמ"א 38 ופינוי-בינוי. מחירים נגישים, תשואה גבוהה יחסית, ואפשרות להשבחה משמעותית. דורש יותר מחקר.',
+              highlight: 'יתרון: תשואה + פוטנציאל השבחה',
+            },
+            {
+              name: 'קריית אריה',
+              profile: 'הייטק + ביקוש',
+              price: '1.8-2.5M ש״ח',
+              yield: '3.5-4%',
+              desc: 'קרוב לפארק ההייטק הגדול. ביקוש קבוע מעובדי ההייטק. מחירים גבוהים יחסית אך הביקוש מבטיח תפוסה מלאה.',
+              highlight: 'יתרון: ביקוש קבוע לשכירות',
+            },
+            {
+              name: 'השכונות הוותיקות (עמישב, הדר, נווה גן)',
+              profile: 'תשואה מקסימלית',
+              price: '1.2-1.6M ש״ח',
+              yield: '4.5-5%',
+              desc: 'מחירי הכניסה הנמוכים ביותר בפתח תקווה. תשואה גבוהה, שוכרים מגוונים. חלק מהבניינים בתהליכי התחדשות.',
+              highlight: 'יתרון: מחיר נמוך, תשואה גבוהה',
+            },
+          ].map((neighborhood) => (
+            <div class="bg-white rounded-xl p-6 border border-border">
+              <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+                <div>
+                  <h3 class="font-heading font-bold text-dark text-xl">{neighborhood.name}</h3>
+                  <span class="inline-block px-3 py-1 bg-brand-100 text-brand-600 rounded-full text-sm">
+                    {neighborhood.profile}
+                  </span>
+                </div>
+                <div class="flex gap-6 text-sm">
+                  <div>
+                    <span class="text-muted">מחיר: </span>
+                    <span class="font-semibold text-dark">{neighborhood.price}</span>
+                  </div>
+                  <div>
+                    <span class="text-muted">תשואה: </span>
+                    <span class="font-semibold text-accent">{neighborhood.yield}</span>
+                  </div>
+                </div>
+              </div>
+              <p class="text-muted mb-3">{neighborhood.desc}</p>
+              <p class="text-sm text-brand-600 font-medium">{neighborhood.highlight}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ServicesGrid
+    title="השירותים שלנו בפתח תקווה"
+    subtitle="כל השירותים שלנו זמינים באזור פתח תקווה - ליווי מלא או בדיקות נקודתיות"
+  />
+
+  <CTASection
+    title="מחפשים השקעה בפתח תקווה?"
+    subtitle="נעזור לכם למצוא את הדירה הנכונה באזור המרכז"
+    ctaText="השאירו פרטים"
+  />
+
+  <FAQ
+    title="שאלות נפוצות על השקעות בפתח תקווה"
+    items={faqItems}
+  />
+
+  <ContactForm
+    title="מעוניינים בייעוץ לאזור פתח תקווה?"
+    subtitle="השאירו פרטים ונחזור אליכם בהקדם"
+  />
+</BaseLayout>
