@@ -50,6 +50,10 @@ const ogImg = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImg} />
 
+<!-- Font Preloading - Critical for preventing Arial fallback -->
+<link rel="preload" href="/fonts/assistant-hebrew.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/heebo-hebrew.woff2" as="font" type="font/woff2" crossorigin />
+
 <!-- Favicon -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 <link rel="sitemap" href="/sitemap-index.xml" />
