@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PageHero from '../../components/PageHero.astro';
 import TrustBar from '../../components/TrustBar.astro';
 import ProcessSteps from '../../components/ProcessSteps.astro';
 import FAQ from '../../components/FAQ.astro';
@@ -66,29 +66,14 @@ const serviceSchema = {
 >
   <SchemaOrg schema={serviceSchema} />
 
-  <!-- Hero -->
-  <section class="bg-gradient-to-b from-brand-50 to-white py-12 md:py-20">
-    <div class="container mx-auto px-4">
-      <Breadcrumbs items={breadcrumbs} />
-
-      <div class="max-w-3xl">
-        <h1 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-dark leading-tight mb-6">
-          ליווי משקיעים לרכישת דירה
-        </h1>
-        <p class="text-lg md:text-xl text-muted mb-8">
-          ליווי מקצועי מהרגע הראשון ועד סגירת העסקה - על ידי שמאית מקרקעין מוסמכת ומלווה משקיעים עם רקע הייטק.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a href="#contact" class="px-8 py-4 bg-accent hover:bg-accent-dark text-white rounded-md font-semibold text-lg transition-all duration-300 hover:shadow-xl text-center">
-            השאירו פרטים לייעוץ חינם
-          </a>
-          <a href="tel:055-2555144" class="px-8 py-4 bg-white hover:bg-brand-50 text-brand-700 border-2 border-brand-200 rounded-md font-semibold text-lg transition-all duration-300 text-center">
-            055-2555144
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <PageHero
+    title="ליווי משקיעים לרכישת דירה"
+    subtitle="ליווי מקצועי מהרגע הראשון ועד סגירת העסקה - על ידי שמאית מקרקעין מוסמכת ומלווה משקיעים עם רקע הייטק."
+    breadcrumbs={breadcrumbs}
+    backgroundImage="/images/hero/hero-01.webp"
+    showCTA={true}
+    ctaText="השאירו פרטים לייעוץ חינם"
+  />
 
   <TrustBar variant="light" />
 

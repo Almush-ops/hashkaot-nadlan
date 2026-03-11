@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PageHero from '../../components/PageHero.astro';
 import TrustBar from '../../components/TrustBar.astro';
 import FAQ from '../../components/FAQ.astro';
 import ContactForm from '../../components/ContactForm.astro';
@@ -56,26 +56,14 @@ const serviceSchema = {
 >
   <SchemaOrg schema={serviceSchema} />
 
-  <!-- Hero -->
-  <section class="bg-gradient-to-b from-brand-50 to-white py-12 md:py-20">
-    <div class="container mx-auto px-4">
-      <Breadcrumbs items={breadcrumbs} />
-
-      <div class="max-w-3xl">
-        <h1 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-dark leading-tight mb-6">
-          ייעוץ התחדשות עירונית
-        </h1>
-        <p class="text-lg md:text-xl text-muted mb-8">
-          תמ״א 38, פינוי בינוי, הריסה ובנייה - אנחנו מלווים בעלי דירות ומשקיעים בכל שלבי התהליך. כדי שתדעו מה מגיע לכם ולא תוותרו על זכויות.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a href="#contact" class="px-8 py-4 bg-accent hover:bg-accent-dark text-white rounded-md font-semibold text-lg transition-all duration-300 hover:shadow-xl text-center">
-            פגישת ייעוץ חינם
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <PageHero
+    title="ייעוץ התחדשות עירונית"
+    subtitle="תמ״א 38, פינוי בינוי, הריסה ובנייה - אנחנו מלווים בעלי דירות ומשקיעים בכל שלבי התהליך. כדי שתדעו מה מגיע לכם ולא תוותרו על זכויות."
+    breadcrumbs={breadcrumbs}
+    backgroundImage="/images/hero/hero-02.webp"
+    showCTA={true}
+    ctaText="פגישת ייעוץ חינם"
+  />
 
   <TrustBar variant="light" />
 
