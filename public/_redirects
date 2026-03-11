@@ -1,0 +1,2 @@
+# Redirect www to non-www (301 permanent)
+https://www.hashkaot-nadlan.co.il/* https://hashkaot-nadlan.co.il/:splat 301
