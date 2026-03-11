@@ -48,7 +48,7 @@ const whatsappLink = `https://wa.me/972552555144`;
     <!-- Mobile Floating Phone Button -->
     <a
       href={`tel:${phone}`}
-      class="fixed bottom-20 start-4 z-50 md:hidden w-14 h-14 bg-accent hover:bg-accent-dark text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
+      class="fixed bottom-4 start-4 z-50 md:hidden w-14 h-14 bg-accent hover:bg-accent-dark text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
       aria-label="התקשרו אלינו"
     >
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -57,17 +57,19 @@ const whatsappLink = `https://wa.me/972552555144`;
     </a>
 
     <!-- Accessibility Widget -->
-    <div id="accessibility-widget" class="fixed bottom-4 start-4 z-50">
+    <div id="accessibility-widget" class="fixed bottom-4 end-4 z-50">
       <button
         id="accessibility-toggle"
         class="w-12 h-12 bg-brand-700 hover:bg-brand-800 text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300"
         aria-label="הגדרות נגישות"
       >
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+        <!-- Standard accessibility icon (person with arms out) -->
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+          <circle cx="12" cy="4" r="2"/>
+          <path d="M19 13v-2c-1.54.02-3.09-.75-4.07-1.83l-1.29-1.43c-.17-.19-.38-.34-.61-.45-.01 0-.01-.01-.02-.01H13c-.35-.2-.75-.3-1.19-.26C10.76 7.11 10 8.04 10 9.09V15c0 1.1.9 2 2 2h5v5h2v-5.5c0-1.1-.9-2-2-2h-3v-3.45c1.29 1.07 3.25 1.94 5 1.95zm-6.17 5c-.41 1.16-1.52 2-2.83 2-1.66 0-3-1.34-3-3 0-1.31.84-2.41 2-2.83V12.1c-2.28.46-4 2.48-4 4.9 0 2.76 2.24 5 5 5 2.42 0 4.44-1.72 4.9-4h-2.07z"/>
         </svg>
       </button>
-      <div id="accessibility-panel" class="hidden absolute bottom-14 start-0 bg-white rounded-lg shadow-xl border border-border p-4 w-64">
+      <div id="accessibility-panel" class="hidden absolute bottom-14 end-0 bg-white rounded-lg shadow-xl border border-border p-4 w-64">
         <h3 class="font-bold text-dark mb-3">הגדרות נגישות</h3>
         <div class="space-y-2">
           <button class="accessibility-btn w-full text-start px-3 py-2 rounded hover:bg-surface transition" data-action="increase-font">
