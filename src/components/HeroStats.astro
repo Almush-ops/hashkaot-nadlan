@@ -27,7 +27,7 @@ const stats = [
 ];
 ---
 
-<section class="relative min-h-[85vh] flex items-center overflow-hidden">
+<section class="relative min-h-[85vh] flex items-end overflow-hidden">
   <!-- Background Image with Overlay -->
   <div class="absolute inset-0">
     <img
@@ -45,10 +45,25 @@ const stats = [
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(201,162,39,0.1),transparent_50%)]"></div>
   </div>
 
-  <div class="container mx-auto px-4 relative z-10">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+  <!-- Couple Image - Desktop -->
+  <div class="hidden lg:block absolute bottom-0 start-0 z-10 w-[45%] max-w-[600px]">
+    <img
+      src="/images/team/maayan-or-hero.png"
+      alt="אור ומעיין ליבנה - מלווי משקיעים"
+      class="w-full h-auto object-contain object-bottom"
+      width="600"
+      height="700"
+      loading="eager"
+    />
+  </div>
+
+  <div class="container mx-auto px-4 relative z-10 pb-8 lg:pb-12">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-end">
+      <!-- Spacer for image on desktop -->
+      <div class="hidden lg:block"></div>
+
       <!-- Main Content -->
-      <div class="text-center lg:text-start">
+      <div class="text-center lg:text-start pt-24 lg:pt-8">
         <!-- Badge -->
         <div class="inline-flex items-center gap-2 px-4 py-2 bg-accent/20 backdrop-blur-sm border border-accent/30 rounded-full mb-6">
           <span class="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
@@ -66,7 +81,7 @@ const stats = [
         )}
 
         <!-- CTA Buttons -->
-        <div class="flex flex-col sm:flex-row items-center lg:items-start gap-4 mb-12">
+        <div class="flex flex-col sm:flex-row items-center lg:items-start gap-4 mb-8">
           <a
             href={ctaHref}
             class="group w-full sm:w-auto px-8 py-4 bg-accent hover:bg-accent-dark text-brand-900 rounded-lg font-bold text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-accent/30 hover:-translate-y-1 flex items-center justify-center gap-2"
@@ -106,46 +121,55 @@ const stats = [
             <span>צפון ומרכז הארץ</span>
           </div>
         </div>
+
+        <!-- Stats Row - Desktop -->
+        <div class="hidden lg:flex items-center gap-6 mt-8 pt-8 border-t border-white/20">
+          {stats.map((stat) => (
+            <div class="text-center">
+              <div class="text-2xl font-bold text-accent">
+                {stat.value}
+              </div>
+              <div class="text-xs text-white/60">
+                {stat.label}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile: Couple Image + Stats -->
+    <div class="lg:hidden mt-8">
+      <!-- Mobile Stats Row -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+        {stats.map((stat) => (
+          <div class="text-center bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/10">
+            <div class="text-2xl md:text-3xl font-bold text-accent mb-1">
+              {stat.value}
+            </div>
+            <div class="text-xs text-white/70">
+              {stat.label}
+            </div>
+          </div>
+        ))}
       </div>
 
-      <!-- Team Image Column -->
-      <div class="hidden lg:flex items-center justify-center">
+      <!-- Mobile Couple Image -->
+      <div class="flex justify-center">
         <img
-          src="/images/team/or-maayan-together.png"
+          src="/images/team/maayan-or-hero.png"
           alt="אור ומעיין ליבנה - מלווי משקיעים"
-          class="max-h-[500px] w-auto object-contain drop-shadow-2xl"
+          class="w-full max-w-sm h-auto object-contain"
+          width="400"
+          height="500"
           loading="eager"
         />
       </div>
     </div>
-
-    <!-- Mobile Team Image -->
-    <div class="flex justify-center mt-8 lg:hidden">
-      <img
-        src="/images/team/or-maayan-together.png"
-        alt="אור ומעיין ליבנה - מלווי משקיעים"
-        class="max-h-[300px] w-auto object-contain drop-shadow-xl"
-        loading="eager"
-      />
-    </div>
-
-    <!-- Mobile Stats Row -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8 mb-8 lg:hidden">
-      {stats.map((stat) => (
-        <div class="text-center bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/10">
-          <div class="text-2xl md:text-3xl font-bold text-accent mb-1">
-            {stat.value}
-          </div>
-          <div class="text-xs text-white/70">
-            {stat.label}
-          </div>
-        </div>
-      ))}
-    </div>
   </div>
 
   <!-- Scroll indicator -->
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce hidden md:block">
+  <div class="absolute bottom-4 left-1/2 -translate-x-1/2 animate-bounce hidden md:block z-20">
     <div class="w-8 h-12 border-2 border-white/30 rounded-full flex items-start justify-center p-2">
       <div class="w-1.5 h-3 bg-white/50 rounded-full animate-scroll"></div>
     </div>
