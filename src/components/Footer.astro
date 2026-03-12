@@ -44,6 +44,7 @@ const legalLinks = [
   { label: 'תנאי שימוש', href: '/terms/' },
   { label: 'מדיניות פרטיות', href: '/privacy/' },
   { label: 'הצהרת נגישות', href: '/accessibility/' },
+  { label: 'הגדרות עוגיות', href: '#', id: 'open-cookie-settings' },
 ];
 
 const socialLinks = [
@@ -256,7 +257,11 @@ const trustSignals = [
         </div>
         <div class="flex items-center gap-4 flex-wrap justify-center">
           {legalLinks.map((item) => (
-            <a href={item.href} class="text-white/50 hover:text-white text-sm transition-colors">
+            <a
+              href={item.href}
+              id={item.id || undefined}
+              class="text-white/50 hover:text-white text-sm transition-colors"
+            >
               {item.label}
             </a>
           ))}
@@ -277,3 +282,15 @@ const trustSignals = [
     </div>
   </div>
 </footer>
+
+<script is:inline>
+  // Open cookie consent banner when clicking "הגדרות עוגיות"
+  document.getElementById('open-cookie-settings')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    // Clear the consent to show the banner again
+    localStorage.removeItem('cookie_consent');
+    // Show the banner
+    const banner = document.getElementById('cookie-consent');
+    banner?.classList.remove('translate-y-full');
+  });
+</script>

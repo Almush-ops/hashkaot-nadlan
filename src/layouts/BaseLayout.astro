@@ -41,8 +41,15 @@ const whatsappLink = ''; // WhatsApp link removed - waiting for correct number
     />
   </head>
   <body class="min-h-screen flex flex-col bg-white text-dark antialiased font-sans">
+    <!-- Skip to content link for accessibility -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:start-4 focus:z-50 focus:bg-brand-600 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg"
+    >
+      דלג לתוכן הראשי
+    </a>
     <Header />
-    <main class="flex-1">
+    <main id="main-content" class="flex-1">
       <slot />
     </main>
     <Footer />
