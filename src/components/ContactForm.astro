@@ -64,6 +64,21 @@ const {
           />
         </div>
 
+        <!-- Consent Checkbox -->
+        <div class="flex items-start gap-3">
+          <input
+            type="checkbox"
+            id="consent"
+            name="consent"
+            required
+            class="mt-1 w-4 h-4 text-brand-600 border-border rounded focus:ring-brand-500"
+          />
+          <label for="consent" class="text-sm text-muted leading-relaxed">
+            אני מסכים/ה שפרטי הקשר שלי יועברו ליועצי הנדל"ן לצורך יצירת קשר וקבלת ייעוץ.
+            קראתי את <a href="/privacy/" class="underline hover:text-brand-600">מדיניות הפרטיות</a> ו<a href="/terms/" class="underline hover:text-brand-600">תנאי השימוש</a>.
+          </label>
+        </div>
+
         <!-- Submit -->
         <button
           type="submit"
@@ -71,11 +86,6 @@ const {
         >
           שלחו ונחזור אליכם
         </button>
-
-        <!-- Privacy note -->
-        <p class="text-xs text-muted text-center">
-          בשליחת הטופס אתם מאשרים את <a href="/privacy/" class="underline hover:text-brand-600">מדיניות הפרטיות</a> שלנו.
-        </p>
       </form>
     </div>
   </div>

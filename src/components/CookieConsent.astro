@@ -1,0 +1,96 @@
+---
+// Cookie Consent Banner - opt-in based (תיקון 13 לחוק הגנת הפרטיות)
+---
+
+<div
+  id="cookie-consent"
+  class="fixed bottom-0 inset-x-0 z-50 p-4 bg-white border-t border-border shadow-2xl transform translate-y-full transition-transform duration-300"
+  role="dialog"
+  aria-labelledby="cookie-consent-title"
+  aria-describedby="cookie-consent-description"
+>
+  <div class="container mx-auto max-w-4xl">
+    <div class="flex flex-col md:flex-row md:items-center gap-4">
+      <div class="flex-1">
+        <h2 id="cookie-consent-title" class="font-bold text-dark mb-1">
+          האתר משתמש בעוגיות
+        </h2>
+        <p id="cookie-consent-description" class="text-sm text-muted">
+          אנו משתמשים בעוגיות לשיפור חוויית הגלישה וניתוח תנועה.
+          ניתן לבחור אילו עוגיות לאשר.
+          <a href="/privacy/" class="underline hover:text-brand-600">מדיניות פרטיות</a>
+        </p>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <button
+          id="cookie-reject"
+          class="px-4 py-2 text-sm font-medium text-muted border border-border rounded-lg hover:bg-surface transition-colors"
+        >
+          רק הכרחיות
+        </button>
+        <button
+          id="cookie-accept"
+          class="px-4 py-2 text-sm font-medium text-white bg-brand-600 rounded-lg hover:bg-brand-700 transition-colors"
+        >
+          אישור הכל
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  (function() {
+    const CONSENT_KEY = 'cookie_consent';
+    const banner = document.getElementById('cookie-consent');
+    const acceptBtn = document.getElementById('cookie-accept');
+    const rejectBtn = document.getElementById('cookie-reject');
+
+    // Check if consent already given
+    const consent = localStorage.getItem(CONSENT_KEY);
+
+    if (!consent) {
+      // Show banner after a short delay
+      setTimeout(() => {
+        banner?.classList.remove('translate-y-full');
+      }, 1000);
+    } else if (consent === 'accepted') {
+      // Load analytics if previously accepted
+      loadAnalytics();
+    }
+
+    // Accept all cookies
+    acceptBtn?.addEventListener('click', () => {
+      localStorage.setItem(CONSENT_KEY, 'accepted');
+      hideBanner();
+      loadAnalytics();
+    });
+
+    // Reject non-essential cookies
+    rejectBtn?.addEventListener('click', () => {
+      localStorage.setItem(CONSENT_KEY, 'rejected');
+      hideBanner();
+    });
+
+    function hideBanner() {
+      banner?.classList.add('translate-y-full');
+    }
+
+    function loadAnalytics() {
+      // Only load Google Analytics if accepted
+      // Add your GA4 measurement ID here when ready
+      // const GA_ID = 'G-XXXXXXXXXX';
+      // if (GA_ID && !document.querySelector(`script[src*="${GA_ID}"]`)) {
+      //   const script = document.createElement('script');
+      //   script.async = true;
+      //   script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+      //   document.head.appendChild(script);
+      //
+      //   window.dataLayer = window.dataLayer || [];
+      //   function gtag(){dataLayer.push(arguments);}
+      //   gtag('js', new Date());
+      //   gtag('config', GA_ID);
+      // }
+    }
+  })();
+</script>
