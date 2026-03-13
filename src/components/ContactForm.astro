@@ -11,6 +11,20 @@ const {
   variant = 'section',
 } = Astro.props;
 
+const services = [
+  { value: 'investor-consulting', label: 'ליווי משקיעים לרכישת דירה' },
+  { value: 'land-deal-assessment', label: 'בדיקת עסקת קרקע' },
+  { value: 'land-purchase-consulting', label: 'ליווי רכישת קרקע' },
+  { value: 'apartment-investment-analysis', label: 'בדיקת כדאיות דירה' },
+  { value: 'urban-renewal', label: 'התחדשות עירונית' },
+  { value: 'other', label: 'אחר' },
+];
+
+const regions = [
+  { value: 'tzafon', label: 'צפון' },
+  { value: 'merkaz', label: 'מרכז' },
+  { value: 'darom', label: 'דרום' },
+];
 ---
 
 <section id="contact" class={`py-16 md:py-20 ${variant === 'section' ? 'bg-surface' : ''}`}>
@@ -64,19 +78,66 @@ const {
           />
         </div>
 
-        <!-- Consent Checkbox -->
-        <div class="flex items-start gap-3">
-          <input
-            type="checkbox"
-            id="consent"
-            name="consent"
-            required
-            class="mt-1 w-4 h-4 text-brand-600 border-border rounded focus:ring-brand-500"
-          />
-          <label for="consent" class="text-sm text-muted leading-relaxed">
-            אני מסכים/ה שפרטי הקשר שלי יועברו ליועצי הנדל"ן לצורך יצירת קשר וקבלת ייעוץ.
-            קראתי את <a href="/privacy/" class="underline hover:text-brand-600">מדיניות הפרטיות</a> ו<a href="/terms/" class="underline hover:text-brand-600">תנאי השימוש</a>.
+        <!-- Email -->
+        <div>
+          <label for="email" class="block text-sm font-medium text-dark mb-2">
+            אימייל
           </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition"
+            placeholder="your@email.com"
+          />
+        </div>
+
+        <!-- Service -->
+        <div>
+          <label for="service" class="block text-sm font-medium text-dark mb-2">
+            סוג שירות
+          </label>
+          <select
+            id="service"
+            name="service"
+            class="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition bg-white"
+          >
+            <option value="">בחרו שירות</option>
+            {services.map((s) => (
+              <option value={s.value}>{s.label}</option>
+            ))}
+          </select>
+        </div>
+
+        <!-- Region -->
+        <div>
+          <label for="region" class="block text-sm font-medium text-dark mb-2">
+            אזור בארץ
+          </label>
+          <select
+            id="region"
+            name="region"
+            class="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition bg-white"
+          >
+            <option value="">בחרו אזור</option>
+            {regions.map((r) => (
+              <option value={r.value}>{r.label}</option>
+            ))}
+          </select>
+        </div>
+
+        <!-- Notes -->
+        <div>
+          <label for="notes" class="block text-sm font-medium text-dark mb-2">
+            הערות נוספות
+          </label>
+          <textarea
+            id="notes"
+            name="notes"
+            rows="3"
+            class="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition resize-none"
+            placeholder="ספרו לנו עוד על מה שאתם מחפשים..."
+          ></textarea>
         </div>
 
         <!-- Submit -->
@@ -86,6 +147,11 @@ const {
         >
           שלחו ונחזור אליכם
         </button>
+
+        <!-- Privacy note -->
+        <p class="text-xs text-muted text-center">
+          בשליחת הטופס אתם מאשרים את <a href="/privacy/" class="underline hover:text-brand-600">מדיניות הפרטיות</a> שלנו.
+        </p>
       </form>
     </div>
   </div>
@@ -101,11 +167,19 @@ const {
     const h1 = document.querySelector('h1')?.textContent?.trim() || document.title;
 
     const data = {
-      name: formData.get('name'),
-      phone: formData.get('phone'),
+      'your-name': formData.get('name'),
+      'phone': formData.get('phone'),
       'page-title': h1,
-      source: 'hashkaot-nadlan.co.il',
-      timestamp: new Date().toISOString(),
+      'website': 'השקעות נדלן',
+      'center-client': 'מעין ואור ליבנה',
+      'center-phone': '0544870212',
+      'center-payment': '',
+      'category': 'בעלי מקצוע',
+      // Extra fields for CRM
+      email: formData.get('email') || '',
+      service: formData.get('service') || '',
+      region: formData.get('region') || '',
+      notes: formData.get('notes') || '',
     };
 
     // TODO: Replace with actual webhook URL
