@@ -4,7 +4,7 @@ import Breadcrumbs from './Breadcrumbs.astro';
 interface Props {
   title: string;
   subtitle?: string;
-  breadcrumbs: Array<{ label: string; href?: string }>;
+  breadcrumbs?: Array<{ label: string; href?: string }>;
   backgroundImage?: string;
   showCTA?: boolean;
   ctaText?: string;
@@ -41,9 +41,11 @@ const {
 
   <!-- Content -->
   <div class="container mx-auto px-4 relative z-10 py-16 md:py-24">
-    <div class="mb-4">
-      <Breadcrumbs items={breadcrumbs} variant="light" />
-    </div>
+{breadcrumbs && breadcrumbs.length > 0 && (
+      <div class="mb-4">
+        <Breadcrumbs items={breadcrumbs} variant="light" />
+      </div>
+    )}
 
     <div class="max-w-3xl">
       <h1 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
