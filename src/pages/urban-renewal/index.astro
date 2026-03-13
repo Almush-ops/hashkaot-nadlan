@@ -7,10 +7,6 @@ import ContactForm from '../../components/ContactForm.astro';
 import CTASection from '../../components/CTASection.astro';
 import SchemaOrg from '../../components/SchemaOrg.astro';
 
-const breadcrumbs = [
-  { label: 'דף הבית', href: '/' },
-  { label: 'התחדשות עירונית' },
-];
 
 const faqItems = [
   {
@@ -59,7 +55,7 @@ const serviceSchema = {
   <PageHero
     title="ייעוץ התחדשות עירונית"
     subtitle="תמ״א 38, פינוי בינוי, הריסה ובנייה - אנחנו מלווים בעלי דירות ומשקיעים בכל שלבי התהליך. כדי שתדעו מה מגיע לכם ולא תוותרו על זכויות."
-    breadcrumbs={breadcrumbs}
+    
     backgroundImage="/images/hero/hero-02.webp"
     showCTA={true}
     ctaText="פגישת ייעוץ חינם"
