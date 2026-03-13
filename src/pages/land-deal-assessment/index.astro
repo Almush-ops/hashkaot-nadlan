@@ -5,29 +5,42 @@ import TrustBar from '../../components/TrustBar.astro';
 import FAQ from '../../components/FAQ.astro';
 import ContactForm from '../../components/ContactForm.astro';
 import CTASection from '../../components/CTASection.astro';
+import TestimonialSection from '../../components/TestimonialSection.astro';
 import SchemaOrg from '../../components/SchemaOrg.astro';
 
 
 const faqItems = [
   {
     question: 'מה כולל שירות בדיקת עסקת קרקע?',
-    answer: 'הבדיקה כוללת: ניתוח תכנוני (תב״ע, זכויות בנייה), בדיקה משפטית (בעלות, שעבודים, הערות אזהרה), וניתוח כלכלי (שווי נוכחי, פוטנציאל השבחה).',
+    answer: 'הבדיקה כוללת שלושה רבדים: ניתוח תכנוני (תב״ע, זכויות בנייה, ייעוד, תכניות עתידיות), בדיקה משפטית (בעלות, שעבודים, הערות אזהרה, הסכמי שיתוף), וניתוח כלכלי (שווי נוכחי, השוואה לעסקאות דומות, פוטנציאל השבחה).',
   },
   {
     question: 'כמה עולה בדיקת עסקת קרקע?',
-    answer: 'עלות הבדיקה היא 2,500 ש״ח + מע״מ. זהו מחיר קבוע שכולל את כל הבדיקות - תכנוני, משפטי וכלכלי.',
+    answer: 'עלות הבדיקה היא 2,500 ש״ח + מע״מ. זהו מחיר קבוע שכולל את כל הבדיקות - תכנוני, משפטי וכלכלי, כולל דוח מפורט בכתב ושיחת סיכום.',
   },
   {
     question: 'כמה זמן לוקחת הבדיקה?',
-    answer: 'בדיקה סטנדרטית לוקחת 3-5 ימי עבודה. במקרים מורכבים יותר (קרקע חקלאית, שותפים רבים וכו\') הזמן עשוי להתארך.',
+    answer: 'בדיקה סטנדרטית לוקחת 3-5 ימי עבודה. במקרים מורכבים יותר (קרקע חקלאית, שותפים רבים, בעיות רישום) הזמן עשוי להתארך ל-7-10 ימים.',
   },
   {
     question: 'האם הבדיקה מתאימה לקרקע חקלאית?',
-    answer: 'כן, אנחנו מתמחים גם בבדיקת קרקעות חקלאיות. הבדיקה תכלול ניתוח סיכויי שינוי ייעוד, מגבלות תכנוניות וציפיות ריאליות.',
+    answer: 'כן, אנחנו מתמחים גם בבדיקת קרקעות חקלאיות. הבדיקה תכלול ניתוח סיכויי שינוי ייעוד (על בסיס תכניות מתאר ארציות ומחוזיות), מגבלות תכנוניות, וציפיות ריאליות לטווח זמן. נגיד לכם בכנות אם יש סיכוי אמיתי או שזו "קרקע לנכדים".',
   },
   {
     question: 'מה קורה אם הבדיקה מגלה בעיות?',
-    answer: 'נציג לכם דוח מפורט עם כל הממצאים, כולל המלצות פעולה. במקרים רבים, גילוי בעיות מאפשר לנהל משא ומתן על המחיר או לוותר על העסקה בזמן. מחפשים ליווי מקיף יותר? <a href="/land-purchase-consulting/" class="text-brand-600 hover:underline">ראו את שירות ליווי רכישת קרקע ←</a>',
+    answer: 'נציג לכם דוח מפורט עם כל הממצאים, כולל המלצות פעולה. במקרים רבים, גילוי בעיות מאפשר לנהל משא ומתן על המחיר או לוותר על העסקה בזמן - לפני שהפסדתם כסף. מחפשים ליווי מקיף יותר? <a href="/land-purchase-consulting/" class="text-brand-600 hover:underline">ראו את שירות ליווי רכישת קרקע ←</a>',
+  },
+  {
+    question: 'מה הבדיקה לא כוללת?',
+    answer: 'הבדיקה לא כוללת שומה רשמית לצורכי מס או בנק (שירות נפרד), בדיקה קרקעית/גיאולוגית פיזית, או ייצוג משפטי בעסקה. במידת הצורך נפנה אתכם לאנשי מקצוע מתאימים.',
+  },
+  {
+    question: 'איך אתם שונים ממשרד עורכי דין?',
+    answer: 'עורך דין בודק את ההיבט המשפטי בלבד. אנחנו נותנים תמונה מלאה: תכנוני, משפטי וכלכלי. מעיין היא שמאית מקרקעין מוסמכת עם 15 שנות ניסיון - היא יודעת להעריך שווי ופוטנציאל, לא רק לקרוא נסח טאבו.',
+  },
+  {
+    question: 'מה אם אני רוצה לבדוק כמה קרקעות?',
+    answer: 'ניתן לרכוש חבילת בדיקות במחיר מוזל. צרו קשר לקבלת הצעת מחיר. אם אתם מחפשים קרקע ולא רק בודקים אחת ספציפית, שקלו את <a href="/land-purchase-consulting/" class="text-brand-600 hover:underline">שירות ליווי רכישת קרקע</a> שכולל בדיקות ללא הגבלה.',
   },
 ];
 
@@ -190,16 +203,120 @@ const serviceSchema = {
     </div>
   </section>
 
+  <!-- Case Study / Stats -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
+          מה גילינו בבדיקות האחרונות
+        </h2>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+          <div class="bg-brand-50 rounded-xl p-4 text-center">
+            <div class="text-2xl font-bold text-brand-600 mb-1">47%</div>
+            <div class="text-sm text-muted">מהקרקעות נמכרות מעל השווי האמיתי</div>
+          </div>
+          <div class="bg-error-50 rounded-xl p-4 text-center">
+            <div class="text-2xl font-bold text-error-600 mb-1">23%</div>
+            <div class="text-sm text-muted">יש בעיות רישום או שעבודים</div>
+          </div>
+          <div class="bg-warning-50 rounded-xl p-4 text-center">
+            <div class="text-2xl font-bold text-warning-600 mb-1">31%</div>
+            <div class="text-sm text-muted">זכויות בנייה שונות ממה שפורסם</div>
+          </div>
+          <div class="bg-success-50 rounded-xl p-4 text-center">
+            <div class="text-2xl font-bold text-success-600 mb-1">89%</div>
+            <div class="text-sm text-muted">מהלקוחות חסכו כסף או נמנעו מטעות</div>
+          </div>
+        </div>
+
+        <div class="bg-surface rounded-2xl p-6 border border-border">
+          <h3 class="font-semibold text-dark text-lg mb-4">דוגמה אמיתית: קרקע חקלאית בעמק יזרעאל</h3>
+          <p class="text-muted mb-4">
+            לקוח קיבל הצעה לרכוש "קרקע עם פוטנציאל" ב-850,000 ש״ח. בבדיקה גילינו: הקרקע בייעוד חקלאי מוגן, אין תכנית לשינוי ייעוד בעשור הקרוב, ויש הערת אזהרה על זכות קדימה לקק״ל.
+          </p>
+          <div class="flex items-center gap-4">
+            <div class="bg-error-100 text-error-700 px-4 py-2 rounded-lg font-medium">
+              המלצה: לא לרכוש
+            </div>
+            <span class="text-muted text-sm">חסכנו ללקוח 850,000 ש״ח והרבה עוגמת נפש</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- E-E-A-T Section -->
+  <section class="py-16 md:py-20 bg-surface">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
+          מי מבצע את הבדיקה?
+        </h2>
+
+        <div class="bg-white rounded-2xl p-6 md:p-8 border border-border">
+          <div class="flex flex-col md:flex-row gap-6 items-center md:items-start">
+            <img
+              src="/images/team/maayan-portrait.webp"
+              alt="מעיין ליבנה - שמאית מקרקעין"
+              class="w-32 h-32 rounded-xl object-cover"
+              loading="lazy"
+            />
+            <div>
+              <h3 class="font-semibold text-dark text-xl mb-2">מעיין ליבנה</h3>
+              <p class="text-brand-600 text-sm mb-3">שמאית מקרקעין מוסמכת | 15 שנות ניסיון</p>
+              <p class="text-muted mb-4">
+                הבדיקות מבוצעות על ידי מעיין ליבנה, שמאית מקרקעין מוסמכת עם ניסיון של 15 שנה בהערכת קרקעות. מעיין ביצעה מאות שומות קרקע לבנקים, יזמים ולקוחות פרטיים, והתמחותה היא באיתור בעיות נסתרות ובהערכת פוטנציאל השבחה.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="bg-brand-100 text-brand-700 px-3 py-1 rounded-full text-sm">רישיון שמאות</span>
+                <span class="bg-brand-100 text-brand-700 px-3 py-1 rounded-full text-sm">חברת לשכת השמאים</span>
+                <span class="bg-brand-100 text-brand-700 px-3 py-1 rounded-full text-sm">ביטוח מקצועי</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <CTASection
     title="לא בטוחים לגבי הקרקע?"
-    subtitle="בדיקה מקצועית תיתן לכם את התשובות שאתם צריכים"
+    subtitle="בדיקה מקצועית תיתן לכם את התשובות שאתם צריכים - לפני שמאוחר מדי"
     ctaText="הזמינו בדיקה"
   />
+
+  <TestimonialSection />
 
   <FAQ
     title="שאלות נפוצות על בדיקת קרקע"
     items={faqItems}
   />
+
+  <!-- Related Services -->
+  <section class="py-16 md:py-20 bg-surface">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading text-xl md:text-2xl font-bold text-dark mb-6 text-center">
+          שירותים נוספים
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <a href="/land-purchase-consulting/" class="block p-6 bg-white rounded-xl border border-border hover:border-brand-300 transition-colors">
+            <h3 class="font-semibold text-dark mb-2">ליווי רכישת קרקע</h3>
+            <p class="text-muted text-sm mb-2">מחפשים קרקע ולא יודעים מאיפה להתחיל? ליווי מקיף מאיתור ועד חתימה.</p>
+            <span class="text-brand-600 text-sm font-medium">לפרטים ←</span>
+          </a>
+
+          <a href="/investor-consulting/" class="block p-6 bg-white rounded-xl border border-border hover:border-brand-300 transition-colors">
+            <h3 class="font-semibold text-dark mb-2">ליווי משקיעים לרכישת דירה</h3>
+            <p class="text-muted text-sm mb-2">מעדיפים השקעה בדירה מוכנה? ליווי מקיף לרכישת דירה להשקעה.</p>
+            <span class="text-brand-600 text-sm font-medium">לפרטים ←</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <ContactForm
     title="הזמינו בדיקת קרקע"

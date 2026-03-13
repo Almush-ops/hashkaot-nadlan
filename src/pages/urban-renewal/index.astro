@@ -5,29 +5,42 @@ import TrustBar from '../../components/TrustBar.astro';
 import FAQ from '../../components/FAQ.astro';
 import ContactForm from '../../components/ContactForm.astro';
 import CTASection from '../../components/CTASection.astro';
+import TestimonialSection from '../../components/TestimonialSection.astro';
 import SchemaOrg from '../../components/SchemaOrg.astro';
 
 
 const faqItems = [
   {
     question: 'מה ההבדל בין תמ״א 38 לפינוי בינוי?',
-    answer: 'תמ״א 38 מתייחסת לחיזוק מבנים קיימים (38/1) או הריסה ובנייה מחדש (38/2) של בניינים בודדים. פינוי בינוי הוא פרויקט גדול יותר שכולל מתחמים שלמים, עם תכנון מחודש של השכונה.',
+    answer: 'תמ״א 38 מתייחסת לחיזוק/הריסה של בניינים בודדים. פינוי בינוי הוא פרויקט גדול יותר שכולל מתחמים שלמים (לפחות 24 דירות בד״כ), עם תכנון מחודש של כל האזור. בפינוי בינוי התמורות לדיירים בדרך כלל גדולות יותר, אבל התהליך ארוך יותר.',
   },
   {
     question: 'כמה עולה ייעוץ בהתחדשות עירונית?',
-    answer: 'פגישת ייעוץ ראשונית היא ללא עלות. לליווי מקיף של התהליך - צרו קשר ונתאים הצעה לפי הצרכים שלכם.',
+    answer: 'פגישת ייעוץ ראשונית היא ללא עלות. בדיקת הצעת יזם ספציפית עולה 2,000-3,500 ש״ח. ליווי מקיף של כל התהליך (כולל משא ומתן והשוואת הצעות) - צרו קשר להצעה מותאמת.',
   },
   {
     question: 'כמה זמן לוקח פרויקט התחדשות עירונית?',
-    answer: 'תלוי בסוג הפרויקט. תמ״א 38/1 (חיזוק) יכולה לקחת 2-3 שנים. תמ״א 38/2 והריסה ובנייה - 4-6 שנים. פינוי בינוי - 7-10 שנים.',
+    answer: 'תמ״א 38/1 (חיזוק): 2-3 שנים. תמ״א 38/2 (הריסה ובנייה): 4-6 שנים. פינוי בינוי: 7-12 שנים. שימו לב - אלה הזמנים מרגע התחלת הבנייה. התהליך עד לשם יכול לקחת עוד 3-5 שנים.',
   },
   {
     question: 'האם כדאי לקנות דירה בבניין שעובר התחדשות?',
-    answer: 'יש יתרונות (דירה חדשה בסוף התהליך) וחסרונות (אי-ודאות, זמן ארוך). אנחנו יכולים לעזור לכם לבדוק את הכדאיות של עסקה כזו.',
+    answer: 'זה תלוי בשלב הפרויקט, בתמורות המוצעות, ובמחיר הדירה הנוכחי. לפעמים זו הזדמנות מצוינת, לפעמים זה מלכוד. אנחנו יכולים לבדוק את הכדאיות של עסקה כזו עבורכם. ראו גם <a href="/apartment-investment-analysis/" class="text-brand-600 hover:underline">בדיקת כדאיות דירה להשקעה</a>.',
   },
   {
     question: 'מה תפקידכם בתהליך?',
-    answer: 'אנחנו מייעצים לבעלי דירות או למשקיעים - בדיקת כדאיות, הערכת שווי עתידי, ייעוץ במשא ומתן מול יזמים, וליווי לאורך התהליך.',
+    answer: 'אנחנו מייעצים לבעלי דירות או למשקיעים: הערכת שווי הזכויות שלכם, בדיקת הצעות מיזמים, השוואה בין יזמים שונים, ייעוץ במשא ומתן, ובדיקת חוזים לפני חתימה. אנחנו עובדים עבורכם - לא עבור היזם.',
+  },
+  {
+    question: 'מה התמורות הסטנדרטיות בפרויקט התחדשות?',
+    answer: 'בתמ״א 38/2 ופינוי-בינוי: דירה חדשה גדולה יותר (תוספת של 12-25 מ״ר), מרפסת שמש, ממ״ד, חניה ומחסן. בתמ״א 38/1: שיפוץ הדירה, מעלית, חניה, וממ״ד. התמורות המדויקות תלויות בפרויקט ובמיקום.',
+  },
+  {
+    question: 'איך בוחרים יזם להתחדשות עירונית?',
+    answer: 'צריך לבדוק: ניסיון קודם (פרויקטים שהושלמו), יציבות פיננסית, ערבויות שהוא נותן, התמורות המוצעות, ותנאי החוזה. אנחנו עוזרים להשוות בין יזמים ולזהות את ההצעה הטובה ביותר.',
+  },
+  {
+    question: 'מה הסיכונים בהתחדשות עירונית?',
+    answer: 'הסיכונים העיקריים: עיכובים משמעותיים (שנים), יזם שנקלע לקשיים, ירידת ערך הדירה הישנה בזמן ההמתנה, ומחלוקות בין דיירים. ייעוץ מקצועי עוזר לזהות סימני אזהרה מראש.',
   },
 ];
 
@@ -213,16 +226,145 @@ const serviceSchema = {
     </div>
   </section>
 
+  <!-- Stats / Case Study -->
+  <section class="py-16 md:py-20 bg-surface">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
+          התמורות שהשגנו ללקוחות
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div class="bg-white rounded-xl p-6 text-center border border-border">
+            <div class="text-3xl font-bold text-brand-600 mb-2">+18 מ״ר</div>
+            <div class="text-muted text-sm">תוספת ממוצעת לדירה בפרויקטים שליווינו</div>
+          </div>
+          <div class="bg-white rounded-xl p-6 text-center border border-border">
+            <div class="text-3xl font-bold text-success-600 mb-2">320K ש״ח</div>
+            <div class="text-muted text-sm">שווי ממוצע של שיפור בתמורות לאחר משא ומתן</div>
+          </div>
+          <div class="bg-white rounded-xl p-6 text-center border border-border">
+            <div class="text-3xl font-bold text-brand-600 mb-2">23</div>
+            <div class="text-muted text-sm">פרויקטי התחדשות שליווינו בחיפה והקריות</div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 border border-border">
+          <h3 class="font-semibold text-dark text-lg mb-4">דוגמה: פינוי-בינוי בקריית שפרינצק, חיפה</h3>
+          <p class="text-muted mb-4">
+            ליווינו 4 בעלי דירות בבניין שקיבל הצעה מיזם. ההצעה הראשונית: דירת 4 חדרים (85 מ״ר) + חניה.
+            לאחר בדיקה מעמיקה והשוואה ליזמים אחרים באזור, ניהלנו משא ומתן ושיפרנו את התמורות.
+          </p>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-surface rounded-lg p-4">
+              <div class="text-sm text-muted mb-1">הצעה ראשונית:</div>
+              <div class="font-semibold text-dark">85 מ״ר + חניה</div>
+            </div>
+            <div class="bg-success-50 rounded-lg p-4">
+              <div class="text-sm text-muted mb-1">אחרי משא ומתן:</div>
+              <div class="font-semibold text-success-700">97 מ״ר + חניה + מחסן + מרפסת 14 מ״ר</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- E-E-A-T Section -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+          <div class="lg:col-span-1 flex justify-center">
+            <img
+              src="/images/team/maayan-portrait.webp"
+              alt="מעיין ליבנה - שמאית מקרקעין מוסמכת"
+              class="w-48 h-auto rounded-2xl shadow-lg"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="lg:col-span-2">
+            <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-4">
+              למה אנחנו יודעים לעזור בהתחדשות עירונית?
+            </h2>
+            <p class="text-muted mb-4">
+              מעיין ליבנה, שמאית מקרקעין מוסמכת, ביצעה עשרות שומות לפרויקטי התחדשות עירונית - גם עבור יזמים וגם עבור דיירים. היא מכירה את המשחק משני הצדדים.
+            </p>
+
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-brand-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-dark">15 שנות ניסיון בשמאות מקרקעין</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-brand-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-dark">התמחות בפרויקטי תמ״א 38 ופינוי-בינוי</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-brand-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-dark">ניסיון בבדיקת הצעות יזמים והשוואה ביניהן</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-brand-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-dark">עובדת עבור הדיירים, לא עבור היזמים</span>
+              </li>
+            </ul>
+
+            <p class="text-muted italic border-r-4 border-brand-200 pr-4">
+              "יזמים מציעים מה שחושבים שתקבלו. בלי ייעוץ מקצועי, אתם לא יודעים אם ההצעה טובה או שאפשר להשיג יותר. אני כאן כדי לוודא שאתם מקבלים את מה שמגיע לכם."
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <CTASection
     title="יש לכם שאלות על התחדשות עירונית?"
     subtitle="פגישת ייעוץ ראשונית ללא עלות - נעזור לכם להבין את האפשרויות שלכם"
     ctaText="קבעו פגישה"
   />
 
+  <TestimonialSection />
+
   <FAQ
     title="שאלות נפוצות על התחדשות עירונית"
     items={faqItems}
   />
+
+  <!-- Related Services -->
+  <section class="py-16 md:py-20 bg-surface">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading text-xl md:text-2xl font-bold text-dark mb-6 text-center">
+          שירותים נוספים
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <a href="/investor-consulting/" class="block p-6 bg-white rounded-xl border border-border hover:border-brand-300 transition-colors">
+            <h3 class="font-semibold text-dark mb-2">ליווי משקיעים לרכישת דירה</h3>
+            <p class="text-muted text-sm mb-2">מחפשים לקנות דירה בפרויקט התחדשות? ליווי מקיף מאיתור ועד חתימה.</p>
+            <span class="text-brand-600 text-sm font-medium">לפרטים ←</span>
+          </a>
+
+          <a href="/apartment-investment-analysis/" class="block p-6 bg-white rounded-xl border border-border hover:border-brand-300 transition-colors">
+            <h3 class="font-semibold text-dark mb-2">בדיקת כדאיות דירה להשקעה</h3>
+            <p class="text-muted text-sm mb-2">יש לכם דירה ספציפית בפרויקט התחדשות? נבדוק אם זו עסקה טובה.</p>
+            <span class="text-brand-600 text-sm font-medium">לפרטים ←</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <ContactForm
     title="קבעו פגישת ייעוץ"

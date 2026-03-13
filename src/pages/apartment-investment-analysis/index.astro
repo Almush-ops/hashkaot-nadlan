@@ -5,29 +5,42 @@ import TrustBar from '../../components/TrustBar.astro';
 import FAQ from '../../components/FAQ.astro';
 import ContactForm from '../../components/ContactForm.astro';
 import CTASection from '../../components/CTASection.astro';
+import TestimonialSection from '../../components/TestimonialSection.astro';
 import SchemaOrg from '../../components/SchemaOrg.astro';
 
 
 const faqItems = [
   {
     question: 'מה כולל שירות בדיקת כדאיות דירה?',
-    answer: 'השירות כולל: ניתוח פיננסי מקיף (תשואה צפויה, עלויות נלוות, תזרים מזומנים), בדיקת מצב הנכס, השוואה לנכסים דומים באזור, והמלצה מנומקת.',
+    answer: 'השירות כולל: ניתוח פיננסי מקיף (תשואה צפויה, עלויות נלוות, תזרים מזומנים, נקודת איזון), ביקור בנכס להערכת מצב פיזי, בדיקת שוק השכירות באזור, השוואה לנכסים דומים, ניתוח סיכונים, והמלצה מנומקת בכתב.',
   },
   {
     question: 'כמה עולה בדיקת כדאיות דירה?',
-    answer: 'עלות הבדיקה היא 1,800 ש״ח + מע״מ. זהו מחיר קבוע שכולל את כל הבדיקות והניתוחים.',
+    answer: 'עלות הבדיקה היא 1,800 ש״ח + מע״מ. זהו מחיר קבוע שכולל את כל הבדיקות, ביקור בנכס, דוח מפורט ושיחת סיכום.',
   },
   {
     question: 'כמה זמן לוקחת הבדיקה?',
-    answer: 'הבדיקה לוקחת 2-3 ימי עבודה. בסיום תקבלו דוח מפורט עם כל הממצאים וההמלצות.',
+    answer: 'הבדיקה לוקחת 2-3 ימי עבודה מרגע הביקור בנכס. בסיום תקבלו דוח מפורט עם כל הממצאים וההמלצות, ונקבע שיחה לעבור על הכל יחד.',
   },
   {
     question: 'האם הבדיקה כוללת ביקור בנכס?',
-    answer: 'כן, הבדיקה כוללת ביקור בנכס להערכת מצבו הפיזי, הבניין והסביבה. זה חלק חשוב מההערכה הכוללת.',
+    answer: 'כן, הבדיקה כוללת ביקור בנכס להערכת מצבו הפיזי, איכות הבניין, הוועד, החניה, והסביבה. זה חלק קריטי - הרבה בעיות לא נראות בתמונות.',
   },
   {
     question: 'מה ההבדל בינכם לשמאי רגיל?',
-    answer: 'שמאי רגיל נותן הערכת שווי. אנחנו נותנים ניתוח כדאיות כמשקיעים - האם כדאי לקנות את הנכס הזה, מה התשואה הצפויה, מה הסיכונים ומה הפוטנציאל. מעוניינים בליווי מלא? <a href="/investor-consulting/" class="text-brand-600 hover:underline">ראו את שירות ליווי משקיעים לרכישת דירה ←</a>',
+    answer: 'שמאי רגיל נותן הערכת שווי לצורכי בנק או מס. אנחנו נותנים ניתוח כדאיות כמשקיעים: האם כדאי לקנות את הנכס הזה, מה התשואה הצפויה לאחר כל ההוצאות, מה הסיכונים ומה הפוטנציאל לעליית ערך. מעוניינים בליווי מלא? <a href="/investor-consulting/" class="text-brand-600 hover:underline">ראו את שירות ליווי משקיעים לרכישת דירה ←</a>',
+  },
+  {
+    question: 'איזה סוגי דירות אתם בודקים?',
+    answer: 'אנחנו בודקים כל סוג דירה להשקעה: דירות יד שנייה, דירות חדשות מקבלן, דירות בפריסייל, דירות בהתחדשות עירונית (תמ״א, פינוי-בינוי), ודירות למשפרי דיור שרוצים להשכיר את הקודמת.',
+  },
+  {
+    question: 'מה התשואה הממוצעת על דירה להשקעה?',
+    answer: 'תשואה ברוטו משכירות נעה בין 2.5% ל-4.5% בשנה, תלוי באזור ובסוג הנכס. אחרי הוצאות (ועד, ביטוח, תחזוקה, אי-תפוסה) התשואה נטו נמוכה ב-0.5%-1%. חשוב לחשב נכון - הרבה משקיעים מופתעים.',
+  },
+  {
+    question: 'האם אתם יכולים לעזור גם במשא ומתן?',
+    answer: 'בדיקת כדאיות לא כוללת משא ומתן, אבל הדוח שלנו נותן לכם כלים לנהל משא ומתן חכם יותר. אם אתם רוצים ליווי מלא כולל משא ומתן, <a href="/investor-consulting/" class="text-brand-600 hover:underline">שירות ליווי משקיעים</a> כולל את זה.',
   },
 ];
 
@@ -193,16 +206,147 @@ const serviceSchema = {
     </div>
   </section>
 
+  <!-- Example Report Output -->
+  <section class="py-16 md:py-20 bg-surface">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
+          דוגמה לניתוח כדאיות שביצענו
+        </h2>
+
+        <div class="bg-white rounded-2xl p-6 md:p-8 border border-border">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-semibold text-dark text-lg mb-4">דירת 3 חדרים בקריות - 890,000 ש״ח</h3>
+              <p class="text-muted mb-4">
+                לקוח שקל לרכוש דירה בקריית מוצקין. ביצענו ניתוח מלא:
+              </p>
+              <div class="space-y-3 text-sm">
+                <div class="flex justify-between items-center py-2 border-b border-border">
+                  <span class="text-muted">מחיר הדירה:</span>
+                  <span class="font-semibold text-dark">890,000 ש״ח</span>
+                </div>
+                <div class="flex justify-between items-center py-2 border-b border-border">
+                  <span class="text-muted">שכירות צפויה:</span>
+                  <span class="font-semibold text-dark">3,200 ש״ח/חודש</span>
+                </div>
+                <div class="flex justify-between items-center py-2 border-b border-border">
+                  <span class="text-muted">תשואה ברוטו:</span>
+                  <span class="font-semibold text-dark">4.3%</span>
+                </div>
+                <div class="flex justify-between items-center py-2 border-b border-border">
+                  <span class="text-muted">הוצאות שנתיות:</span>
+                  <span class="font-semibold text-dark">~5,800 ש״ח</span>
+                </div>
+                <div class="flex justify-between items-center py-2 border-b border-border">
+                  <span class="text-muted">תשואה נטו:</span>
+                  <span class="font-semibold text-brand-600">3.6%</span>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-col justify-center">
+              <div class="bg-success-50 rounded-xl p-6 text-center mb-4">
+                <div class="text-3xl font-bold text-success-600 mb-2">המלצה: לרכוש</div>
+                <p class="text-sm text-muted">בניין במצב טוב, שכונה מתפתחת, פוטנציאל לעליית ערך</p>
+              </div>
+              <div class="bg-brand-50 rounded-xl p-4">
+                <p class="text-sm text-dark">
+                  <strong>טיפ שחסך כסף:</strong> זיהינו שהמוכר רוצה לסגור מהר. המלצנו להציע 850,000 ש״ח - והלקוח סגר ב-860,000 ש״ח.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- E-E-A-T Section -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
+          מי מבצע את הבדיקה?
+        </h2>
+
+        <div class="bg-surface rounded-2xl p-6 md:p-8 border border-border">
+          <div class="flex flex-col md:flex-row gap-6 items-center md:items-start">
+            <img
+              src="/images/team/maayan-portrait.webp"
+              alt="מעיין ליבנה - שמאית מקרקעין"
+              class="w-32 h-32 rounded-xl object-cover"
+              loading="lazy"
+            />
+            <div>
+              <h3 class="font-semibold text-dark text-xl mb-2">מעיין ליבנה</h3>
+              <p class="text-brand-600 text-sm mb-3">שמאית מקרקעין מוסמכת | 15 שנות ניסיון</p>
+              <p class="text-muted mb-4">
+                מעיין מבצעת את כל בדיקות הכדאיות בעצמה. בזכות הניסיון שלה בשמאות, היא יודעת לזהות נכסים מתומחרים נכון, נכסים יקרים מדי, ונכסים עם פוטנציאל שהשוק לא רואה.
+              </p>
+              <ul class="space-y-2 text-sm">
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-dark">ביצעה 600+ בדיקות כדאיות</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-dark">התמחות בחיפה, קריות ומרכז הארץ</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-dark">98% מהלקוחות ממליצים</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <CTASection
     title="מצאתם דירה להשקעה?"
     subtitle="לפני שחותמים - בואו נבדוק אם זו באמת עסקה טובה"
     ctaText="הזמינו בדיקה"
   />
 
+  <TestimonialSection />
+
   <FAQ
     title="שאלות נפוצות על בדיקת כדאיות"
     items={faqItems}
   />
+
+  <!-- Related Services -->
+  <section class="py-16 md:py-20 bg-surface">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading text-xl md:text-2xl font-bold text-dark mb-6 text-center">
+          שירותים נוספים
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <a href="/investor-consulting/" class="block p-6 bg-white rounded-xl border border-border hover:border-brand-300 transition-colors">
+            <h3 class="font-semibold text-dark mb-2">ליווי משקיעים לרכישת דירה</h3>
+            <p class="text-muted text-sm mb-2">רוצים ליווי מלא שכולל גם איתור דירות ומשא ומתן? שירות ליווי משקיעים.</p>
+            <span class="text-brand-600 text-sm font-medium">לפרטים ←</span>
+          </a>
+
+          <a href="/urban-renewal/" class="block p-6 bg-white rounded-xl border border-border hover:border-brand-300 transition-colors">
+            <h3 class="font-semibold text-dark mb-2">ייעוץ התחדשות עירונית</h3>
+            <p class="text-muted text-sm mb-2">שוקלים דירה בפרויקט תמ״א או פינוי-בינוי? ייעוץ ייעודי להתחדשות עירונית.</p>
+            <span class="text-brand-600 text-sm font-medium">לפרטים ←</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <ContactForm
     title="הזמינו בדיקת כדאיות"

@@ -6,6 +6,7 @@ import ProcessSteps from '../../components/ProcessSteps.astro';
 import FAQ from '../../components/FAQ.astro';
 import ContactForm from '../../components/ContactForm.astro';
 import CTASection from '../../components/CTASection.astro';
+import TestimonialSection from '../../components/TestimonialSection.astro';
 import SchemaOrg from '../../components/SchemaOrg.astro';
 
 
@@ -16,19 +17,31 @@ const faqItems = [
   },
   {
     question: 'כמה עולה ליווי רכישת קרקע?',
-    answer: 'עלות הליווי המלא היא 15,000 ש״ח. המחיר כולל איתור, בדיקות מרובות, ניהול משא ומתן וליווי עד לסגירת העסקה.',
+    answer: 'עלות הליווי המלא היא 15,000 ש״ח. המחיר כולל איתור, בדיקות מרובות, ניהול משא ומתן וליווי עד לסגירת העסקה. זה מחיר קבוע - ללא אחוזים מהעסקה.',
   },
   {
     question: 'איזה סוגי קרקעות אתם מלווים?',
-    answer: 'אנחנו מלווים ברכישת כל סוגי הקרקעות: קרקע למגורים, קרקע חקלאית עם פוטנציאל שינוי ייעוד, קרקע מסחרית ומגרשים בפרצלציה.',
+    answer: 'אנחנו מלווים ברכישת כל סוגי הקרקעות: קרקע למגורים (מגרשים בפרצלציה), קרקע חקלאית עם פוטנציאל שינוי ייעוד, קרקע מסחרית, ומתחמים לפינוי-בינוי. ההתמחות שלנו היא בזיהוי קרקעות עם פוטנציאל השבחה.',
   },
   {
     question: 'כמה זמן לוקח למצוא קרקע מתאימה?',
-    answer: 'בממוצע 3-6 חודשים, תלוי בדרישות ובתקציב. קרקעות איכותיות עם פוטנציאל אמיתי דורשות סבלנות וחיפוש מעמיק.',
+    answer: 'בממוצע 3-6 חודשים, תלוי בדרישות ובתקציב. קרקעות איכותיות עם פוטנציאל אמיתי דורשות סבלנות וחיפוש מעמיק. אנחנו לא ממהרים לסגור - עדיף להמתין לעסקה הנכונה.',
   },
   {
     question: 'האם אתם עובדים עם עורכי דין ושמאים?',
-    answer: 'כן, מעיין היא שמאית מקרקעין מוסמכת ואנחנו עובדים בשיתוף פעולה עם עורכי דין מומחים בנדל״ן כדי להבטיח עסקה בטוחה.',
+    answer: 'כן, מעיין היא שמאית מקרקעין מוסמכת עם 15 שנות ניסיון. אנחנו עובדים בשיתוף פעולה עם עורכי דין מומחים בנדל״ן ומקרקעין כדי להבטיח עסקה בטוחה מכל הבחינות.',
+  },
+  {
+    question: 'מה הסיכונים ברכישת קרקע ללא ליווי?',
+    answer: 'הסיכונים כוללים: רכישת קרקע ללא זכויות בנייה ברורות, בעיות רישום ובעלות, היטלי השבחה לא צפויים, קרקע חקלאית ללא סיכוי לשינוי ייעוד, ותשלום מחיר מופרז. ליווי מקצועי חוסך לכם מאות אלפי שקלים של טעויות.',
+  },
+  {
+    question: 'באיזה אזורים אתם פועלים?',
+    answer: 'אנחנו פועלים בכל הארץ, עם התמחות מיוחדת בצפון (חיפה, קריות, עכו, נהריה) ובמרכז (נתניה, ראשון לציון, גבעת שמואל, פתח תקווה). יש לנו רשת קשרים רחבה עם בעלי קרקעות באזורים אלה.',
+  },
+  {
+    question: 'מה קורה אם לא מצאתם לי קרקע מתאימה?',
+    answer: 'אנחנו ממשיכים לחפש עד שמוצאים. אין מגבלת זמן על השירות. עם זאת, אם מסיבה כלשהי תחליטו להפסיק את הליווי, תשלמו רק על העבודה שבוצעה עד אותו שלב.',
   },
 ];
 
@@ -200,15 +213,163 @@ const serviceSchema = {
     </div>
   </section>
 
+  <!-- Case Study -->
+  <section class="py-16 md:py-20 bg-surface">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
+          דוגמה לעסקת קרקע שליווינו
+        </h2>
+
+        <div class="bg-white rounded-2xl p-6 md:p-8 border border-border">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-semibold text-dark text-lg mb-4">מגרש בנשר - ליד הטכניון</h3>
+              <p class="text-muted mb-4">
+                לקוח פנה אלינו עם עניין במגרש שפורסם למכירה ב-1.8 מיליון ש״ח.
+                הבדיקה שלנו גילתה: זכויות בנייה של 180% במקום 120% שפורסם, אך גם הערת אזהרה שלא צוינה.
+              </p>
+              <ul class="space-y-2 text-sm">
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-brand-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-dark">זיהינו זכויות בנייה גבוהות יותר ממה שפורסם</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-brand-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-dark">טיפלנו בהסרת הערת האזהרה לפני הרכישה</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-brand-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-dark">הורדנו את המחיר ב-120,000 ש״ח במשא ומתן</span>
+                </li>
+              </ul>
+            </div>
+            <div class="flex flex-col justify-center">
+              <div class="grid grid-cols-2 gap-4 text-center">
+                <div class="bg-brand-50 rounded-xl p-4">
+                  <div class="text-2xl font-bold text-brand-600 mb-1">120K</div>
+                  <div class="text-sm text-muted">חיסכון במחיר</div>
+                </div>
+                <div class="bg-success-50 rounded-xl p-4">
+                  <div class="text-2xl font-bold text-success-600 mb-1">60%</div>
+                  <div class="text-sm text-muted">יותר זכויות בנייה</div>
+                </div>
+              </div>
+              <p class="text-center text-muted text-sm mt-4">
+                * הלקוח בנה בית דו-משפחתי ומכר יחידה אחת ברווח של 450,000 ש״ח
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- E-E-A-T Section - About Maayan -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+          <div class="lg:col-span-1 flex justify-center">
+            <div class="relative">
+              <img
+                src="/images/team/maayan-portrait.webp"
+                alt="מעיין ליבנה - שמאית מקרקעין מוסמכת"
+                class="w-64 h-auto rounded-2xl shadow-lg"
+                loading="lazy"
+              />
+              <div class="absolute -bottom-4 -right-4 bg-brand-600 text-white px-4 py-2 rounded-lg text-sm font-medium shadow-lg">
+                15 שנות ניסיון
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-2">
+            <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-6">
+              הכירו את מעיין ליבנה
+            </h2>
+            <p class="text-muted mb-4">
+              שמאית מקרקעין מוסמכת עם 15 שנות ניסיון בשוק הנדל״ן הישראלי. מתמחה בהערכת שווי קרקעות, ניתוח זכויות בנייה ובדיקת כדאיות עסקאות קרקע.
+            </p>
+
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-brand-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-dark">רישיון שמאות מקרקעין מטעם מועצת השמאים</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-brand-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-dark">מאות שומות קרקע לבנקים, יזמים ולקוחות פרטיים</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-brand-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-dark">התמחות בקרקעות לבנייה, קרקע חקלאית ומתחמי התחדשות</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-brand-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-dark">גישה למידע תכנוני ורישומי שלא זמין לציבור</span>
+              </li>
+            </ul>
+
+            <p class="text-muted italic border-r-4 border-brand-200 pr-4">
+              "עסקאות קרקע מורכבות יותר מדירות. יש יותר מקום לטעויות, אבל גם יותר הזדמנויות למי שיודע לזהות אותן. אני כאן כדי לוודא שאתם בצד הנכון של המשוואה."
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <CTASection
     title="מחפשים קרקע להשקעה?"
     subtitle="נעזור לכם למצוא את ההזדמנות הנכונה - עם ליווי מקצועי בכל שלב"
   />
 
+  <TestimonialSection />
+
   <FAQ
     title="שאלות נפוצות על ליווי רכישת קרקע"
     items={faqItems}
   />
+
+  <!-- Related Services -->
+  <section class="py-16 md:py-20 bg-surface">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-heading text-xl md:text-2xl font-bold text-dark mb-6 text-center">
+          שירותים נוספים שעשויים לעניין אתכם
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <a href="/land-deal-assessment/" class="block p-6 bg-white rounded-xl border border-border hover:border-brand-300 transition-colors">
+            <h3 class="font-semibold text-dark mb-2">בדיקת עסקת קרקע</h3>
+            <p class="text-muted text-sm mb-2">יש לכם קרקע ספציפית שאתם שוקלים? בדיקה חד-פעמית ב-2,500 ש״ח.</p>
+            <span class="text-brand-600 text-sm font-medium">לפרטים ←</span>
+          </a>
+
+          <a href="/investor-consulting/" class="block p-6 bg-white rounded-xl border border-border hover:border-brand-300 transition-colors">
+            <h3 class="font-semibold text-dark mb-2">ליווי משקיעים לרכישת דירה</h3>
+            <p class="text-muted text-sm mb-2">מעדיפים דירה מוכנה על קרקע? ליווי מקיף לרכישת דירה להשקעה.</p>
+            <span class="text-brand-600 text-sm font-medium">לפרטים ←</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <ContactForm />
 </BaseLayout>
