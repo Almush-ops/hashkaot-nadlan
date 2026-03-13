@@ -1,57 +1,22 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import PageHero from '../../components/PageHero.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import TrustBar from '../../components/TrustBar.astro';
 import CTASection from '../../components/CTASection.astro';
 
+const breadcrumbs = [
+  { label: 'דף הבית', href: '/' },
+  { label: 'אזורי שירות' },
+];
+
 const areas = [
   {
-    name: 'חיפה',
+    name: 'חיפה והקריות',
     slug: 'haifa',
-    description: 'עיר הנמל עם תשואות גבוהות, התחדשות עירונית מואצת ומחירי כניסה נוחים',
-    priceRange: '1.3-2M ש״ח',
+    description: 'תשואות גבוהות, התחדשות עירונית מואצת, מחירי כניסה נוחים',
+    priceRange: '0.8-2M ש״ח',
     yield: '4-6%',
-    highlights: ['התחדשות עירונית', 'הכרמל ואחוזה', 'קרבה לטכניון'],
-  },
-  {
-    name: 'הקריות',
-    slug: 'krayot',
-    description: 'מחירי כניסה הנמוכים ביותר במטרופולין - ק.ביאליק, מוצקין, חיים וים',
-    priceRange: '0.8-1.5M ש״ח',
-    yield: '5-7%',
-    highlights: ['מחיר כניסה נמוך', 'תשואה מקסימלית', 'התחדשות'],
-  },
-  {
-    name: 'נשר וטירת הכרמל',
-    slug: 'nesher',
-    description: 'ליד הטכניון, מחירים נגישים, תמ״א 38 פעיל ופוטנציאל השבחה',
-    priceRange: '0.7-1.3M ש״ח',
-    yield: '5-6%',
-    highlights: ['ליד הטכניון', 'תמ״א 38', 'מחירים נגישים'],
-  },
-  {
-    name: 'באר שבע',
-    slug: 'beer-sheva',
-    description: 'עיר אוניברסיטאית צומחת עם תשואות מהגבוהות בישראל',
-    priceRange: '0.8-1.3M ש״ח',
-    yield: '5-7%',
-    highlights: ['22,000+ סטודנטים', 'תשואה מקסימלית', 'מחיר כניסה נמוך'],
-  },
-  {
-    name: 'עכו',
-    slug: 'akko',
-    description: 'מחירי כניסה הנמוכים ביותר עם פוטנציאל תיירותי ייחודי',
-    priceRange: '0.7-1.1M ש״ח',
-    yield: '5-7%',
-    highlights: ['מורשת עולמית UNESCO', 'Airbnb פוטנציאל', 'מחיר נמוך מאוד'],
-  },
-  {
-    name: 'פתח תקווה',
-    slug: 'petah-tikva',
-    description: '15 דקות מתל אביב - המרכז במחיר נגיש, התחדשות עירונית מואצת',
-    priceRange: '1.5-2.2M ש״ח',
-    yield: '3.5-4.5%',
-    highlights: ['קריית אריה הייטק', 'התחדשות עירונית', 'מיקום מרכזי'],
+    highlights: ['התחדשות עירונית', 'תשואות גבוהות', 'קרבה לטכניון'],
   },
   {
     name: 'נתניה',
@@ -70,14 +35,6 @@ const areas = [
     highlights: ['רכבת קלה', 'התחדשות עירונית', 'קרבה לתל אביב'],
   },
   {
-    name: 'הרצליה',
-    slug: 'herzliya',
-    description: 'שוק הפרימיום של ישראל - יוקרה, יציבות ושוכרים איכותיים',
-    priceRange: '3-5M+ ש״ח',
-    yield: '2.5-3.5%',
-    highlights: ['מרכז הייטק', 'שוכרים איכותיים', 'עליית ערך יציבה'],
-  },
-  {
     name: 'גבעת שמואל',
     slug: 'givat-shmuel',
     description: 'עיר יוקרתית עם אוכלוסייה איכותית ושוכרים יציבים',
@@ -92,13 +49,22 @@ const areas = [
   title="אזורי שירות"
   description="ליווי משקיעי נדל״ן בחיפה, נתניה, ראשון לציון וגבעת שמואל. שמאית מקרקעין מוסמכת מלווה אתכם בכל שלב. בדיקות, ניתוח ומשא ומתן."
 >
-  <PageHero
-    title="אזורי שירות"
-    subtitle="אנחנו פועלים בצפון, במרכז ובדרום - חיפה והקריות, באר שבע, פתח תקווה, נתניה, הרצליה ועוד. לכל אזור מאפיינים ייחודיים והזדמנויות שונות."
-    backgroundImage="/images/hero/hero-02.webp"
-    showCTA={true}
-    ctaText="השאירו פרטים לייעוץ"
-  />
+  <!-- Hero -->
+  <section class="bg-gradient-to-b from-brand-50 to-white py-12 md:py-20">
+    <div class="container mx-auto px-4">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-dark leading-tight mb-6">
+          אזורי שירות
+        </h1>
+        <p class="text-lg md:text-xl text-muted">
+          אנחנו פועלים בצפון ובמרכז הארץ - חיפה והקריות, נתניה, ראשון לציון וגבעת שמואל.
+          לכל אזור מאפיינים ייחודיים והזדמנויות שונות.
+        </p>
+      </div>
+    </div>
+  </section>
 
   <TrustBar variant="light" />
 

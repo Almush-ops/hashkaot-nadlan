@@ -2,97 +2,48 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
 import TrustBar from '../../components/TrustBar.astro';
-import ProcessSteps from '../../components/ProcessSteps.astro';
 import FAQ from '../../components/FAQ.astro';
 import ContactForm from '../../components/ContactForm.astro';
 import CTASection from '../../components/CTASection.astro';
 import SchemaOrg from '../../components/SchemaOrg.astro';
 
-// Case studies
-const caseStudies = [
-  {
-    title: 'דירת 3 חדרים בחיפה',
-    description: 'הלקוח חשב שהתשואה 4.2%. אחרי חישוב כל העלויות (ועד בית, ארנונה, ביטוח, תחזוקה) - התשואה נטו 2.8%.',
-    result: 'המלצנו לוותר',
-    resultLabel: 'תשואה נמוכה מדי',
-    icon: '📉',
-  },
-  {
-    title: 'דירת גן בנתניה',
-    description: 'מחיר גבוה אבל פוטנציאל ל-Airbnb. חישבנו תשואה של 6.8% בהשכרה לטווח קצר. הלקוח סגר.',
-    result: '6.8%',
-    resultLabel: 'תשואה צפויה',
-    icon: '🎯',
-  },
-  {
-    title: 'דירה בתמ"א בת"א',
-    description: 'דירה ישנה במחיר נמוך. גילינו שהבניין נכנס לתמ"א - פוטנציאל עליית ערך משמעותית.',
-    result: '450,000',
-    resultLabel: 'עליית ערך צפויה',
-    icon: '📈',
-  },
-  {
-    title: 'דירה חדשה בראשל"צ',
-    description: 'מחיר גבוה מהשוק ב-12%. ניהלנו עבור הלקוח משא ומתן והורדנו 95,000 ש״ח.',
-    result: '95,000',
-    resultLabel: 'הנחה שהושגה',
-    icon: '💰',
-  },
-];
-
-// Process steps
-const serviceSteps = [
-  { number: 1, title: 'קבלת פרטים', description: 'כתובת הדירה, מחיר מבוקש, מסמכים (אם יש)' },
-  { number: 2, title: 'ביקור בנכס', description: 'בדיקת מצב פיזי, בניין, סביבה ושכנים' },
-  { number: 3, title: 'ניתוח מקיף', description: 'חישובי תשואה, השוואת שוק, ניתוח סיכונים' },
-  { number: 4, title: 'דוח והמלצה', description: 'דוח מפורט, טבלאות, ושיחת סיכום אישית' },
+const breadcrumbs = [
+  { label: 'דף הבית', href: '/' },
+  { label: 'בדיקת כדאיות דירה' },
 ];
 
 const faqItems = [
   {
-    question: 'מה ההבדל בינכם לשמאי רגיל?',
-    answer: 'שמאי נותן הערכת שווי. אנחנו נותנים ניתוח כדאיות כמשקיעים - האם זו עסקה טובה עבורכם? מה התשואה האמיתית (נטו)? מה הסיכונים? מה הפוטנציאל? זה הרבה מעבר להערכת מחיר.',
-  },
-  {
     question: 'מה כולל שירות בדיקת כדאיות דירה?',
-    answer: 'השירות כולל: (1) ביקור פיזי בנכס ובבניין, (2) ניתוח פיננסי מקיף - תשואה, עלויות נלוות, תזרים מזומנים, (3) בדיקת שוק - שכירות באזור, ביקוש, מגמות, (4) דוח מפורט בכתב, (5) שיחת סיכום עם המלצה.',
+    answer: 'השירות כולל: ניתוח פיננסי מקיף (תשואה צפויה, עלויות נלוות, תזרים מזומנים), בדיקת מצב הנכס, השוואה לנכסים דומים באזור, והמלצה מנומקת.',
   },
   {
-    question: 'איך מחשבים תשואה "אמיתית"?',
-    answer: 'רוב האנשים מחשבים תשואה ברוטו: שכירות חלקי מחיר. אנחנו מחשבים תשואה נטו: מהשכירות מורידים ועד בית, ארנונה, ביטוח, תחזוקה, חודשים ריקים, ומס. זו התשואה שבאמת נכנסת לכיס.',
+    question: 'כמה עולה בדיקת כדאיות דירה?',
+    answer: 'עלות הבדיקה היא 1,800 ש״ח + מע״מ. זהו מחיר קבוע שכולל את כל הבדיקות והניתוחים.',
   },
   {
     question: 'כמה זמן לוקחת הבדיקה?',
-    answer: 'הבדיקה לוקחת 2-3 ימי עבודה מרגע הביקור בנכס. במקרי חירום (עסקה שעומדת להיסגר) יש אפשרות לבדיקה מזורזת תוך 24-48 שעות.',
+    answer: 'הבדיקה לוקחת 2-3 ימי עבודה. בסיום תקבלו דוח מפורט עם כל הממצאים וההמלצות.',
   },
   {
     question: 'האם הבדיקה כוללת ביקור בנכס?',
-    answer: 'כן, תמיד. אי אפשר להעריך דירה להשקעה בלי לראות אותה. אנחנו בודקים את הנכס עצמו, הבניין, הסביבה, החניה, ומדברים עם שכנים כשאפשר.',
+    answer: 'כן, הבדיקה כוללת ביקור בנכס להערכת מצבו הפיזי, הבניין והסביבה. זה חלק חשוב מההערכה הכוללת.',
   },
   {
-    question: 'מה אם הבדיקה מגלה שזו עסקה לא טובה?',
-    answer: 'זו בדיוק המטרה. אם הדירה לא כדאית - נגיד לכם ונסביר למה. חסכנו להרבה לקוחות עסקאות לא טובות. 1,800 ש״ח זה כלום לעומת עשרות אלפים על דירה לא מתאימה.',
-  },
-  {
-    question: 'אתם בודקים דירות בכל הארץ?',
-    answer: 'כן, אנחנו בודקים דירות בכל רחבי הארץ. באזורים מרוחקים (אילת, צפון רחוק) ייתכן תיאום מיוחד. באזור המרכז והשרון - בדרך כלל תוך יומיים.',
-  },
-  {
-    question: 'מחפשים ליווי מלא ולא רק בדיקה?',
-    answer: 'אם אתם רוצים שנלווה אתכם בכל התהליך - חיפוש דירה, משא ומתן, מימון, ועד החתימה - ראו את <a href="/investor-consulting/" class="text-brand-600 hover:underline">שירות ליווי משקיעים לרכישת דירה ←</a>',
+    question: 'מה ההבדל בינכם לשמאי רגיל?',
+    answer: 'שמאי רגיל נותן הערכת שווי. אנחנו נותנים ניתוח כדאיות כמשקיעים - האם כדאי לקנות את הנכס הזה, מה התשואה הצפויה, מה הסיכונים ומה הפוטנציאל. מעוניינים בליווי מלא? <a href="/investor-consulting/" class="text-brand-600 hover:underline">ראו את שירות ליווי משקיעים לרכישת דירה ←</a>',
   },
 ];
 
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'בדיקת כדאיות דירה להשקעה',
-  description: 'ניתוח פיננסי מקיף לדירה להשקעה - תשואה נטו, עלויות נלוות, סיכונים, והמלצה מנומקת',
+  name: 'בדיקת כדאיות דירה',
+  description: 'ניתוח פיננסי מקיף לדירה להשקעה - תשואה, עלויות, סיכונים והמלצה',
   provider: {
     '@type': 'ProfessionalService',
     name: 'השקעות נדל״ן - מעין ואור ליבנה',
     url: 'https://hashkaot-nadlan.co.il',
-    telephone: '+972-55-255-5144',
   },
   areaServed: 'ישראל',
   serviceType: 'ייעוץ השקעות נדל״ן',
@@ -100,20 +51,20 @@ const serviceSchema = {
     '@type': 'Offer',
     price: '1800',
     priceCurrency: 'ILS',
-    description: 'בדיקת כדאיות מקיפה כולל ביקור בנכס ודוח מפורט',
   },
 };
 ---
 
 <BaseLayout
-  title="בדיקת כדאיות דירה להשקעה | ניתוח תשואה אמיתית | 1,800 ש״ח"
-  description="בדיקת כדאיות מקיפה לדירה להשקעה - ניתוח תשואה נטו, עלויות נלוות, סיכונים והמלצה. ביקור בנכס + דוח מפורט. 1,800 ש״ח + מע״מ."
+  title="בדיקת כדאיות דירה להשקעה"
+  description="בדיקת כדאיות מקיפה לדירה להשקעה - ניתוח תשואה, עלויות נלוות, סיכונים והמלצה. על ידי שמאית מקרקעין. 1,800 ש״ח + מע״מ."
 >
   <SchemaOrg schema={serviceSchema} />
 
   <PageHero
     title="בדיקת כדאיות דירה להשקעה"
-    subtitle="לפני שקונים דירה להשקעה - בואו נבדוק אם זו באמת עסקה טובה. לא הערכת שווי - אלא ניתוח כדאיות אמיתי."
+    subtitle="לפני שקונים דירה להשקעה - חשוב לדעת אם זו באמת עסקה טובה. ניתוח פיננסי מקיף שיעזור לכם לקבל החלטה מושכלת."
+    breadcrumbs={breadcrumbs}
     backgroundImage="/images/hero/hero-02.webp"
     showCTA={true}
     ctaText="הזמינו בדיקת כדאיות"
@@ -121,156 +72,8 @@ const serviceSchema = {
 
   <TrustBar variant="light" />
 
-  <!-- Stats Section -->
-  <section class="py-12 bg-brand-50">
-    <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          <div>
-            <div class="text-3xl md:text-4xl font-bold text-brand-600 mb-1">480+</div>
-            <div class="text-sm text-muted">דירות שנבדקו</div>
-          </div>
-          <div>
-            <div class="text-3xl md:text-4xl font-bold text-brand-600 mb-1">32%</div>
-            <div class="text-sm text-muted">עסקאות לא כדאיות</div>
-          </div>
-          <div>
-            <div class="text-3xl md:text-4xl font-bold text-brand-600 mb-1">2-3</div>
-            <div class="text-sm text-muted">ימי עבודה</div>
-          </div>
-          <div>
-            <div class="text-3xl md:text-4xl font-bold text-brand-600 mb-1">12</div>
-            <div class="text-sm text-muted">שנות ניסיון</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- The Real Question -->
-  <section class="py-16 md:py-20 bg-white">
-    <div class="container mx-auto px-4">
-      <div class="max-w-3xl mx-auto text-center">
-        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-6">
-          השאלה היא לא "כמה הדירה שווה"
-        </h2>
-        <p class="text-xl text-muted mb-8">
-          השאלה היא: <strong class="text-dark">האם זו עסקה טובה עבורכם?</strong>
-        </p>
-
-        <div class="bg-surface rounded-2xl p-8 border border-border text-start">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 class="font-semibold text-dark mb-4 flex items-center gap-2">
-                <span class="text-red-500">✗</span> מה שמאי רגיל נותן:
-              </h3>
-              <ul class="space-y-2 text-muted text-sm">
-                <li>• הערכת שווי שוק</li>
-                <li>• "הדירה שווה 1.8 מיליון"</li>
-                <li>• מסמך לבנק</li>
-              </ul>
-            </div>
-            <div>
-              <h3 class="font-semibold text-dark mb-4 flex items-center gap-2">
-                <span class="text-green-500">✓</span> מה אנחנו נותנים:
-              </h3>
-              <ul class="space-y-2 text-muted text-sm">
-                <li>• תשואה נטו אמיתית (אחרי כל ההוצאות)</li>
-                <li>• השוואה להשקעות אחרות</li>
-                <li>• סיכונים ופוטנציאל</li>
-                <li>• המלצה: לקנות, לוותר, או לנהל משא ומתן</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Case Studies -->
-  <section class="py-16 md:py-20 bg-surface">
-    <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto">
-        <div class="text-center mb-12">
-          <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-4">
-            דוגמאות מהשטח: 32% מהעסקאות - לא כדאיות
-          </h2>
-          <p class="text-muted max-w-2xl mx-auto">
-            כמעט שליש מהדירות שבדקנו לא היו עסקה טובה. הנה כמה דוגמאות:
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {caseStudies.map((study) => (
-            <div class="p-6 bg-white rounded-xl border border-border hover:border-brand-200 transition-colors">
-              <div class="flex items-start gap-4">
-                <span class="text-3xl">{study.icon}</span>
-                <div class="flex-1">
-                  <h3 class="font-semibold text-dark mb-2">{study.title}</h3>
-                  <p class="text-muted text-sm mb-4">{study.description}</p>
-                  <div class="flex items-baseline gap-2">
-                    <span class="text-xl font-bold text-brand-600">{study.result}</span>
-                    <span class="text-sm text-muted">{study.resultLabel}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Net Yield Calculator Explanation -->
-  <section class="py-16 md:py-20 bg-white">
-    <div class="container mx-auto px-4">
-      <div class="max-w-3xl mx-auto">
-        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
-          תשואה ברוטו vs תשואה נטו
-        </h2>
-
-        <div class="bg-brand-50 rounded-2xl p-8 border border-brand-100 mb-8">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 class="font-semibold text-dark mb-4">תשואה ברוטו (מה שמראים לכם):</h3>
-              <div class="bg-white rounded-lg p-4 text-center">
-                <div class="text-2xl font-bold text-dark">שכירות × 12</div>
-                <div class="border-t border-border my-2"></div>
-                <div class="text-2xl font-bold text-dark">מחיר הדירה</div>
-                <div class="mt-3 text-3xl font-bold text-brand-600">= 4.5%</div>
-              </div>
-            </div>
-            <div>
-              <h3 class="font-semibold text-dark mb-4">תשואה נטו (מה שבאמת נכנס לכיס):</h3>
-              <div class="bg-white rounded-lg p-4 text-center">
-                <div class="text-lg font-bold text-dark">(שכירות - הוצאות) × 12</div>
-                <div class="border-t border-border my-2"></div>
-                <div class="text-lg font-bold text-dark">מחיר + עלויות רכישה</div>
-                <div class="mt-3 text-3xl font-bold text-accent">= 2.8%</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="text-center">
-          <p class="text-muted mb-6">
-            <strong class="text-dark">ההפרש יכול להיות 1.5%-2%</strong> - וזה משנה את כל התמונה.
-          </p>
-          <div class="inline-flex flex-wrap justify-center gap-4 text-sm text-muted">
-            <span class="bg-surface px-3 py-1 rounded">ועד בית</span>
-            <span class="bg-surface px-3 py-1 rounded">ארנונה</span>
-            <span class="bg-surface px-3 py-1 rounded">ביטוח</span>
-            <span class="bg-surface px-3 py-1 rounded">תחזוקה</span>
-            <span class="bg-surface px-3 py-1 rounded">חודשים ריקים</span>
-            <span class="bg-surface px-3 py-1 rounded">מס הכנסה</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- What We Check -->
-  <section class="py-16 md:py-20 bg-surface">
+  <section class="py-16 md:py-20 bg-white">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto">
         <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-12 text-center">
@@ -281,21 +84,21 @@ const serviceSchema = {
           {[
             {
               title: 'ניתוח פיננסי',
-              items: ['תשואה נטו (אחרי הכל)', 'עלויות רכישה מלאות', 'תזרים מזומנים חודשי', 'נקודת איזון', 'השוואה להשקעות אחרות'],
+              items: ['תשואה שנתית צפויה', 'עלויות רכישה ונלוות', 'תזרים מזומנים חודשי', 'נקודת איזון', 'השוואה להשקעות חלופיות'],
               icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>`,
             },
             {
               title: 'בדיקת הנכס',
-              items: ['מצב פיזי ותחזוקה', 'שיפוצים נדרשים (ועלויות)', 'מצב הבניין והוועד', 'תמ"א / פינוי בינוי', 'בעיות נסתרות'],
+              items: ['מצב פיזי ותחזוקה', 'שיפוצים נדרשים', 'מצב הבניין והוועד', 'פוטנציאל השבחה', 'בעיות נסתרות'],
               icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>`,
             },
             {
               title: 'ניתוח שוק',
-              items: ['שכירות ריאלית באזור', 'ביקוש לדירות דומות', 'מגמות מחירים', 'תחרות בשוק השכירות', 'פוטנציאל עליית ערך'],
+              items: ['שכירות ממוצעת באזור', 'ביקוש לדירות דומות', 'מגמות מחירים', 'תחרות בשוק', 'פוטנציאל עליית ערך'],
               icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>`,
             },
           ].map((category) => (
-            <div class="bg-white rounded-xl p-6 border border-border">
+            <div class="bg-surface rounded-xl p-6 border border-border">
               <div class="w-14 h-14 bg-brand-100 rounded-lg flex items-center justify-center text-brand-600 mb-4" set:html={category.icon} />
               <h3 class="font-heading font-bold text-dark text-lg mb-4">{category.title}</h3>
               <ul class="space-y-2">
@@ -315,59 +118,48 @@ const serviceSchema = {
     </div>
   </section>
 
-  <!-- Process Steps -->
-  <ProcessSteps
-    title="איך זה עובד?"
-    subtitle="תהליך פשוט - מביקור בנכס ועד המלצה מנומקת"
-    steps={serviceSteps}
-  />
-
-  <!-- About Or -->
-  <section class="py-16 md:py-20 bg-white">
+  <!-- The Report -->
+  <section class="py-16 md:py-20 bg-surface">
     <div class="container mx-auto px-4">
-      <div class="max-w-5xl mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-          <!-- Or's Image -->
-          <div class="lg:col-span-1 flex justify-center">
-            <div class="relative">
-              <img
-                src="/images/team/or-portrait.webp"
-                alt="אור ליבנה - מלווה משקיעים"
-                class="w-64 h-auto rounded-2xl shadow-lg"
-                loading="lazy"
-              />
-              <div class="absolute -bottom-4 -right-4 bg-brand-600 text-white px-4 py-2 rounded-lg text-sm font-medium shadow-lg">
-                12+ שנות ניסיון
-              </div>
-            </div>
-          </div>
+      <div class="max-w-3xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
+          מה תקבלו בסוף הבדיקה?
+        </h2>
 
-          <!-- Bio content -->
-          <div class="lg:col-span-2">
-            <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-4">
-              אור ליבנה - מי עורך את הבדיקה?
-            </h2>
-            <p class="text-muted mb-4">
-              אור הוא יועץ השקעות נדל"ן עם 12 שנות ניסיון בשוק הישראלי. בעברו עבד בחברות נדל"ן גדולות ובהייטק,
-              ומביא גישה אנליטית ומבוססת נתונים לכל בדיקה.
-            </p>
-            <p class="text-muted mb-6">
-              אור לא מרוויח עמלה מהעסקה - האינטרס שלו הוא שתקבלו החלטה נכונה, גם אם זה אומר לוותר על הדירה.
-            </p>
-
-            <div class="grid grid-cols-2 gap-4">
-              {[
-                { label: 'ניסיון', value: '12+ שנים' },
-                { label: 'דירות שנבדקו', value: '480+' },
-                { label: 'התמחות', value: 'השקעות נדל"ן' },
-                { label: 'רקע', value: 'נדל"ן + הייטק' },
-              ].map((stat) => (
-                <div class="bg-surface rounded-lg p-4 border border-border">
-                  <div class="text-sm text-muted mb-1">{stat.label}</div>
-                  <div class="font-semibold text-dark">{stat.value}</div>
+        <div class="bg-white rounded-2xl p-8 border border-border">
+          <div class="space-y-6">
+            {[
+              {
+                title: 'דוח מפורט בכתב',
+                desc: 'דוח מקיף עם כל הממצאים, הנתונים והחישובים - שתוכלו לחזור אליו גם בעתיד.',
+              },
+              {
+                title: 'טבלת תשואה',
+                desc: 'חישוב מפורט של התשואה הצפויה, כולל כל העלויות הנלוות וההכנסות.',
+              },
+              {
+                title: 'השוואה לחלופות',
+                desc: 'השוואה לנכסים דומים באזור ולהשקעות אלטרנטיביות.',
+              },
+              {
+                title: 'המלצה מנומקת',
+                desc: 'האם לקנות, לוותר, או לנסות להוריד מחיר - עם הסבר מפורט.',
+              },
+              {
+                title: 'שיחת סיכום',
+                desc: 'שיחה אישית לעבור על הממצאים ולענות על כל השאלות שלכם.',
+              },
+            ].map((item, index) => (
+              <div class="flex gap-4">
+                <div class="flex-shrink-0 w-8 h-8 bg-brand-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                  {index + 1}
                 </div>
-              ))}
-            </div>
+                <div>
+                  <h3 class="font-semibold text-dark mb-1">{item.title}</h3>
+                  <p class="text-muted text-sm">{item.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -375,17 +167,17 @@ const serviceSchema = {
   </section>
 
   <!-- Pricing -->
-  <section class="py-16 md:py-20 bg-surface">
+  <section class="py-16 md:py-20 bg-white">
     <div class="container mx-auto px-4">
       <div class="max-w-xl mx-auto text-center">
         <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-4">
-          מחיר קבוע - בלי הפתעות
+          מחיר השירות
         </h2>
-        <div class="bg-white rounded-2xl p-8 border border-border shadow-sm">
+        <div class="bg-brand-50 rounded-2xl p-8 border border-brand-100">
           <div class="text-5xl font-bold text-brand-600 mb-2">₪1,800</div>
           <div class="text-muted mb-6">+ מע״מ | כולל את כל הבדיקות</div>
           <ul class="text-start space-y-3 mb-8">
-            {['ביקור פיזי בנכס', 'ניתוח פיננסי מקיף', 'בדיקת שוק והשוואה', 'דוח מפורט בכתב', 'שיחת סיכום והמלצה'].map((item) => (
+            {['ניתוח פיננסי מקיף', 'ביקור בנכס', 'בדיקת שוק', 'דוח מפורט בכתב', 'שיחת סיכום'].map((item) => (
               <li class="flex items-center gap-2 text-dark">
                 <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -400,11 +192,6 @@ const serviceSchema = {
           >
             הזמינו בדיקה עכשיו
           </a>
-        </div>
-
-        <div class="mt-8 p-4 bg-white rounded-lg border border-border text-sm text-muted">
-          <strong class="text-dark">מחפשים ליווי מלא?</strong> אם אתם רוצים שנלווה אתכם גם בחיפוש דירה, משא ומתן, ומימון -
-          <a href="/investor-consulting/" class="text-brand-600 hover:underline">ראו את שירות ליווי משקיעים (18,000 ש״ח) ←</a>
         </div>
       </div>
     </div>
@@ -423,6 +210,6 @@ const serviceSchema = {
 
   <ContactForm
     title="הזמינו בדיקת כדאיות"
-    subtitle="מלאו את הפרטים ונחזור אליכם בהקדם לתיאום הבדיקה"
+    subtitle="מלאו את הפרטים ונחזור אליכם בהקדם"
   />
 </BaseLayout>

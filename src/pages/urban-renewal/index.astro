@@ -2,84 +2,36 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
 import TrustBar from '../../components/TrustBar.astro';
-import ProcessSteps from '../../components/ProcessSteps.astro';
 import FAQ from '../../components/FAQ.astro';
 import ContactForm from '../../components/ContactForm.astro';
 import CTASection from '../../components/CTASection.astro';
 import SchemaOrg from '../../components/SchemaOrg.astro';
 
-// Case studies
-const caseStudies = [
-  {
-    title: 'בניין בחיפה - תמ"א 38/2',
-    description: 'בעלי דירות קיבלו הצעה מיזם. עזרנו לנהל משא ומתן על תוספת שטח, מרפסת, וחניה.',
-    result: '280,000',
-    resultLabel: 'שווי נוסף לדירה',
-    icon: '🏗️',
-  },
-  {
-    title: 'משקיע בפינוי בינוי בת"א',
-    description: 'זיהינו דירה להשקעה בפרויקט שכבר אושר. הלקוח קנה ב-2.1 מיליון, שווי צפוי 3.5 מיליון.',
-    result: '1.4M',
-    resultLabel: 'עליית ערך צפויה',
-    icon: '📈',
-  },
-  {
-    title: 'דיירת שסירבה - חזרה להסכם',
-    description: 'דיירת סירבה להצעה ראשונה. עזרנו לה להבין את הזכויות האמיתיות והשגנו עבורה תנאים טובים יותר.',
-    result: '150,000',
-    resultLabel: 'שיפור בתנאים',
-    icon: '🤝',
-  },
-  {
-    title: 'בניין בנתניה - יזם חדש',
-    description: 'יזם ראשון נפל. עזרנו לוועד הבית למצוא יזם חלופי ולחדש את הפרויקט.',
-    result: 'הפרויקט ממשיך',
-    resultLabel: 'במקום לקרוס',
-    icon: '✅',
-  },
-];
-
-// Process steps for homeowners
-const homeownerSteps = [
-  { number: 1, title: 'פגישה ראשונית (חינם)', description: 'הבנת המצב, הזכויות, וההזדמנויות שלכם' },
-  { number: 2, title: 'בדיקת הצעות', description: 'ניתוח הצעות יזמים והשוואה למקובל בשוק' },
-  { number: 3, title: 'משא ומתן', description: 'ייעוץ וליווי במשא ומתן מול היזם' },
-  { number: 4, title: 'בדיקת חוזה', description: 'בדיקת החוזה לפני חתימה סופית' },
+const breadcrumbs = [
+  { label: 'דף הבית', href: '/' },
+  { label: 'התחדשות עירונית' },
 ];
 
 const faqItems = [
   {
-    question: 'מה ההבדל בין תמ״א 38/1 לתמ"א 38/2?',
-    answer: 'תמ"א 38/1 = חיזוק הבניין הקיים + תוספת קומות + שדרוג (מעלית, חניה, מרפסות). תמ"א 38/2 = הריסת הבניין כולו ובנייה מחדש. ב-38/2 הדיירים מקבלים דירה חדשה וגדולה יותר, אבל צריך דיור חלופי בזמן הבנייה.',
+    question: 'מה ההבדל בין תמ״א 38 לפינוי בינוי?',
+    answer: 'תמ״א 38 מתייחסת לחיזוק מבנים קיימים (38/1) או הריסה ובנייה מחדש (38/2) של בניינים בודדים. פינוי בינוי הוא פרויקט גדול יותר שכולל מתחמים שלמים, עם תכנון מחודש של השכונה.',
   },
   {
-    question: 'מה ההבדל בין תמ״א 38 לפינוי בינוי?',
-    answer: 'תמ"א 38 מתייחסת לבניין בודד. פינוי בינוי הוא פרויקט של מתחם שלם (מספר בניינים), עם תכנון מחודש של כל האזור, כולל שטחים ציבוריים ותשתיות חדשות.',
+    question: 'כמה עולה ייעוץ בהתחדשות עירונית?',
+    answer: 'פגישת ייעוץ ראשונית היא ללא עלות. לליווי מקיף של התהליך - צרו קשר ונתאים הצעה לפי הצרכים שלכם.',
   },
   {
     question: 'כמה זמן לוקח פרויקט התחדשות עירונית?',
-    answer: 'תמ"א 38/1: 2-3 שנים (הכי מהיר). תמ"א 38/2: 4-6 שנים. פינוי בינוי: 7-10 שנים, ולפעמים יותר. חשוב להבין את הטווחים לפני שמתחילים.',
+    answer: 'תלוי בסוג הפרויקט. תמ״א 38/1 (חיזוק) יכולה לקחת 2-3 שנים. תמ״א 38/2 והריסה ובנייה - 4-6 שנים. פינוי בינוי - 7-10 שנים.',
   },
   {
     question: 'האם כדאי לקנות דירה בבניין שעובר התחדשות?',
-    answer: 'יש יתרונות משמעותיים (דירה חדשה וגדולה יותר בסוף), אבל גם סיכונים (עיכובים, יזם שקורס, אי-ודאות). אנחנו עוזרים למשקיעים לנתח את הכדאיות ולזהות את העסקאות הטובות.',
+    answer: 'יש יתרונות (דירה חדשה בסוף התהליך) וחסרונות (אי-ודאות, זמן ארוך). אנחנו יכולים לעזור לכם לבדוק את הכדאיות של עסקה כזו.',
   },
   {
-    question: 'איך יודעים אם הצעת היזם טובה?',
-    answer: 'צריך להשוות למקובל בשוק: כמה מטרים מקבלים? איזה מפרט? מה בדיור החלופי? מה הביטחונות? אנחנו מכירים את השוק ויודעים מה סביר ומה לא.',
-  },
-  {
-    question: 'מה קורה אם היזם נופל באמצע הפרויקט?',
-    answer: 'תלוי בשלב ובחוזה שנחתם. לכן כל כך חשוב לבדוק את החוזה לפני חתימה, לוודא ביטחונות מספקים, ולבחור יזם יציב. אנחנו עוזרים גם כשהפרויקט מסתבך.',
-  },
-  {
-    question: 'כמה עולה הייעוץ שלכם?',
-    answer: 'פגישת ייעוץ ראשונית היא ללא עלות. ליווי מקיף של בעלי דירות - 3,000-5,000 ש״ח לדירה, תלוי במורכבות. למשקיעים - ראו <a href="/investor-consulting/" class="text-brand-600 hover:underline">שירות ליווי משקיעים ←</a>',
-  },
-  {
-    question: 'מי עורך את הבדיקות והייעוץ?',
-    answer: 'מעיין ליבנה - שמאית מקרקעין מוסמכת עם 15 שנות ניסיון בהערכות שווי, ואור ליבנה - יועץ השקעות נדל"ן. השילוב של שמאות מקצועית וחשיבה השקעתית נותן תמונה מלאה.',
+    question: 'מה תפקידכם בתהליך?',
+    answer: 'אנחנו מייעצים לבעלי דירות או למשקיעים - בדיקת כדאיות, הערכת שווי עתידי, ייעוץ במשא ומתן מול יזמים, וליווי לאורך התהליך.',
   },
 ];
 
@@ -87,33 +39,27 @@ const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   name: 'ייעוץ התחדשות עירונית',
-  description: 'ייעוץ מקצועי בפרויקטי התחדשות עירונית - תמ״א 38, פינוי בינוי, הריסה ובנייה. ליווי בעלי דירות ומשקיעים.',
+  description: 'ייעוץ מקצועי בפרויקטי התחדשות עירונית - תמ״א 38, פינוי בינוי והריסה ובנייה',
   provider: {
     '@type': 'ProfessionalService',
     name: 'השקעות נדל״ן - מעין ואור ליבנה',
     url: 'https://hashkaot-nadlan.co.il',
-    telephone: '+972-55-255-5144',
   },
-  areaServed: ['חיפה', 'קריות', 'נתניה', 'תל אביב', 'ראשון לציון', 'גבעתיים', 'רמת גן'],
-  serviceType: 'ייעוץ נדל"ן',
-  offers: {
-    '@type': 'Offer',
-    price: '0',
-    priceCurrency: 'ILS',
-    description: 'פגישת ייעוץ ראשונית ללא עלות',
-  },
+  areaServed: 'ישראל',
+  serviceType: 'ייעוץ נדל״ן',
 };
 ---
 
 <BaseLayout
-  title="ייעוץ התחדשות עירונית | תמ״א 38 ופינוי בינוי | פגישה חינם"
-  description="ייעוץ מקצועי בהתחדשות עירונית - תמ״א 38, פינוי בינוי, הריסה ובנייה. ליווי בעלי דירות ומשקיעים. פגישת ייעוץ ראשונית חינם."
+  title="ייעוץ התחדשות עירונית"
+  description="ייעוץ מקצועי בפרויקטי התחדשות עירונית - תמ״א 38, פינוי בינוי והריסה ובנייה. ליווי בעלי דירות ומשקיעים. פגישת ייעוץ ראשונית חינם."
 >
   <SchemaOrg schema={serviceSchema} />
 
   <PageHero
     title="ייעוץ התחדשות עירונית"
-    subtitle="תמ״א 38, פינוי בינוי, הריסה ובנייה. אנחנו מלווים בעלי דירות ומשקיעים - כדי שתדעו מה מגיע לכם ולא תוותרו על זכויות."
+    subtitle="תמ״א 38, פינוי בינוי, הריסה ובנייה - אנחנו מלווים בעלי דירות ומשקיעים בכל שלבי התהליך. כדי שתדעו מה מגיע לכם ולא תוותרו על זכויות."
+    breadcrumbs={breadcrumbs}
     backgroundImage="/images/hero/hero-02.webp"
     showCTA={true}
     ctaText="פגישת ייעוץ חינם"
@@ -121,175 +67,44 @@ const serviceSchema = {
 
   <TrustBar variant="light" />
 
-  <!-- Stats Section -->
-  <section class="py-12 bg-brand-50">
-    <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          <div>
-            <div class="text-3xl md:text-4xl font-bold text-brand-600 mb-1">85+</div>
-            <div class="text-sm text-muted">בניינים בליווי</div>
-          </div>
-          <div>
-            <div class="text-3xl md:text-4xl font-bold text-brand-600 mb-1">420+</div>
-            <div class="text-sm text-muted">דיירים שעזרנו</div>
-          </div>
-          <div>
-            <div class="text-3xl md:text-4xl font-bold text-brand-600 mb-1">₪180K</div>
-            <div class="text-sm text-muted">שיפור ממוצע בתנאים</div>
-          </div>
-          <div>
-            <div class="text-3xl md:text-4xl font-bold text-brand-600 mb-1">15</div>
-            <div class="text-sm text-muted">שנות ניסיון</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- The Problem -->
-  <section class="py-16 md:py-20 bg-white">
-    <div class="container mx-auto px-4">
-      <div class="max-w-3xl mx-auto text-center">
-        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-6">
-          התחדשות עירונית יכולה להיות הזדמנות - או טעות
-        </h2>
-        <p class="text-lg text-muted mb-8">
-          הבעיה: רוב בעלי הדירות לא יודעים מה באמת מגיע להם. היזמים יודעים. זה יוצר פער.
-        </p>
-
-        <div class="bg-surface rounded-2xl p-8 border border-border text-start">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 class="font-semibold text-dark mb-4 flex items-center gap-2">
-                <span class="text-red-500">✗</span> טעויות נפוצות:
-              </h3>
-              <ul class="space-y-3 text-muted text-sm">
-                <li class="flex items-start gap-2">
-                  <span class="text-red-500 mt-0.5">•</span>
-                  חתימה על הצעה ראשונה בלי להשוות
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-red-500 mt-0.5">•</span>
-                  ויתור על זכויות בלי לדעת
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-red-500 mt-0.5">•</span>
-                  חוזה בלי ביטחונות מספקים
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-red-500 mt-0.5">•</span>
-                  דיור חלופי לא מתאים
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 class="font-semibold text-dark mb-4 flex items-center gap-2">
-                <span class="text-green-500">✓</span> מה אנחנו עושים:
-              </h3>
-              <ul class="space-y-3 text-muted text-sm">
-                <li class="flex items-start gap-2">
-                  <span class="text-green-500 mt-0.5">•</span>
-                  מסבירים מה מגיע לכם
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-green-500 mt-0.5">•</span>
-                  משווים הצעות יזמים
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-green-500 mt-0.5">•</span>
-                  מלווים במשא ומתן
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-green-500 mt-0.5">•</span>
-                  בודקים חוזים לפני חתימה
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Case Studies -->
-  <section class="py-16 md:py-20 bg-surface">
-    <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto">
-        <div class="text-center mb-12">
-          <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-4">
-            דוגמאות מהשטח
-          </h2>
-          <p class="text-muted max-w-2xl mx-auto">
-            בממוצע, הלקוחות שלנו משיגים שיפור של ₪180,000 בתנאים. הנה כמה דוגמאות:
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {caseStudies.map((study) => (
-            <div class="p-6 bg-white rounded-xl border border-border hover:border-brand-200 transition-colors">
-              <div class="flex items-start gap-4">
-                <span class="text-3xl">{study.icon}</span>
-                <div class="flex-1">
-                  <h3 class="font-semibold text-dark mb-2">{study.title}</h3>
-                  <p class="text-muted text-sm mb-4">{study.description}</p>
-                  <div class="flex items-baseline gap-2">
-                    <span class="text-xl font-bold text-success-600">{study.result}</span>
-                    <span class="text-sm text-muted">{study.resultLabel}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Types of Projects -->
   <section class="py-16 md:py-20 bg-white">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto">
         <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-12 text-center">
-          סוגי פרויקטים - מה ההבדלים?
+          סוגי פרויקטי התחדשות עירונית
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
             {
               title: 'תמ״א 38/1',
-              subtitle: 'חיזוק + תוספת',
-              timeline: '2-3 שנים',
-              items: ['חיזוק המבנה הקיים', 'תוספת קומות', 'מעלית, חניה, ממ"ד', 'שדרוג הדירה הקיימת', 'ללא דיור חלופי'],
-              highlight: false,
+              subtitle: 'חיזוק ותוספת',
+              items: ['חיזוק מבנה קיים', 'תוספת קומות', 'מעלית וחניה', 'שדרוג הדירות', '2-3 שנים'],
+              color: 'brand',
             },
             {
               title: 'תמ״א 38/2',
               subtitle: 'הריסה ובנייה',
-              timeline: '4-6 שנים',
-              items: ['הריסת הבניין', 'בנייה חדשה מהיסוד', 'דירה חדשה וגדולה יותר', 'דיור חלופי בזמן הבנייה', 'תשואה גבוהה יותר'],
-              highlight: true,
+              items: ['הריסת הבניין', 'בנייה חדשה מאפס', 'דירה חדשה וגדולה יותר', 'דיור חלופי בזמן הבנייה', '4-6 שנים'],
+              color: 'accent',
             },
             {
               title: 'פינוי בינוי',
               subtitle: 'מתחם שלם',
-              timeline: '7-10 שנים',
-              items: ['מספר בניינים יחד', 'תכנון מחודש של האזור', 'תשתיות ושטחים ציבוריים', 'דירה משודרגת משמעותית', 'תהליך ארוך יותר'],
-              highlight: false,
+              items: ['מתחם של מספר בניינים', 'תכנון מחודש של האזור', 'שטחים ציבוריים חדשים', 'דירה חדשה משודרגת', '7-10 שנים'],
+              color: 'brand',
             },
           ].map((project) => (
-            <div class={`rounded-xl p-6 border-2 ${project.highlight ? 'bg-brand-50 border-brand-200' : 'bg-surface border-border'}`}>
+            <div class={`bg-surface rounded-xl p-6 border-2 ${project.color === 'accent' ? 'border-accent' : 'border-brand-100'}`}>
               <div class="mb-4">
                 <h3 class="font-heading font-bold text-dark text-xl">{project.title}</h3>
-                <p class={`text-sm ${project.highlight ? 'text-brand-600' : 'text-muted'}`}>{project.subtitle}</p>
-              </div>
-              <div class={`inline-block px-3 py-1 rounded-full text-xs font-medium mb-4 ${project.highlight ? 'bg-brand-100 text-brand-700' : 'bg-white text-muted'}`}>
-                {project.timeline}
+                <p class={`text-sm ${project.color === 'accent' ? 'text-accent' : 'text-brand-600'}`}>{project.subtitle}</p>
               </div>
               <ul class="space-y-2">
                 {project.items.map((item) => (
                   <li class="flex items-center gap-2 text-muted text-sm">
-                    <svg class={`w-4 h-4 flex-shrink-0 ${project.highlight ? 'text-brand-600' : 'text-muted'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class={`w-4 h-4 flex-shrink-0 ${project.color === 'accent' ? 'text-accent' : 'text-brand-600'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                     </svg>
                     {item}
@@ -303,148 +118,109 @@ const serviceSchema = {
     </div>
   </section>
 
-  <!-- Two Audiences -->
+  <!-- How We Help -->
   <section class="py-16 md:py-20 bg-surface">
     <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto">
-        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-12 text-center">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
           איך אנחנו עוזרים?
         </h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <!-- For Homeowners -->
-          <div class="bg-white rounded-2xl p-8 border border-border">
-            <div class="w-14 h-14 bg-brand-100 rounded-xl flex items-center justify-center text-brand-600 mb-6">
-              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-              </svg>
-            </div>
-            <h3 class="font-heading font-bold text-dark text-xl mb-4">לבעלי דירות</h3>
-            <p class="text-muted text-sm mb-6">
-              גרים בבניין שיש בו פרויקט התחדשות? אנחנו נעזור לכם להבין מה מגיע לכם ולהשיג תנאים טובים יותר.
-            </p>
-            <ul class="space-y-3">
-              {[
+        <div class="space-y-6">
+          {[
+            {
+              title: 'לבעלי דירות',
+              items: [
                 'הערכת שווי הזכויות שלכם',
-                'השוואת הצעות יזמים',
+                'ייעוץ בבחירת יזם',
+                'בדיקת הצעות מיזמים',
                 'ליווי במשא ומתן',
                 'בדיקת חוזים לפני חתימה',
-                'ייצוג מול היזם',
-              ].map((item) => (
-                <li class="flex items-center gap-2 text-muted text-sm">
-                  <svg class="w-4 h-4 text-brand-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <div class="mt-6 pt-6 border-t border-border">
-              <div class="text-sm text-muted">עלות:</div>
-              <div class="font-semibold text-dark">3,000-5,000 ש״ח לדירה</div>
-              <div class="text-xs text-muted mt-1">פגישה ראשונית חינם</div>
-            </div>
-          </div>
-
-          <!-- For Investors -->
-          <div class="bg-white rounded-2xl p-8 border border-border">
-            <div class="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center text-accent mb-6">
-              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </div>
-            <h3 class="font-heading font-bold text-dark text-xl mb-4">למשקיעים</h3>
-            <p class="text-muted text-sm mb-6">
-              מחפשים לקנות דירה בפרויקט התחדשות? אנחנו נעזור לכם לזהות הזדמנויות ולהימנע מטעויות.
-            </p>
-            <ul class="space-y-3">
-              {[
-                'זיהוי הזדמנויות השקעה',
+              ],
+              icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>`,
+            },
+            {
+              title: 'למשקיעים',
+              items: [
+                'בדיקת כדאיות רכישת דירה בבניין להתחדשות',
                 'הערכת שווי עתידי',
-                'ניתוח סיכונים ותשואה',
-                'בדיקת כדאיות העסקה',
-                'ליווי עד לסגירה',
-              ].map((item) => (
-                <li class="flex items-center gap-2 text-muted text-sm">
-                  <svg class="w-4 h-4 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <div class="mt-6 pt-6 border-t border-border">
-              <div class="text-sm text-muted">עלות:</div>
-              <a href="/investor-consulting/" class="font-semibold text-brand-600 hover:underline">ראו שירות ליווי משקיעים ←</a>
+                'זיהוי הזדמנויות בשוק',
+                'ניתוח סיכונים ותשואה צפויה',
+                'ליווי עד לסגירת העסקה',
+              ],
+              icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`,
+            },
+          ].map((audience) => (
+            <div class="bg-white rounded-xl p-6 border border-border">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center text-brand-600" set:html={audience.icon} />
+                <h3 class="font-heading font-bold text-dark text-lg">{audience.title}</h3>
+              </div>
+              <ul class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                {audience.items.map((item) => (
+                  <li class="flex items-center gap-2 text-muted text-sm">
+                    <svg class="w-4 h-4 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Process for Homeowners -->
-  <ProcessSteps
-    title="איך זה עובד? (לבעלי דירות)"
-    subtitle="תהליך פשוט מפגישה ראשונית ועד לחתימה על חוזה טוב"
-    steps={homeownerSteps}
-  />
-
-  <!-- About the Team -->
+  <!-- Why Important -->
   <section class="py-16 md:py-20 bg-white">
     <div class="container mx-auto px-4">
-      <div class="max-w-5xl mx-auto">
-        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-12 text-center">
-          מי עומד מאחורי הייעוץ?
+      <div class="max-w-3xl mx-auto">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
+          למה חשוב להתייעץ?
         </h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <!-- Maayan -->
-          <div class="bg-surface rounded-2xl p-6 border border-border">
-            <div class="flex items-start gap-4">
-              <img
-                src="/images/team/maayan-portrait.png"
-                alt="מעיין ליבנה - שמאית מקרקעין"
-                class="w-24 h-24 rounded-xl object-cover"
-                loading="lazy"
-              />
+        <div class="space-y-6">
+          {[
+            {
+              title: 'הבנת הזכויות שלכם',
+              desc: 'רבים לא יודעים מה באמת מגיע להם. אנחנו נעזור לכם להבין את מלוא הזכויות שלכם בפרויקט.',
+            },
+            {
+              title: 'משא ומתן חכם',
+              desc: 'יזמים מציעים הצעות שונות. איך יודעים מה טוב ומה פחות? אנחנו נעזור לכם להשוות ולנהל משא ומתן.',
+            },
+            {
+              title: 'הימנעות מטעויות',
+              desc: 'חתימה על חוזה גרוע יכולה לעלות מאות אלפי שקלים. בדיקה מקצועית מראש חוסכת בעיות.',
+            },
+            {
+              title: 'שקט נפשי',
+              desc: 'פרויקט התחדשות לוקח שנים. חשוב להתחיל עם בסיס טוב ולדעת שעשיתם את הבחירה הנכונה.',
+            },
+          ].map((item) => (
+            <div class="flex gap-4 p-6 bg-surface rounded-xl border border-border">
+              <div class="flex-shrink-0 w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center">
+                <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
               <div>
-                <h3 class="font-heading font-bold text-dark text-lg">מעיין ליבנה</h3>
-                <p class="text-brand-600 text-sm mb-2">שמאית מקרקעין מוסמכת</p>
-                <p class="text-muted text-sm">15 שנות ניסיון בהערכות שווי. מתמחה בזכויות בנייה, תב"ע, והערכת שווי בפרויקטי התחדשות.</p>
+                <h3 class="font-semibold text-dark mb-1">{item.title}</h3>
+                <p class="text-muted">{item.desc}</p>
               </div>
             </div>
-          </div>
-
-          <!-- Or -->
-          <div class="bg-surface rounded-2xl p-6 border border-border">
-            <div class="flex items-start gap-4">
-              <img
-                src="/images/team/or-portrait.webp"
-                alt="אור ליבנה - יועץ השקעות נדל״ן"
-                class="w-24 h-24 rounded-xl object-cover"
-                loading="lazy"
-              />
-              <div>
-                <h3 class="font-heading font-bold text-dark text-lg">אור ליבנה</h3>
-                <p class="text-brand-600 text-sm mb-2">יועץ השקעות נדל"ן</p>
-                <p class="text-muted text-sm">12 שנות ניסיון. מתמחה בניתוח כדאיות, זיהוי הזדמנויות, וליווי משקיעים בפרויקטי התחדשות.</p>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
-
-        <p class="text-center text-muted mt-8">
-          השילוב של שמאות מקצועית (מעיין) וחשיבה השקעתית (אור) נותן לכם תמונה מלאה.
-        </p>
       </div>
     </div>
   </section>
 
   <CTASection
     title="יש לכם שאלות על התחדשות עירונית?"
-    subtitle="פגישת ייעוץ ראשונית ללא עלות - נעזור לכם להבין את האפשרויות והזכויות שלכם"
-    ctaText="קבעו פגישה חינם"
+    subtitle="פגישת ייעוץ ראשונית ללא עלות - נעזור לכם להבין את האפשרויות שלכם"
+    ctaText="קבעו פגישה"
   />
 
   <FAQ
@@ -454,6 +230,6 @@ const serviceSchema = {
 
   <ContactForm
     title="קבעו פגישת ייעוץ"
-    subtitle="פגישה ראשונית ללא עלות - מלאו את הפרטים ונחזור אליכם"
+    subtitle="מלאו את הפרטים ונחזור אליכם לתיאום פגישה"
   />
 </BaseLayout>

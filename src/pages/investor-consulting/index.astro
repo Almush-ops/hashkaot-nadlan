@@ -9,22 +9,19 @@ import CTASection from '../../components/CTASection.astro';
 import TestimonialSection from '../../components/TestimonialSection.astro';
 import SchemaOrg from '../../components/SchemaOrg.astro';
 
+const breadcrumbs = [
+  { label: 'דף הבית', href: '/' },
+  { label: 'ליווי משקיעים לרכישת דירה' },
+];
+
 const faqItems = [
   {
     question: 'מה כולל שירות ליווי משקיעים לרכישת דירה?',
     answer: 'השירות כולל: ייעוץ ראשוני והגדרת מטרות, בניית פרופיל משקיע, ניתוח שוק וזיהוי הזדמנויות, סיורים בנכסים פוטנציאליים, <a href="/apartment-investment-analysis/" class="text-brand-600 hover:underline">בדיקת כדאיות מקצועית</a> לכל נכס, ניהול משא ומתן, ליווי עד לחתימה וקבלת מפתח, וגישה לקבוצת וואטסאפ עם כל בעלי המקצוע.',
   },
   {
-    question: 'מה זה מלווה משקיעים נדל״ן וכמה זה עולה?',
-    answer: 'מלווה משקיעים נדל״ן הוא איש מקצוע שמלווה אתכם בכל תהליך רכישת דירה להשקעה — מהגדרת היעדים, דרך איתור הנכס ובדיקת הכדאיות, ועד לחתימה. העלות המקובלת בשוק: 30,000-35,000 ש״ח. אצלנו: 18,000 ש״ח מחיר קבוע (כולל מע״מ) — חיסכון של כ-50%.',
-  },
-  {
-    question: 'מה ההבדל בין מלווה משקיעים ליועץ השקעות נדל״ן?',
-    answer: 'בפועל, שני המונחים מתארים את אותו שירות. יועץ השקעות נדל״ן מתמקד יותר באסטרטגיה (לאן להשקיע, איזה סוג נכס, מה התשואה הצפויה), בעוד מלווה משקיעים מדגיש את הליווי המעשי (סיורים, משא ומתן, חתימה). אצלנו מקבלים את שניהם יחד — ייעוץ אסטרטגי + ליווי מעשי מקצה לקצה.',
-  },
-  {
-    question: 'איך עושים בדיקת כדאיות לדירה להשקעה?',
-    answer: 'בדיקת כדאיות מקצועית כוללת: הערכת שווי הנכס (שמאות), חישוב תשואה צפויה משכירות (ממוצע בישראל: 3-4%, אצלנו: 5-8%), ניתוח פוטנציאל עליית ערך, בדיקת עלויות נלוות (מס רכישה, עו״ד, שיפוץ), ובדיקת סיכונים (רישום, חובות, ליקויים). אנחנו מבצעים בדיקה מקיפה לכל נכס לפני שממליצים.',
+    question: 'כמה עולה ליווי משקיעים?',
+    answer: 'עלות הליווי המלא היא 18,000 ש״ח (כולל מע״מ). התשלום מתחלק ל-5,000 ש״ח מקדמה בתחילת הליווי ו-13,000 ש״ח בחתימה על העסקה. זהו מחיר קבוע ללא קשר לגודל העסקה.',
   },
   {
     question: 'מה ההבדל בינכם לבין מתווך?',
@@ -48,7 +45,7 @@ const faqItems = [
   },
   {
     question: 'באיזה אזורים אתם פועלים?',
-    answer: 'ההתמחות העיקרית שלנו היא בצפון: <a href="/areas/haifa/" class="text-brand-600 hover:underline">חיפה</a>, הקריות (קריית חיים, קריית ביאליק, קריית מוצקין), נשר, טירת הכרמל, עכו ונהריה. אנחנו פועלים גם במרכז: <a href="/areas/netanya/" class="text-brand-600 hover:underline">נתניה</a>, <a href="/areas/rishon/" class="text-brand-600 hover:underline">ראשון לציון</a>, <a href="/areas/givat-shmuel/" class="text-brand-600 hover:underline">גבעת שמואל</a> ופתח תקווה. <a href="/areas/" class="text-brand-600 hover:underline">לכל אזורי הפעילות ←</a>',
+    answer: 'ההתמחות העיקרית שלנו היא בצפון: חיפה, הקריות (קריית חיים, קריית ביאליק, קריית מוצקין), נשר, טירת הכרמל, עכו ונהריה. אנחנו פועלים גם במרכז: נתניה, ראשון לציון, גבעת שמואל ופתח תקווה. צרו קשר לבדוק זמינות.',
   },
 ];
 
@@ -91,8 +88,8 @@ const caseStudies = [
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'מלווה משקיעים נדל״ן - ליווי לרכישת דירה להשקעה',
-  description: 'שירות ליווי משקיעים מקצועי עם שמאית מקרקעין מוסמכת ויועץ השקעות נדל״ן. כולל בדיקת כדאיות השקעה, ניתוח תשואה, משא ומתן וליווי עד חתימה. מחיר קבוע 18,000 ש״ח - חצי ממחיר המתחרים.',
+  name: 'ליווי משקיעים לרכישת דירה',
+  description: 'ליווי מקיף לרכישת דירה להשקעה על ידי שמאית מקרקעין מוסמכת. התמחות בהתחדשות עירונית, פריסייל ודירות יד שנייה. מחיר קבוע 18,000 ש״ח.',
   provider: {
     '@type': 'ProfessionalService',
     name: 'השקעות נדל״ן - מעין ואור ליבנה',
@@ -111,40 +108,21 @@ const serviceSchema = {
 ---
 
 <BaseLayout
-  title="ליווי משקיעים נדל״ן | מלווה משקיעים מקצועי - 18,000₪ מחיר קבוע"
-  description="מלווה משקיעים ויועץ השקעות נדל״ן עם שמאית מקרקעין מוסמכת. ליווי מקיף לרכישת דירה להשקעה: בדיקת כדאיות, משא ומתן, עד לחתימה. 18,000₪ קבוע - חצי ממחיר המתחרים."
+  title="ליווי משקיעים לרכישת דירה - שמאית מקרקעין מוסמכת"
+  description="ליווי מקיף לרכישת דירה להשקעה על ידי שמאית מקרקעין עם 15 שנות ניסיון. התמחות בהתחדשות עירונית ופריסייל. 18,000 ש״ח מחיר קבוע - ללא אחוזים מהעסקה."
 >
   <SchemaOrg schema={serviceSchema} />
 
   <PageHero
-    title="ליווי משקיעים לרכישת דירה להשקעה"
-    subtitle="מלווה משקיעים מקצועי עם שמאית מקרקעין מוסמכת ויועץ השקעות נדל״ן. בדיקת כדאיות מקיפה, ניתוח תשואה על הדירה, משא ומתן וליווי עד החתימה. 18,000₪ מחיר קבוע - ללא ניגוד אינטרסים."
+    title="ליווי משקיעים לרכישת דירה"
+    subtitle="ליווי מקצועי מהרגע הראשון ועד סגירת העסקה - על ידי שמאית מקרקעין מוסמכת ומלווה משקיעים עם רקע הייטק. מחיר קבוע, ללא ניגוד אינטרסים."
+    breadcrumbs={breadcrumbs}
     backgroundImage="/images/hero/hero-01.webp"
     showCTA={true}
     ctaText="השאירו פרטים לייעוץ חינם"
   />
 
   <TrustBar variant="light" />
-
-  <!-- Intro Section - Semantic Keywords -->
-  <section class="py-12 bg-white">
-    <div class="container mx-auto px-4">
-      <div class="max-w-3xl mx-auto prose prose-lg">
-        <p class="text-muted leading-relaxed">
-          <strong>מלווה משקיעים נדל״ן</strong> הוא אנשי מקצוע שמלווה אתכם בכל תהליך רכישת דירה להשקעה —
-          מבדיקת כדאיות ההשקעה הראשונית ועד לחתימה על החוזה וקבלת המפתח.
-          בניגוד למתווך שמרוויח אחוזים מהעסקה, <strong>יועץ השקעות נדל״ן</strong> עובד בתשלום קבוע
-          ולכן האינטרס שלו הוא שתעשו את העסקה הטובה ביותר — גם אם זה לוקח יותר זמן.
-        </p>
-        <p class="text-muted leading-relaxed">
-          אצלנו, הליווי מתבצע על ידי <strong>שמאית מקרקעין מוסמכת</strong> עם 15 שנות ניסיון
-          ויועץ משקיעים עם רקע בהייטק. השילוב הזה מאפשר <a href="/apartment-investment-analysis/" class="text-brand-600 hover:underline">בדיקת כדאיות מקצועית</a>
-          שכוללת הערכת שווי מדויקת, ניתוח תשואה צפויה (ממוצע של 13% בשנה אצל לקוחותינו),
-          וזיהוי סיכונים לפני שמתחייבים. העלות: <strong>18,000 ש״ח</strong> — כמחצית מהמחיר המקובל בשוק (30,000-35,000 ש״ח).
-        </p>
-      </div>
-    </div>
-  </section>
 
   <!-- Stats Section - Key Numbers -->
   <section class="py-12 bg-brand-50">
@@ -206,7 +184,7 @@ const serviceSchema = {
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto">
         <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
-          מה שונה בליווי משקיעים נדל״ן שלנו?
+          מה שונה בליווי המשקיעים שלנו?
         </h2>
 
         <div class="space-y-6">
@@ -271,7 +249,7 @@ const serviceSchema = {
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <a href="/urban-renewal/" class="block p-6 bg-surface rounded-xl border border-border text-center hover:border-brand-300 transition-colors">
+          <div class="p-6 bg-surface rounded-xl border border-border text-center">
             <div class="w-14 h-14 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <svg class="w-7 h-7 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -279,7 +257,7 @@ const serviceSchema = {
             </div>
             <h3 class="font-semibold text-dark mb-2">התחדשות עירונית</h3>
             <p class="text-muted text-sm">פינוי-בינוי, תמ״א 38. דירות עם פוטנציאל עליית ערך משמעותית לאורך זמן.</p>
-          </a>
+          </div>
 
           <div class="p-6 bg-surface rounded-xl border border-border text-center">
             <div class="w-14 h-14 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -324,8 +302,8 @@ const serviceSchema = {
               desc: 'מחקר מעמיק של השוק באזורים הרלוונטיים, זיהוי פרויקטים ומתחמים מתאימים, ואיתור נכסים שעומדים בקריטריונים - כולל גישה לעסקאות שלא מפורסמות בשוק החופשי.',
             },
             {
-              title: 'סיורים ובדיקת כדאיות מקצועית',
-              desc: 'נלווה אתכם לביקורים בנכסים, נבצע בדיקת כדאיות השקעה מקיפה לכל נכס — כולל הערכת שווי על ידי שמאית מקרקעין, חישוב תשואה צפויה, ניתוח סיכונים והשוואה בין האפשרויות.',
+              title: 'סיורים ובדיקות מקצועיות',
+              desc: 'נלווה אתכם לביקורים בנכסים, נבצע בדיקת כדאיות מקצועית לכל נכס (שווי, פוטנציאל, סיכונים), ונספק ניתוח השוואתי בין האפשרויות.',
             },
             {
               title: 'ניהול משא ומתן',
@@ -436,10 +414,10 @@ const serviceSchema = {
           <!-- Or's Bio -->
           <div class="lg:col-span-2">
             <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-6">
-              הכירו את אור ליבנה - מלווה משקיעים ויועץ השקעות נדל״ן
+              הכירו את אור ליבנה
             </h2>
             <p class="text-muted mb-4">
-              מלווה משקיעים נדל״ן ויועץ משכנתאות עם 12 שנות ניסיון בשוק הנדל״ן הישראלי. מתמחה בליווי רכישת דירה להשקעה — דירות יד ראשונה ושנייה, דירות על הנייר והתחדשות עירונית.
+              מלווה משקיעים ויועץ משכנתאות עם 12 שנות ניסיון בשוק הנדל״ן הישראלי. מתמחה בדירות יד ראשונה ושנייה, דירות על הנייר והתחדשות עירונית.
             </p>
 
             <ul class="space-y-3 mb-6">
@@ -546,37 +524,9 @@ const serviceSchema = {
   <TestimonialSection />
 
   <FAQ
-    title="שאלות נפוצות על מלווה משקיעים נדל״ן"
+    title="שאלות נפוצות על ליווי משקיעים"
     items={faqItems}
   />
-
-  <!-- Related Services Section -->
-  <section class="py-16 md:py-20 bg-surface">
-    <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto">
-        <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
-          שירותים נוספים שאולי יעניינו אתכם
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <a href="/apartment-investment-analysis/" class="block p-6 bg-white rounded-xl border border-border hover:border-brand-300 transition-colors">
-            <h3 class="font-semibold text-dark mb-2">בדיקת כדאיות דירה להשקעה</h3>
-            <p class="text-muted text-sm mb-3">שירות בדיקה מקיף לדירה ספציפית — כולל הערכת שווי, ניתוח תשואה וזיהוי סיכונים.</p>
-            <span class="text-brand-600 text-sm font-medium">לפרטים ←</span>
-          </a>
-          <a href="/urban-renewal/" class="block p-6 bg-white rounded-xl border border-border hover:border-brand-300 transition-colors">
-            <h3 class="font-semibold text-dark mb-2">התחדשות עירונית</h3>
-            <p class="text-muted text-sm mb-3">כל מה שצריך לדעת על השקעה בדירות פינוי-בינוי ותמ״א 38.</p>
-            <span class="text-brand-600 text-sm font-medium">לפרטים ←</span>
-          </a>
-          <a href="/land-purchase-consulting/" class="block p-6 bg-white rounded-xl border border-border hover:border-brand-300 transition-colors">
-            <h3 class="font-semibold text-dark mb-2">ליווי לרכישת קרקע</h3>
-            <p class="text-muted text-sm mb-3">ליווי מקצועי לרכישת קרקע להשקעה או לבנייה עצמית.</p>
-            <span class="text-brand-600 text-sm font-medium">לפרטים ←</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <ContactForm />
 </BaseLayout>

@@ -13,7 +13,7 @@ export const contact = {
   },
 
   // Email
-  email: 'office@hashkaot-nadlan.co.il',
+  email: 'maayan@maayanlivne.co.il',
 
   // Address
   address: 'כביש ההר הירוק, יגור',
