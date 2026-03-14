@@ -16,7 +16,7 @@ const faqItems = [
   },
   {
     question: 'כמה עולה בדיקת כדאיות דירה?',
-    answer: 'עלות הבדיקה היא 1,800 ש״ח + מע״מ. זהו מחיר קבוע שכולל את כל הבדיקות, ביקור בנכס, דוח מפורט ושיחת סיכום.',
+    answer: 'צרו קשר לקבלת הצעת מחיר מותאמת. העלות תלויה בסוג הנכס ומורכבות הבדיקה. הבדיקה כוללת ביקור בנכס, דוח מפורט ושיחת סיכום.',
   },
   {
     question: 'כמה זמן לוקחת הבדיקה?',
@@ -56,17 +56,12 @@ const serviceSchema = {
   },
   areaServed: 'ישראל',
   serviceType: 'ייעוץ השקעות נדל״ן',
-  offers: {
-    '@type': 'Offer',
-    price: '1800',
-    priceCurrency: 'ILS',
-  },
 };
 ---
 
 <BaseLayout
   title="בדיקת כדאיות דירה להשקעה"
-  description="בדיקת כדאיות מקיפה לדירה להשקעה - ניתוח תשואה, עלויות נלוות, סיכונים והמלצה. על ידי שמאית מקרקעין. 1,800 ש״ח + מע״מ."
+  description="בדיקת כדאיות מקיפה לדירה להשקעה - ניתוח תשואה, עלויות נלוות, סיכונים והמלצה. על ידי שמאית מקרקעין מוסמכת."
 >
   <SchemaOrg schema={serviceSchema} />
 
@@ -175,16 +170,14 @@ const serviceSchema = {
     </div>
   </section>
 
-  <!-- Pricing -->
+  <!-- What's Included -->
   <section class="py-16 md:py-20 bg-white">
     <div class="container mx-auto px-4">
       <div class="max-w-xl mx-auto text-center">
         <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-4">
-          מחיר השירות
+          מה כוללת הבדיקה?
         </h2>
         <div class="bg-brand-50 rounded-2xl p-8 border border-brand-100">
-          <div class="text-5xl font-bold text-brand-600 mb-2">₪1,800</div>
-          <div class="text-muted mb-6">+ מע״מ | כולל את כל הבדיקות</div>
           <ul class="text-start space-y-3 mb-8">
             {['ניתוח פיננסי מקיף', 'ביקור בנכס', 'בדיקת שוק', 'דוח מפורט בכתב', 'שיחת סיכום'].map((item) => (
               <li class="flex items-center gap-2 text-dark">
@@ -199,7 +192,7 @@ const serviceSchema = {
             href="#contact"
             class="block w-full py-4 bg-accent hover:bg-accent-dark text-white rounded-md font-semibold transition-all duration-300"
           >
-            הזמינו בדיקה עכשיו
+            צרו קשר לקבלת הצעת מחיר
           </a>
         </div>
       </div>
@@ -272,7 +265,7 @@ const serviceSchema = {
         <div class="bg-surface rounded-2xl p-6 md:p-8 border border-border">
           <div class="flex flex-col md:flex-row gap-6 items-center md:items-start">
             <img
-              src="/images/team/maayan-portrait.webp"
+              src="/images/team/maayan-portrait.png"
               alt="מעיין ליבנה - שמאית מקרקעין"
               class="w-32 h-32 rounded-xl object-cover"
               loading="lazy"

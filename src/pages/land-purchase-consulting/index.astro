@@ -17,7 +17,7 @@ const faqItems = [
   },
   {
     question: 'כמה עולה ליווי רכישת קרקע?',
-    answer: 'עלות הליווי המלא היא 15,000 ש״ח. המחיר כולל איתור, בדיקות מרובות, ניהול משא ומתן וליווי עד לסגירת העסקה. זה מחיר קבוע - ללא אחוזים מהעסקה.',
+    answer: 'צרו קשר לקבלת הצעת מחיר מותאמת. העלות תלויה בסוג הקרקע ומורכבות התהליך. המחיר כולל איתור, בדיקות מרובות, משא ומתן וליווי עד לסגירה - ללא אחוזים מהעסקה.',
   },
   {
     question: 'איזה סוגי קרקעות אתם מלווים?',
@@ -69,7 +69,7 @@ const serviceSchema = {
 
 <BaseLayout
   title="ליווי רכישת קרקע"
-  description="ליווי מקיף לרכישת קרקע להשקעה - איתור, בדיקות, משא ומתן וסגירה. על ידי שמאית מקרקעין מוסמכת. 15,000 ש״ח מחיר קבוע."
+  description="ליווי מקיף לרכישת קרקע להשקעה - איתור, בדיקות, משא ומתן וסגירה. על ידי שמאית מקרקעין מוסמכת."
 >
   <SchemaOrg schema={serviceSchema} />
 
@@ -182,16 +182,14 @@ const serviceSchema = {
     </div>
   </section>
 
-  <!-- Pricing -->
+  <!-- What's Included -->
   <section class="py-16 md:py-20 bg-white">
     <div class="container mx-auto px-4">
       <div class="max-w-xl mx-auto text-center">
         <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-4">
-          מחיר השירות
+          מה כולל הליווי?
         </h2>
         <div class="bg-brand-50 rounded-2xl p-8 border border-brand-100">
-          <div class="text-5xl font-bold text-brand-600 mb-2">₪15,000</div>
-          <div class="text-muted mb-6">מחיר קבוע | כולל את כל השירותים</div>
           <ul class="text-start space-y-3 mb-8">
             {['הגדרת אסטרטגיה ויעדים', 'איתור קרקעות מתאימות', 'בדיקות מקיפות (ללא הגבלה)', 'ניהול משא ומתן', 'ליווי עד לסגירה'].map((item) => (
               <li class="flex items-center gap-2 text-dark">
@@ -206,7 +204,7 @@ const serviceSchema = {
             href="#contact"
             class="block w-full py-4 bg-accent hover:bg-accent-dark text-white rounded-md font-semibold transition-all duration-300"
           >
-            התחילו עכשיו
+            צרו קשר לקבלת הצעת מחיר
           </a>
         </div>
       </div>
@@ -279,7 +277,7 @@ const serviceSchema = {
           <div class="lg:col-span-1 flex justify-center">
             <div class="relative">
               <img
-                src="/images/team/maayan-portrait.webp"
+                src="/images/team/maayan-portrait.png"
                 alt="מעיין ליבנה - שמאית מקרקעין מוסמכת"
                 class="w-64 h-auto rounded-2xl shadow-lg"
                 loading="lazy"
